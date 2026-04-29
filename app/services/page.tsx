@@ -86,8 +86,8 @@ export default function ServicesPage() {
       <section className="w-full bg-bg border-b border-faint">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
 
-          <div className="max-w-[720px] mb-12 md:mb-20">
-            <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10">
+          <div className="mb-12 md:mb-20">
+            <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10 lg:whitespace-nowrap">
               One partner. Full brand consistency.
             </h2>
             <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
@@ -196,6 +196,7 @@ export default function ServicesPage() {
               style={{ color: "#F4F3EF" }}
             >
               Not sure which engagement fits?{" "}
+              <br className="hidden md:block" />
               <em className="italic">Let&rsquo;s figure it out.</em>
             </h2>
             <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14" style={{ color: "#C8C2BA" }}>

@@ -30,7 +30,7 @@ const FEATURED = [
   },
   {
     client: "SSC Intralinks",
-    headline: <>An interactive assessment that earned<br />928 clicks and a Finnys Award.</>,
+    headline: <>An interactive assessment that earned 928 clicks and a Finnys Award.</>,
     industry: "Fintech / Investor communications",
     deliverables: "Interactive · Assessment",
     body: [
@@ -47,7 +47,7 @@ const FEATURED = [
   },
   {
     client: "Turno",
-    headline: <>A content system that converted 65%<br />of visitors into new signups.</>,
+    headline: <>A content system that converted 65% of visitors into new signups.</>,
     industry: "Hospitality / Short-term rental",
     deliverables: "UI design · eBook · Print",
     body: [

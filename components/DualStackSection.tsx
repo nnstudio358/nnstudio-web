@@ -27,8 +27,9 @@ export default function DualStackSection() {
         <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 lg:gap-16 items-center mb-16 md:mb-28">
           <div>
             <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10">
-              Most designers live in one world.<br />
-              <em className="italic">Your brand lives in both.</em>
+              Most designers live in one world.
+              <br className="hidden md:block" />
+              {" "}<em className="italic">Your brand lives in both.</em>
             </h2>
             <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[500px]" style={{ color: "#6B6A63" }}>
               Marketing teams need design that works across every format — from a Figma

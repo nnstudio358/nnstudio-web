@@ -4,17 +4,17 @@ import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 
 const LOGOS = [
-  { src: "/logos/client-logo-capital-one-trade-credit.png", alt: "Capital One Trade Credit" },
-  { src: "/logos/client-logo-fitbit-health-solutions.png",  alt: "Fitbit Health Solutions" },
-  { src: "/logos/client-logo-outsystems.png",               alt: "OutSystems" },
-  { src: "/logos/client-logo-whatsapp.png",                 alt: "WhatsApp",  maxHeight: 56 },
-  { src: "/logos/client-logo-datastax.png",                 alt: "DataStax" },
-  { src: "/logos/client-logo-regnology.png",                alt: "Regnology" },
-  { src: "/logos/client-logo-bettercloud.png",              alt: "BetterCloud" },
-  { src: "/logos/client-logo-meta.png",                     alt: "Meta",      maxHeight: 56 },
-  { src: "/logos/client-logo-google.png",                   alt: "Google",    maxHeight: 32 },
-  { src: "/logos/client-logo-splunk.png",                   alt: "Splunk" },
-  { src: "/logos/client-logo-gitlab.svg",                   alt: "GitLab" },
+  { src: "/logos/client-logo-capital-one-trade-credit.png", alt: "Capital One Trade Credit", maxWidth: 110 },
+  { src: "/logos/client-logo-fitbit-health-solutions.png",  alt: "Fitbit Health Solutions",  maxWidth: 110 },
+  { src: "/logos/client-logo-outsystems.png",               alt: "OutSystems",                maxWidth: 110 },
+  { src: "/logos/client-logo-whatsapp.png",                 alt: "WhatsApp",                  maxHeight: 32, maxWidth: 110 },
+  { src: "/logos/client-logo-datastax.png",                 alt: "DataStax",                  maxWidth: 110 },
+  { src: "/logos/client-logo-regnology.png",                alt: "Regnology",                 maxWidth: 110 },
+  { src: "/logos/client-logo-bettercloud.png",              alt: "BetterCloud",               maxWidth: 110 },
+  { src: "/logos/client-logo-meta.png",                     alt: "Meta",                      maxHeight: 28, maxWidth: 80 },
+  { src: "/logos/client-logo-google.png",                   alt: "Google",                    maxHeight: 28, maxWidth: 90 },
+  { src: "/logos/client-logo-splunk.png",                   alt: "Splunk",                    maxWidth: 90 },
+  { src: "/logos/client-logo-gitlab.svg",                   alt: "GitLab",                    maxWidth: 90 },
 ];
 
 function initialSlots(count: number): number[] {
@@ -87,7 +87,8 @@ function LogoSlot({ index, slotIndex, totalSlots, allCurrentIndices }: {
           objectFit: "contain",
           opacity: visible ? 0.45 : 0,
           transition: `opacity ${FADE_MS}ms ease`,
-          maxHeight: logo.maxHeight ?? 40,
+          maxHeight: logo.maxHeight ?? 36,
+          maxWidth: logo.maxWidth ?? 120,
           width: "auto",
           filter: "grayscale(1)",
         }}
@@ -107,17 +108,26 @@ export default function LogoStrip() {
         <p className="font-sans text-[11px] md:text-[13px] tracking-[0.12em] text-muted uppercase mb-6 md:mb-8 text-center">
           Trusted by enterprise marketing and brand teams
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-faint">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-2 md:gap-y-0">
           {slots.map((logoIndex, slotIndex) => (
-            <LogoSlot
+            <div
               key={slotIndex}
-              index={logoIndex}
-              slotIndex={slotIndex}
-              totalSlots={SLOT_COUNT}
-              allCurrentIndices={allCurrentIndices}
-            />
+              className={[
+                // Mobile 2-col: right border on left-column items (even indices)
+                slotIndex % 2 === 0 ? 'border-r border-faint' : '',
+                // Desktop 4-col: right border on all except last
+                slotIndex < SLOT_COUNT - 1 ? 'md:border-r md:border-faint' : 'md:border-r-0',
+              ].join(' ')}
+            >
+              <LogoSlot
+                index={logoIndex}
+                slotIndex={slotIndex}
+                totalSlots={SLOT_COUNT}
+                allCurrentIndices={allCurrentIndices}
+              />
+            </div>
           ))}
-        </div>
+          </div>
       </div>
     </section>
   );

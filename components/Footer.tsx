@@ -4,8 +4,8 @@ export default function Footer({ dark = false }: { dark?: boolean }) {
   if (dark) {
     return (
       <footer className="w-full bg-ink border-t" style={{ borderColor: "#252523" }}>
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-8 md:py-10 flex flex-col md:flex-row gap-6 md:gap-0 items-start md:items-center justify-between">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-8 md:py-10 flex flex-col lg:flex-row gap-4 lg:gap-0 items-start lg:items-center justify-between">
+          <div className="flex items-center gap-4">
             <NNStudioLogo height={16} color="#F4F3EF" />
             <span className="font-sans text-[13px] md:text-[15px] text-muted font-light">
               Senior design partner for in-house marketing teams
@@ -13,7 +13,7 @@ export default function Footer({ dark = false }: { dark?: boolean }) {
           </div>
           <div className="flex flex-wrap items-center gap-6 md:gap-8">
             <a
-              href="https://linkedin.com/in/nathanbillman"
+              href="https://www.linkedin.com/in/nnstudio/"
               className="font-sans text-[13px] md:text-[15px] text-muted hover:text-offwhite transition-colors"
               target="_blank"
               rel="noopener noreferrer"
@@ -37,8 +37,8 @@ export default function Footer({ dark = false }: { dark?: boolean }) {
 
   return (
     <footer className="w-full bg-bg border-t border-faint">
-      <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-8 md:py-10 flex flex-col md:flex-row gap-6 md:gap-0 items-start md:items-center justify-between">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+      <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-8 md:py-10 flex flex-col lg:flex-row gap-4 lg:gap-0 items-start lg:items-center justify-between">
+        <div className="flex items-center gap-4">
           <NNStudioLogo height={16} />
           <span className="font-sans text-[13px] md:text-[15px] text-muted font-light">
             Senior design partner for in-house marketing teams
@@ -46,7 +46,7 @@ export default function Footer({ dark = false }: { dark?: boolean }) {
         </div>
         <div className="flex flex-wrap items-center gap-6 md:gap-8">
           <a
-            href="https://linkedin.com/in/nathanbillman"
+            href="https://www.linkedin.com/in/nnstudio/"
             className="font-sans text-[13px] md:text-[15px] text-muted hover:text-ink transition-colors"
             target="_blank"
             rel="noopener noreferrer"

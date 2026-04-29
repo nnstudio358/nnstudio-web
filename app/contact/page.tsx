@@ -40,13 +40,6 @@ export default function ContactPage() {
 
             {/* Send a note */}
             <div className="border border-faint p-8 md:p-12">
-              <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-2">
-                Send a note
-              </div>
-              <p className="font-sans text-[15px] font-light mb-8 md:mb-10" style={{ color: "#6B6A63" }}>
-                Prefer to share context first before getting on a call.
-              </p>
-
               <ContactForm />
             </div>
 
@@ -68,7 +61,7 @@ export default function ContactPage() {
                   nnstudio is the right fit.
                 </p>
                 <a
-                  href="https://calendly.com/nnstudio"
+                  href="https://calenday.com/nnstudio"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="self-start font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"

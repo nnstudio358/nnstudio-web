@@ -25,7 +25,7 @@ async function submitToFormspree(prevState: FormState, formData: FormData): Prom
     return { status: 'success', message: "Thanks — I'll follow up within one business day." }
   }
 
-  return { status: 'error', message: 'Something went wrong. Email nathan@nnstudio.com directly.' }
+  return { status: 'error', message: 'Something went wrong. Please try again or email nathan@nnstudio.com directly.' }
 }
 
 export default function ContactForm() {
@@ -33,22 +33,29 @@ export default function ContactForm() {
 
   if (state.status === 'success') {
     return (
-      <div className="h-full flex flex-col justify-center">
+      <>
         <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
           Sent
         </div>
-        <p className="font-serif text-[28px] font-normal leading-[1.2] text-ink tracking-[-0.01em] mb-4">
+        <p className="font-serif text-[24px] md:text-[28px] font-normal leading-[1.2] text-ink tracking-[-0.01em] mb-4">
           Message received.
         </p>
-        <p className="font-sans text-[17px] leading-[1.65] font-light" style={{ color: '#6B6A63' }}>
+        <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: '#6B6A63' }}>
           {state.message}
         </p>
-      </div>
+      </>
     )
   }
 
   return (
-    <form action={formAction} className="space-y-6">
+    <>
+      <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-2">
+        Send a note
+      </div>
+      <p className="font-sans text-[15px] font-light mb-8 md:mb-10" style={{ color: '#6B6A63' }}>
+        Prefer to share context first before getting on a call.
+      </p>
+      <form action={formAction} className="space-y-6">
       <div>
         <label className="block font-sans text-[12px] tracking-[0.14em] uppercase text-muted mb-2">
           Name
@@ -114,5 +121,6 @@ export default function ContactForm() {
         {pending ? 'Sending…' : 'Send it →'}
       </button>
     </form>
+    </>
   )
 }
