@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
     "Project and retainer engagements for in-house marketing teams and agency partners. Figma design systems and Adobe marketing production — one partner covering both worlds.",
 };
-import Footer from "@/components/Footer";
 
 const FIGMA_ITEMS = [
   "Design systems",
@@ -63,38 +63,34 @@ export default function ServicesPage() {
 
       {/* Hero */}
       <section className="w-full bg-bg border-b border-faint">
-        <div className="max-w-[1440px] mx-auto px-16 pt-24 pb-20">
-          <div>
-            <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
-              Services
-            </div>
-            <h1 className="font-serif text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-10">
-              Senior-level design output.<br />
-              <em className="italic">No management overhead.</em>
-            </h1>
-            <div className="grid grid-cols-3">
-              <p className="col-span-2 font-sans text-[19px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
-                I work with in-house marketing and brand teams at enterprise and complex
-                organizations — regulated healthcare, fintech, global tech — as a direct
-                partner or white-label capacity for agencies. Strict brand governance,
-                compliance review, multi-team sign-off: that&rsquo;s not a constraint.
-                Every engagement runs on one premise: take the brief, ask the right
-                questions once, and deliver.
-              </p>
-            </div>
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-12 md:pt-24 md:pb-20">
+          <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
+            Services
           </div>
+          <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10">
+            Senior-level design output.<br />
+            <em className="italic">No management overhead.</em>
+          </h1>
+          <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[640px]" style={{ color: "#6B6A63" }}>
+            I work with in-house marketing and brand teams at enterprise and complex
+            organizations — regulated healthcare, fintech, global tech — as a direct
+            partner or white-label capacity for agencies. Strict brand governance,
+            compliance review, multi-team sign-off: that&rsquo;s not a constraint.
+            Every engagement runs on one premise: take the brief, ask the right
+            questions once, and deliver.
+          </p>
         </div>
       </section>
 
       {/* Dual-stack section */}
       <section className="w-full bg-bg border-b border-faint">
-        <div className="max-w-[1440px] mx-auto px-16 py-32">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
 
-          <div className="max-w-[720px] mb-20">
-            <h2 className="font-serif text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-10 whitespace-nowrap">
+          <div className="max-w-[720px] mb-12 md:mb-20">
+            <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10">
               One partner. Full brand consistency.
             </h2>
-            <p className="font-sans text-[19px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
+            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
               Most design work requires both digital and print execution — and most teams
               split that across two vendors. I cover both, with the same brand standards
               applied across every format.
@@ -102,24 +98,24 @@ export default function ServicesPage() {
           </div>
 
           <div className="border border-faint relative max-w-[900px] mx-auto">
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2">
 
-              <ul className="space-y-5 px-10 py-10">
+              <ul className="space-y-5 px-8 md:px-10 py-8 md:py-10 border-b sm:border-b-0 sm:border-r border-faint">
                 {FIGMA_ITEMS.map((item) => (
                   <li key={item} className="flex items-start gap-4">
                     <DiamondBullet />
-                    <span className="font-sans text-[17px] leading-[1.6] text-ink font-light">
+                    <span className="font-sans text-[16px] md:text-[17px] leading-[1.6] text-ink font-light">
                       {item}
                     </span>
                   </li>
                 ))}
               </ul>
 
-              <ul className="space-y-5 px-10 py-10">
+              <ul className="space-y-5 px-8 md:px-10 py-8 md:py-10">
                 {ADOBE_ITEMS.map((item) => (
                   <li key={item} className="flex items-start gap-4">
                     <DiamondBullet />
-                    <span className="font-sans text-[17px] leading-[1.6] text-ink font-light">
+                    <span className="font-sans text-[16px] md:text-[17px] leading-[1.6] text-ink font-light">
                       {item}
                     </span>
                   </li>
@@ -129,7 +125,7 @@ export default function ServicesPage() {
             </div>
 
             <div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-amber flex items-center justify-center z-10"
+              className="hidden sm:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-amber items-center justify-center z-10"
               aria-hidden="true"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -145,36 +141,36 @@ export default function ServicesPage() {
 
       {/* Engagements */}
       <section className="w-full bg-bg border-b border-faint">
-        <div className="max-w-[1440px] mx-auto px-16 py-32">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
 
           <div className="max-w-[720px] mb-6">
-            <h2 className="font-serif text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8">
+            <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-6 md:mb-8">
               How we can work together.
             </h2>
-            <p className="font-sans text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
+            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
               I work with a small number of retainer clients at a time to maintain the
               quality and responsiveness each engagement requires.
             </p>
           </div>
 
-          <div className="mt-20 divide-y divide-faint border-t border-faint">
+          <div className="mt-12 md:mt-20 divide-y divide-faint border-t border-faint">
             {ENGAGEMENTS.map(({ name, qualifier, description, detail }) => (
-              <div key={name} className="grid grid-cols-[2fr_3fr] gap-24 py-16">
+              <div key={name} className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 md:gap-24 py-12 md:py-16">
                 <div>
                   {detail && (
                     <div className="font-sans text-[12px] tracking-[0.14em] uppercase text-amber mb-3">
                       {detail}
                     </div>
                   )}
-                  <h3 className="font-serif text-[40px] font-normal text-ink tracking-[-0.02em] mb-4">
+                  <h3 className="font-serif text-[32px] md:text-[36px] lg:text-[40px] font-normal text-ink tracking-[-0.02em] mb-4">
                     {name}
                   </h3>
                   <p className="font-sans text-[15px] leading-[1.65] font-light" style={{ color: "#8A8A82" }}>
                     {qualifier}
                   </p>
                 </div>
-                <div className="flex flex-col justify-between">
-                  <p className="font-sans text-[17px] leading-[1.65] font-light mb-10" style={{ color: "#6B6A63" }}>
+                <div className="flex flex-col justify-between gap-8">
+                  <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
                     {description}
                   </p>
                   <a
@@ -193,16 +189,16 @@ export default function ServicesPage() {
 
       {/* Closing CTA — dark */}
       <section className="w-full bg-ink">
-        <div className="max-w-[1440px] mx-auto px-16 py-32">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
           <div className="max-w-[720px]">
             <h2
-              className="font-serif text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-8"
+              className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-6 md:mb-8"
               style={{ color: "#F4F3EF" }}
             >
               Not sure which engagement fits?{" "}
               <em className="italic">Let&rsquo;s figure it out.</em>
             </h2>
-            <p className="font-sans text-[17px] leading-[1.65] font-light mb-14" style={{ color: "#C8C2BA" }}>
+            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14" style={{ color: "#C8C2BA" }}>
               Most clients know what they need to get done — not necessarily which structure
               makes sense. Complex environment, tight brand standards, multi-team review:
               those are the conditions I work best in. Reach out and describe the work.

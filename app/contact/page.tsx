@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import ContactForm from "@/components/ContactForm";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Let's Talk",
   description:
     "Discuss a project, book a call, or schedule a portfolio review. Senior design partner for in-house marketing teams and agency partners.",
 };
-import Footer from "@/components/Footer";
 
 export default function ContactPage() {
   return (
@@ -16,15 +16,15 @@ export default function ContactPage() {
 
       {/* Header */}
       <section className="w-full bg-bg">
-        <div className="max-w-[1440px] mx-auto px-16 pt-24 pb-8">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-6 md:pt-24 md:pb-8">
           <div className="max-w-[720px]">
             <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
               Contact
             </div>
-            <h1 className="font-serif text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-10">
+            <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10">
               Let&rsquo;s talk.
             </h1>
-            <p className="font-sans text-[19px] leading-[1.65] font-light max-w-[540px]" style={{ color: "#6B6A63" }}>
+            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[540px]" style={{ color: "#6B6A63" }}>
               Whether you have a defined project or just want to explore whether this is
               the right fit — reach out. Tell me what you&rsquo;re working on, your timeline,
               and what you need. I&rsquo;ll follow up within one business day.
@@ -35,15 +35,15 @@ export default function ContactPage() {
 
       {/* Two paths */}
       <section className="w-full bg-bg">
-        <div className="max-w-[1440px] mx-auto px-16 pt-8 pb-24">
-          <div className="grid grid-cols-2 gap-16">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-6 pb-16 md:pt-8 md:pb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
 
             {/* Send a note */}
-            <div className="border border-faint p-12">
+            <div className="border border-faint p-8 md:p-12">
               <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-2">
                 Send a note
               </div>
-              <p className="font-sans text-[15px] font-light mb-10" style={{ color: "#6B6A63" }}>
+              <p className="font-sans text-[15px] font-light mb-8 md:mb-10" style={{ color: "#6B6A63" }}>
                 Prefer to share context first before getting on a call.
               </p>
 
@@ -51,19 +51,19 @@ export default function ContactPage() {
             </div>
 
             {/* Book a call */}
-            <div className="border border-faint p-12 flex flex-col" style={{ background: "#F4F3EF" }}>
+            <div className="border border-faint p-8 md:p-12 flex flex-col" style={{ background: "#F4F3EF" }}>
               <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-2">
                 Book a call
               </div>
-              <p className="font-sans text-[15px] font-light mb-16" style={{ color: "#6B6A63" }}>
+              <p className="font-sans text-[15px] font-light mb-10 md:mb-16" style={{ color: "#6B6A63" }}>
                 Ready to talk through the work directly.
               </p>
 
               <div className="flex-1 flex flex-col justify-center">
-                <p className="font-serif text-[28px] font-normal leading-[1.2] text-ink tracking-[-0.01em] mb-6">
+                <p className="font-serif text-[24px] md:text-[28px] font-normal leading-[1.2] text-ink tracking-[-0.01em] mb-6">
                   Schedule a 30-minute call.
                 </p>
-                <p className="font-sans text-[17px] leading-[1.65] font-light mb-12" style={{ color: "#6B6A63" }}>
+                <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-12" style={{ color: "#6B6A63" }}>
                   No prep required — just a conversation about what you need and whether
                   nnstudio is the right fit.
                 </p>
@@ -77,7 +77,7 @@ export default function ContactPage() {
                 </a>
               </div>
 
-              <div className="border-t border-faint pt-8 mt-16">
+              <div className="border-t border-faint pt-8 mt-10 md:mt-16">
                 <p className="font-sans text-[13px] font-light" style={{ color: "#8A8A82" }}>
                   Or email directly:{" "}
                   <a

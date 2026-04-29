@@ -17,11 +17,10 @@ const LOGOS = [
   { src: "/logos/client-logo-gitlab.svg",                   alt: "GitLab" },
 ];
 
-// Assign 4 non-overlapping starting logos across the slots
-function initialSlots(): number[] {
+function initialSlots(count: number): number[] {
   const indices = [...Array(LOGOS.length).keys()];
   const picked: number[] = [];
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < count; i++) {
     const remaining = indices.filter((n) => !picked.includes(n));
     picked.push(remaining[Math.floor(Math.random() * remaining.length)]);
   }
@@ -35,23 +34,21 @@ function nextIndex(current: number, exclude: number[]): number {
   return available[Math.floor(Math.random() * available.length)];
 }
 
-// All slots share the same cycle length; each slot is offset by an equal
-// fraction so exactly one slot changes at a time, evenly spaced.
-const CYCLE_MS = 7000;  // each slot waits this long before swapping again
-const STAGGER_MS = CYCLE_MS / 4; // 1000ms gap between consecutive slot changes
+const CYCLE_MS = 7000;
 const FADE_MS = 500;
 
-function LogoSlot({ index, slotIndex, allCurrentIndices }: {
+function LogoSlot({ index, slotIndex, totalSlots, allCurrentIndices }: {
   index: number;
   slotIndex: number;
+  totalSlots: number;
   allCurrentIndices: React.MutableRefObject<number[]>;
 }) {
   const [current, setCurrent] = useState(index);
   const [visible, setVisible] = useState(true);
+  const staggerMs = CYCLE_MS / totalSlots;
 
   useEffect(() => {
-    // Initial delay staggers the first swap: slot 0 at 0ms, 1 at 1000ms, etc.
-    const initialDelay = slotIndex * STAGGER_MS;
+    const initialDelay = slotIndex * staggerMs;
     let intervalId: ReturnType<typeof setInterval>;
 
     const doSwap = () => {
@@ -76,11 +73,11 @@ function LogoSlot({ index, slotIndex, allCurrentIndices }: {
       clearTimeout(timeoutId);
       clearInterval(intervalId);
     };
-  }, [slotIndex, allCurrentIndices]);
+  }, [slotIndex, staggerMs, allCurrentIndices]);
 
   const logo = LOGOS[current];
   return (
-    <div className="flex items-center justify-center px-8" style={{ minWidth: 0, height: 64 }}>
+    <div className="flex items-center justify-center px-6 md:px-8" style={{ minWidth: 0, height: 64 }}>
       <Image
         src={logo.src}
         alt={logo.alt}
@@ -100,21 +97,23 @@ function LogoSlot({ index, slotIndex, allCurrentIndices }: {
 }
 
 export default function LogoStrip() {
-  const [slots] = useState<number[]>(() => initialSlots());
+  const SLOT_COUNT = 4;
+  const [slots] = useState<number[]>(() => initialSlots(SLOT_COUNT));
   const allCurrentIndices = useRef<number[]>(slots);
 
   return (
     <section className="w-full bg-bg border-t border-faint">
-      <div className="max-w-[1440px] mx-auto px-16 py-12">
-        <p className="font-sans text-[13px] tracking-[0.12em] text-muted uppercase mb-8 text-center">
+      <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-10 md:py-12">
+        <p className="font-sans text-[11px] md:text-[13px] tracking-[0.12em] text-muted uppercase mb-6 md:mb-8 text-center">
           Trusted by enterprise marketing and brand teams
         </p>
-        <div className="grid grid-cols-4 divide-x divide-faint">
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-faint">
           {slots.map((logoIndex, slotIndex) => (
             <LogoSlot
               key={slotIndex}
               index={logoIndex}
               slotIndex={slotIndex}
+              totalSlots={SLOT_COUNT}
               allCurrentIndices={allCurrentIndices}
             />
           ))}

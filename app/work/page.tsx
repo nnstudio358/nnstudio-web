@@ -147,15 +147,15 @@ export default function WorkPage() {
 
       {/* Page intro */}
       <section className="w-full bg-bg border-b border-faint">
-        <div className="max-w-[1440px] mx-auto px-16 pt-24 pb-20">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-12 md:pt-24 md:pb-20">
           <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
             Work
           </div>
-          <h1 className="font-serif text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8">
-            A selection of work across enterprise<br />marketing and brand projects.
+          <h1 className="font-serif text-[36px] md:text-[52px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-6 md:mb-8">
+            A selection of work across enterprise marketing and brand projects.
           </h1>
           <div className="max-w-[720px]">
-            <p className="font-sans text-[17px] leading-[1.65] font-light mb-10" style={{ color: "#6B6A63" }}>
+            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-8 md:mb-10" style={{ color: "#6B6A63" }}>
               Featured case studies include full context and outcomes. For
               client-confidential work, schedule a call to review the complete
               portfolio.
@@ -172,7 +172,7 @@ export default function WorkPage() {
 
       {/* Featured work */}
       <section className="w-full bg-bg">
-        <div className="max-w-[1440px] mx-auto px-16 py-20">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-12 md:py-20">
           <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-8">
             Featured case studies
           </div>
@@ -192,7 +192,7 @@ export default function WorkPage() {
                 </div>
 
                 {/* Headline */}
-                <h2 className="font-serif text-[44px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-10" style={{ maxWidth: headlineMaxWidth ?? "820px" }}>
+                <h2 className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10" style={{ maxWidth: headlineMaxWidth ?? "820px" }}>
                   {headline}
                 </h2>
 
@@ -254,9 +254,9 @@ export default function WorkPage() {
                   </div>
 
                   {/* Metrics box */}
-                  <div className="border border-faint flex">
+                  <div className="border border-faint flex flex-col sm:flex-row">
                     {metrics.map(({ value, label, logo }: { value: string; label: string; logo?: string }) => (
-                      <div key={label} className="flex-1 px-12 py-10 text-center">
+                      <div key={label} className="flex-1 px-6 py-8 md:px-12 md:py-10 text-center border-b sm:border-b-0 sm:border-r border-faint last:border-0">
                         {logo ? (
                           <div className="flex items-center justify-center gap-3">
                             <Image src={logo} alt="" width={40} height={34} style={{ height: 34, width: "auto" }} />
@@ -286,12 +286,12 @@ export default function WorkPage() {
 
       {/* More work grid */}
       <section className="w-full bg-bg border-t border-faint">
-        <div className="max-w-[1440px] mx-auto px-16 py-20">
-          <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-16">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-12 md:py-20">
+          <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-10 md:mb-16">
             More work
           </div>
 
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {MORE_WORK.map(({ client, deliverables, industry, description, image, imagePosition, imageBg }: { client: string; deliverables: string; industry: string; description: string; image?: string; imagePosition?: string; imageBg?: string }) => (
               <div key={client} className="bg-bg flex flex-col border border-faint">
                 {/* Image — flush top, full width, bottom rule only */}
@@ -337,15 +337,15 @@ export default function WorkPage() {
 
       {/* Gated CTA — dark */}
       <section className="w-full bg-ink">
-        <div className="max-w-[1440px] mx-auto px-16 py-32">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
           <div className="max-w-[680px]">
             <h2
-              className="font-serif text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-8"
+              className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-6 md:mb-8"
               style={{ color: "#F4F3EF" }}
             >
               There&rsquo;s more to see.
             </h2>
-            <p className="font-sans text-[17px] leading-[1.65] font-light mb-14" style={{ color: "#C8C2BA" }}>
+            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14" style={{ color: "#C8C2BA" }}>
               A significant portion of enterprise work is client-confidential — including
               work delivered as white-label senior capacity for agencies. If you want to
               see the full range — regulated healthcare, additional fintech, and direct
