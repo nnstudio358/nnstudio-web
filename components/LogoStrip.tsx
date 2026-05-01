@@ -4,17 +4,17 @@ import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 
 const LOGOS = [
-  { src: "/logos/client-logo-capital-one-trade-credit.png", alt: "Capital One Trade Credit", maxWidth: 110 },
-  { src: "/logos/client-logo-fitbit-health-solutions.png",  alt: "Fitbit Health Solutions",  maxWidth: 110 },
-  { src: "/logos/client-logo-outsystems.png",               alt: "OutSystems",                maxWidth: 110 },
-  { src: "/logos/client-logo-whatsapp.png",                 alt: "WhatsApp",                  maxHeight: 32, maxWidth: 110 },
-  { src: "/logos/client-logo-datastax.png",                 alt: "DataStax",                  maxWidth: 110 },
-  { src: "/logos/client-logo-regnology.png",                alt: "Regnology",                 maxWidth: 110 },
-  { src: "/logos/client-logo-bettercloud.png",              alt: "BetterCloud",               maxWidth: 110 },
-  { src: "/logos/client-logo-meta.png",                     alt: "Meta",                      maxHeight: 28, maxWidth: 80 },
-  { src: "/logos/client-logo-google.png",                   alt: "Google",                    maxHeight: 28, maxWidth: 90 },
-  { src: "/logos/client-logo-splunk.png",                   alt: "Splunk",                    maxWidth: 90 },
-  { src: "/logos/client-logo-gitlab.svg",                   alt: "GitLab",                    maxWidth: 90 },
+  { src: "/logos/client-logo-capital-one-trade-credit.png", alt: "Capital One Trade Credit", maxWidth: 128 },
+  { src: "/logos/client-logo-fitbit-health-solutions.png",  alt: "Fitbit Health Solutions",  maxWidth: 128 },
+  { src: "/logos/client-logo-outsystems.png",               alt: "OutSystems",                maxWidth: 128 },
+  { src: "/logos/client-logo-whatsapp.png",                 alt: "WhatsApp",                  maxHeight: 38, maxWidth: 128 },
+  { src: "/logos/client-logo-datastax.png",                 alt: "DataStax",                  maxWidth: 128 },
+  { src: "/logos/client-logo-regnology.png",                alt: "Regnology",                 maxWidth: 128 },
+  { src: "/logos/client-logo-bettercloud.png",              alt: "BetterCloud",               maxWidth: 128 },
+  { src: "/logos/client-logo-meta.png",                     alt: "Meta",                      maxHeight: 33, maxWidth: 94 },
+  { src: "/logos/client-logo-google.png",                   alt: "Google",                    maxHeight: 33, maxWidth: 105 },
+  { src: "/logos/client-logo-splunk.png",                   alt: "Splunk",                    maxWidth: 105 },
+  { src: "/logos/client-logo-gitlab.svg",                   alt: "GitLab",                    maxWidth: 105 },
 ];
 
 function initialSlots(count: number): number[] {
@@ -87,7 +87,7 @@ function LogoSlot({ index, slotIndex, totalSlots, allCurrentIndices }: {
           objectFit: "contain",
           opacity: visible ? 0.45 : 0,
           transition: `opacity ${FADE_MS}ms ease`,
-          maxHeight: logo.maxHeight ?? 36,
+          maxHeight: logo.maxHeight ?? 42,
           maxWidth: logo.maxWidth ?? 120,
           width: "auto",
           filter: "grayscale(1)",

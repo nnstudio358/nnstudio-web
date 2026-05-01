@@ -24,7 +24,7 @@ export default function DualStackSection() {
       <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
 
         {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 lg:gap-16 items-center mb-16 md:mb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 md:gap-16 items-center mb-6 md:mb-10 lg:mb-28">
           <div>
             <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10">
               Most designers live in one world.
@@ -57,7 +57,7 @@ export default function DualStackSection() {
         <div className="border border-faint relative max-w-[900px] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2">
 
-            <ul className="space-y-5 px-8 md:px-10 py-8 md:py-10 border-b sm:border-b-0 sm:border-r border-faint">
+            <ul className="space-y-5 px-8 md:px-10 py-8 md:py-10 border-b sm:border-b-0">
               {FIGMA_ITEMS.map((item) => (
                 <li key={item} className="flex items-start gap-4">
                   <span className="mt-[7px] shrink-0 w-[6px] h-[6px] rotate-45 border border-amber inline-block" />

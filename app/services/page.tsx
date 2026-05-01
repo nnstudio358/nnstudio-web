@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+
+export const viewport: Viewport = { themeColor: "#111110" };
 
 export const metadata: Metadata = {
   title: "Services",
@@ -90,7 +92,7 @@ export default function ServicesPage() {
             <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10 lg:whitespace-nowrap">
               One partner. Full brand consistency.
             </h2>
-            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
+            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[640px]" style={{ color: "#6B6A63" }}>
               Most design work requires both digital and print execution — and most teams
               split that across two vendors. I cover both, with the same brand standards
               applied across every format.
@@ -100,7 +102,7 @@ export default function ServicesPage() {
           <div className="border border-faint relative max-w-[900px] mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2">
 
-              <ul className="space-y-5 px-8 md:px-10 py-8 md:py-10 border-b sm:border-b-0 sm:border-r border-faint">
+              <ul className="space-y-5 px-8 md:px-10 py-8 md:py-10 border-b sm:border-b-0">
                 {FIGMA_ITEMS.map((item) => (
                   <li key={item} className="flex items-start gap-4">
                     <DiamondBullet />

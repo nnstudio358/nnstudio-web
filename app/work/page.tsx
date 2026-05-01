@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import React from "react";
+
+export const viewport: Viewport = { themeColor: "#111110" };
 
 export const metadata: Metadata = {
   title: "Work",
@@ -63,7 +65,7 @@ const FEATURED = [
     image: "/work-turno-browser.png",
     imagePosition: "center",
     imageFit: "contain",
-    imagePadding: "24px 48px",
+    imagePadding: "8px 8px",
     primaryBg: "#146259",
     headlineMaxWidth: "770px",
     secondaryImage: "/work-turno-book.png",
@@ -207,8 +209,8 @@ export default function WorkPage() {
 
                 {/* Media area */}
                 {video ? (
-                  <div className="w-full aspect-[3/2] md:aspect-[16/7] border border-faint overflow-hidden mb-12">
-                    <video autoPlay muted loop playsInline className="w-full h-full object-cover">
+                  <div className="w-full border border-faint overflow-hidden mb-12">
+                    <video autoPlay muted loop playsInline className="w-full h-auto block">
                       <source src={video} type="video/mp4" />
                     </video>
                   </div>
@@ -256,11 +258,11 @@ export default function WorkPage() {
                   {/* Metrics box */}
                   <div className="border border-faint flex flex-col sm:flex-row">
                     {metrics.map(({ value, label, logo }: { value: string; label: string; logo?: string }) => (
-                      <div key={label} className="flex-1 px-6 py-8 md:px-12 md:py-10 text-center border-b sm:border-b-0 sm:border-r border-faint last:border-0">
+                      <div key={label} className="flex-1 px-6 py-8 md:px-12 md:py-10 text-center">
                         {logo ? (
                           <div className="flex items-center justify-center gap-3">
                             <Image src={logo} alt="" width={40} height={34} style={{ height: 34, width: "auto" }} />
-                            <div className="font-serif text-[36px] font-normal tracking-[-0.02em] text-amber">
+                            <div className="font-serif text-[36px] font-normal leading-[1.1] tracking-[-0.02em] text-amber">
                               {value}
                             </div>
                           </div>

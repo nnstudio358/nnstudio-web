@@ -40,7 +40,7 @@ export default function ProblemAndPillars() {
 
       {/* Pillars */}
       <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pb-16 md:pb-24 lg:pb-32">
-        <div className="border border-faint grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-faint">
+        <div className="border border-faint grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 divide-faint">
           {PILLARS.map((pillar) => (
             <div key={pillar.name} className="px-8 md:px-12 py-10 md:py-12">
               <div className="font-sans text-[13px] tracking-[0.12em] text-amber mb-5">
