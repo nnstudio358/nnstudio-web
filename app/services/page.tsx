@@ -127,7 +127,7 @@ export default function ServicesPage() {
             </div>
 
             <div
-              className="hidden sm:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-amber items-center justify-center z-10"
+              className="flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-amber items-center justify-center z-10"
               aria-hidden="true"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

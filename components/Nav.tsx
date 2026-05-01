@@ -39,13 +39,13 @@ export default function Nav() {
         <div className="flex md:hidden items-center gap-4">
           <a
             href="/contact"
-            className="font-sans text-[13px] tracking-[0.04em] text-ink bg-amber px-4 py-2 hover:bg-[#D4A55A] transition-colors"
+            className="font-sans text-[14px] tracking-[0.04em] text-ink bg-amber px-4 py-3 hover:bg-[#D4A55A] transition-colors"
           >
             Let&rsquo;s talk →
           </a>
           <button
             onClick={() => setOpen(!open)}
-            className="flex flex-col gap-[5px] p-1"
+            className="flex flex-col gap-[5px] items-center justify-center w-11 h-11 -mr-2"
             aria-label="Toggle menu"
           >
             <span className={`block w-5 h-[1.5px] bg-ink transition-all duration-200 origin-center ${open ? "rotate-45 translate-y-[6.5px]" : ""}`} />
