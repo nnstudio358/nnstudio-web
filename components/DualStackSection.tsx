@@ -57,7 +57,7 @@ export default function DualStackSection() {
         <div className="border border-faint relative max-w-[900px] mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2">
 
-            <ul className="space-y-5 px-8 md:px-10 py-8 md:py-10 border-b sm:border-b-0">
+            <ul className="space-y-5 px-8 md:px-10 py-8 md:py-10">
               {FIGMA_ITEMS.map((item) => (
                 <li key={item} className="flex items-start gap-4">
                   <span className="mt-[7px] shrink-0 w-[6px] h-[6px] rotate-45 border border-amber inline-block" />
