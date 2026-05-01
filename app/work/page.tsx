@@ -179,7 +179,7 @@ export default function WorkPage() {
 
           <div className="divide-y divide-faint">
             {FEATURED.map(({ client, headline, deliverables, industry, body, metrics, image, imagePosition, imageFit, imagePadding, primaryBg, headlineMaxWidth, secondaryImage, secondaryImagePosition, secondaryFlex, secondaryBg, video }: { client: string; headline: React.ReactNode; deliverables: string; industry: string; body: string[]; metrics: { value: string; label: string; logo?: string }[]; image?: string; imagePosition?: string; imageFit?: string; imagePadding?: string; primaryBg?: string; headlineMaxWidth?: string; secondaryImage?: string; secondaryImagePosition?: string; secondaryFlex?: number; secondaryBg?: string; video?: string }) => (
-              <div key={client} className="py-20">
+              <div key={client} className="py-12 md:py-20">
 
                 {/* Client + industry */}
                 <div className="mb-6">
@@ -207,13 +207,13 @@ export default function WorkPage() {
 
                 {/* Media area */}
                 {video ? (
-                  <div className="w-full aspect-[16/7] border border-faint overflow-hidden mb-12">
+                  <div className="w-full aspect-[3/2] md:aspect-[16/7] border border-faint overflow-hidden mb-12">
                     <video autoPlay muted loop playsInline className="w-full h-full object-cover">
                       <source src={video} type="video/mp4" />
                     </video>
                   </div>
                 ) : image && secondaryImage ? (
-                  <div className="w-full aspect-[16/7] border border-faint overflow-hidden mb-12 flex gap-px" style={{ background: "var(--color-faint)" }}>
+                  <div className="w-full aspect-[3/2] md:aspect-[16/7] border border-faint overflow-hidden mb-12 flex gap-px" style={{ background: "var(--color-faint)" }}>
                     <div className="relative flex-[3] overflow-hidden" style={{ background: primaryBg ?? "#EDECE8" }}>
                       {imagePadding ? (
                         <div className="absolute" style={{ inset: imagePadding }}>
@@ -228,12 +228,12 @@ export default function WorkPage() {
                     </div>
                   </div>
                 ) : image ? (
-                  <div className="relative w-full aspect-[16/7] border border-faint overflow-hidden mb-12">
+                  <div className="relative w-full aspect-[3/2] md:aspect-[16/7] border border-faint overflow-hidden mb-12">
                     <Image src={image} alt={client} fill className="object-cover" style={{ objectPosition: imagePosition ?? "center" }} />
                   </div>
                 ) : (
                   <div
-                    className="w-full aspect-[16/7] border border-faint flex items-center justify-center mb-12"
+                    className="w-full aspect-[3/2] md:aspect-[16/7] border border-faint flex items-center justify-center mb-12"
                     style={{ background: "#E8E6E1" }}
                   >
                     <span className="font-sans text-[13px] text-muted tracking-[0.04em]">
