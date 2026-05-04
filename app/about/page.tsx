@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 
-export const viewport: Viewport = { themeColor: "#111110" };
+export const viewport: Viewport = { themeColor: "#232520" };
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Image from "next/image";

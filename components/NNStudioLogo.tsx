@@ -1,4 +1,4 @@
-export default function NNStudioLogo({ color = "#111110", height = 16 }: { color?: string; height?: number }) {
+export default function NNStudioLogo({ color = "#232520", height = 16 }: { color?: string; height?: number }) {
   const width = Math.round((229 / 46) * height);
   return (
     <svg width={width} height={height} viewBox="0 0 229 46" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="nnstudio">

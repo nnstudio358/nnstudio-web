@@ -3,7 +3,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FadeUp from "@/components/FadeUp";
 
-export const viewport: Viewport = { themeColor: "#111110" };
+export const viewport: Viewport = { themeColor: "#232520" };
 
 export const metadata: Metadata = {
   title: "Services",
