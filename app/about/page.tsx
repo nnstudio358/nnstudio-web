@@ -9,7 +9,7 @@ import FadeUp from "@/components/FadeUp";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Nathan Billman is a senior design partner with 20+ years working with enterprise marketing teams at Meta, Google, Capital One, ServiceNow, and more. Solo practice, direct engagement, no hand-holding.",
+    "Nathan Billman is a senior design partner with 20+ years working with marketing teams at Meta, Google, Capital One, ServiceNow, and more. Solo practice, direct engagement, no hand-holding.",
 };
 
 export default function AboutPage() {
@@ -109,8 +109,8 @@ export default function AboutPage() {
                 </p>
                 <p>
                   I work directly with marketing and brand teams at B2B organizations, and
-                  as white-label senior capacity for agencies. In both cases, the commitment
-                  is the same: I show up at the level the work requires.
+                  as white-label senior capacity for agencies. Either way, the work is the
+                  same: take the brief, ask the right questions once, and deliver.
                 </p>
               </div>
             </div>

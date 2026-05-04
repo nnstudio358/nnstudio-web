@@ -73,7 +73,7 @@ export default function ServicesPage() {
             </div>
             <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10">
               Senior-level design output.<br />
-              <em className="italic">No management overhead.</em>
+              <em className="italic">Works to brief.</em>
             </h1>
             <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[640px]" style={{ color: "#6B6A63" }}>
               I work with in-house marketing and brand teams — and as white-label
@@ -117,20 +117,23 @@ export default function ServicesPage() {
                     {qualifier}
                   </p>
                 </div>
-                <div className="flex flex-col justify-between gap-8">
+                <div>
                   <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
                     {description}
                   </p>
-                  <a
-                    href="/contact"
-                    className="self-start font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
-                  >
-                    Let&rsquo;s talk →
-                  </a>
                 </div>
               </div>
               </FadeUp>
             ))}
+          </div>
+
+          <div className="mt-12 md:mt-16">
+            <a
+              href="/contact"
+              className="inline-block font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
+            >
+              Let&rsquo;s talk →
+            </a>
           </div>
 
         </div>

@@ -354,7 +354,7 @@ export default function WorkPage() {
                 There&rsquo;s more to see.
               </h2>
               <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14" style={{ color: "#C8C2BA" }}>
-                A significant portion of enterprise work is client-confidential — including
+                A significant portion of client work is client-confidential — including
                 work delivered as white-label senior capacity for agencies. If you want to
                 see the full range — regulated healthcare, additional fintech, and direct
                 agency work — schedule a call for a live portfolio review.

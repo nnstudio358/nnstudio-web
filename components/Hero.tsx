@@ -24,9 +24,9 @@ export default function Hero() {
             className="font-sans text-[16px] md:text-[19px] leading-[1.65] max-w-[480px] mb-10 md:mb-14 font-light"
             style={{ color: "#6B6A63" }}
           >
-            I work directly with in-house marketing teams and the agencies that
-            serve them — senior design capacity that takes the brief, asks the
-            right questions once, and delivers.
+            Direct partner for marketing and brand teams — and white-label
+            capacity for the agencies that serve them. Take the brief, ask the
+            right questions once, deliver.
           </motion.p>
 
           <motion.div
