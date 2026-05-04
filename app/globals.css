@@ -7,7 +7,7 @@
 
   /* Colors */
   --color-bg:       #EDECE8;
-  --color-ink:      #46423D;
+  --color-ink:      #38332E;
   --color-muted:    #8A8A82;
   --color-faint:    #D6D2CA;
   --color-rule:     #C8C2BA;
@@ -18,5 +18,5 @@
 
 html, body {
   background: #EDECE8;
-  color: #46423D;
+  color: #38332E;
 }
