@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const FIGMA_ITEMS = [
   "Design systems",
@@ -24,7 +26,13 @@ export default function DualStackSection() {
       <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
 
         {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 md:gap-16 items-center mb-6 md:mb-10 lg:mb-28">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-10 md:gap-16 items-center mb-6 md:mb-10 lg:mb-28"
+        >
           <div>
             <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10">
               Most designers live in one world.
@@ -46,15 +54,27 @@ export default function DualStackSection() {
               style={{ width: "100%", maxWidth: 320, height: "auto" }}
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Centered headline */}
-        <h3 className="font-serif text-[28px] md:text-[44px] lg:text-[64px] font-normal leading-[1.1] text-ink tracking-[-0.02em] text-center mb-8">
+        <motion.h3
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          className="font-serif text-[28px] md:text-[44px] lg:text-[64px] font-normal leading-[1.1] text-ink tracking-[-0.02em] text-center mb-8"
+        >
           One partner. Full brand consistency.
-        </h3>
+        </motion.h3>
 
         {/* Combined list box */}
-        <div className="border border-faint relative max-w-[900px] mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: 0.1 }}
+          className="border border-faint relative max-w-[900px] mx-auto"
+        >
           <div className="grid grid-cols-1 sm:grid-cols-2">
 
             <ul className="space-y-5 px-8 md:px-10 py-8 md:py-10">
@@ -81,7 +101,6 @@ export default function DualStackSection() {
 
           </div>
 
-          {/* Center connector — hidden on mobile (single column), visible on sm+ */}
           <div
             className="flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-amber items-center justify-center z-10"
             aria-hidden="true"
@@ -92,7 +111,7 @@ export default function DualStackSection() {
             </svg>
           </div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>

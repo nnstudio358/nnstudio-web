@@ -11,8 +11,36 @@ export const metadata: Metadata = {
 import Image from "next/image";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import FadeUp from "@/components/FadeUp";
+import CountUp from "@/components/CountUp";
 
 const FEATURED = [
+  {
+    client: "Turno",
+    headline: <>A content system that converted 65% of visitors into new signups.</>,
+    industry: "Hospitality / Short-term rental",
+    deliverables: "UI design · eBook · Print",
+    body: [
+      "A single content system designed to work across three formats — a digital guide, a downloadable eBook, and a print coffee table book — all for the same audience, under the same brand.",
+      "Turno needed to reach Airbnb hosts at every stage of the content journey — discovery, depth, and offline. Three formats, one consistent brand treatment, built to convert.",
+      "Three formats coordinated under a single brief meant the brand system had to hold across digital, PDF, and print production simultaneously. No consistency gaps, no reconciliation between vendors.",
+    ],
+    metrics: [
+      { value: "8,000+", label: "Unique views" },
+      { value: "800+", label: "eBook downloads" },
+      { value: "65%", label: "Conversion rate" },
+    ],
+    image: "/work-turno-browser.png",
+    imagePosition: "center",
+    imageFit: "contain",
+    imagePadding: "8px 8px",
+    primaryBg: "#146259",
+    headlineMaxWidth: "770px",
+    secondaryImage: "/work-turno-book.png",
+    secondaryImagePosition: "center",
+    secondaryFlex: 2,
+    secondaryBg: "#1B7E72",
+  },
   {
     client: "OutSystems",
     headline: "Turning 1,200 survey responses into award-winning thought leadership.",
@@ -46,32 +74,6 @@ const FEATURED = [
       { value: "928", label: "clicks in 1,331 views" },
     ],
     video: "/work-intralinks.mp4",
-  },
-  {
-    client: "Turno",
-    headline: <>A content system that converted 65% of visitors into new signups.</>,
-    industry: "Hospitality / Short-term rental",
-    deliverables: "UI design · eBook · Print",
-    body: [
-      "A single content system designed to work across three formats — a digital guide, a downloadable eBook, and a print coffee table book — all for the same audience, under the same brand.",
-      "Turno needed to reach Airbnb hosts at every stage of the content journey — discovery, depth, and offline. Three formats, one consistent brand treatment, built to convert.",
-      "Three formats coordinated under a single brief meant the brand system had to hold across digital, PDF, and print production simultaneously. No consistency gaps, no reconciliation between vendors.",
-    ],
-    metrics: [
-      { value: "8,000+", label: "Unique views" },
-      { value: "800+", label: "eBook downloads" },
-      { value: "65%", label: "Conversion rate" },
-    ],
-    image: "/work-turno-browser.png",
-    imagePosition: "center",
-    imageFit: "contain",
-    imagePadding: "8px 8px",
-    primaryBg: "#146259",
-    headlineMaxWidth: "770px",
-    secondaryImage: "/work-turno-book.png",
-    secondaryImagePosition: "center",
-    secondaryFlex: 2,
-    secondaryBg: "#1B7E72",
   },
 ];
 
@@ -150,25 +152,27 @@ export default function WorkPage() {
       {/* Page intro */}
       <section className="w-full bg-bg border-b border-faint">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-12 md:pt-24 md:pb-20">
-          <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
-            Work
-          </div>
-          <h1 className="font-serif text-[36px] md:text-[52px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-6 md:mb-8">
-            A selection of work across enterprise marketing and brand projects.
-          </h1>
-          <div className="max-w-[720px]">
-            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-8 md:mb-10" style={{ color: "#6B6A63" }}>
-              Featured case studies include full context and outcomes. For
-              client-confidential work, schedule a call to review the complete
-              portfolio.
-            </p>
-            <a
-              href="/contact"
-              className="inline-block font-sans text-[14px] tracking-[0.04em] border border-faint text-muted px-9 py-4 hover:text-ink hover:border-ink transition-colors"
-            >
-              Let&rsquo;s talk →
-            </a>
-          </div>
+          <FadeUp>
+            <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
+              Work
+            </div>
+            <h1 className="font-serif text-[36px] md:text-[52px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-6 md:mb-8">
+              A selection of work across B2B marketing and brand projects.
+            </h1>
+            <div className="max-w-[720px]">
+              <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-8 md:mb-10" style={{ color: "#6B6A63" }}>
+                Featured case studies include full context and outcomes. For
+                client-confidential work, schedule a call to review the complete
+                portfolio.
+              </p>
+              <a
+                href="/contact"
+                className="inline-block font-sans text-[14px] tracking-[0.04em] border border-faint text-muted px-9 py-4 hover:text-ink hover:border-ink transition-colors"
+              >
+                Let&rsquo;s talk →
+              </a>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -181,106 +185,107 @@ export default function WorkPage() {
 
           <div className="divide-y divide-faint">
             {FEATURED.map(({ client, headline, deliverables, industry, body, metrics, image, imagePosition, imageFit, imagePadding, primaryBg, headlineMaxWidth, secondaryImage, secondaryImagePosition, secondaryFlex, secondaryBg, video }: { client: string; headline: React.ReactNode; deliverables: string; industry: string; body: string[]; metrics: { value: string; label: string; logo?: string }[]; image?: string; imagePosition?: string; imageFit?: string; imagePadding?: string; primaryBg?: string; headlineMaxWidth?: string; secondaryImage?: string; secondaryImagePosition?: string; secondaryFlex?: number; secondaryBg?: string; video?: string }) => (
-              <div key={client} className="py-12 md:py-20">
+              <FadeUp key={client}>
+                <div className="py-12 md:py-20">
 
-                {/* Client + industry */}
-                <div className="mb-6">
-                  <div className="font-sans text-[12px] tracking-[0.18em] uppercase" style={{ color: "#8A8A82" }}>
-                    {client}
-                  </div>
-                  <div className="font-sans text-[12px] tracking-[0.18em] uppercase" style={{ color: "#8A8A82" }}>
-                    {industry}
-                  </div>
-                </div>
-
-                {/* Headline */}
-                <h2 className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10" style={{ maxWidth: headlineMaxWidth ?? "820px" }}>
-                  {headline}
-                </h2>
-
-                {/* Body copy — merged summary + challenge */}
-                <div className="space-y-5 max-w-[640px] mb-16">
-                  {body.map((para, i) => (
-                    <p key={i} className="font-sans text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
-                      {para}
-                    </p>
-                  ))}
-                </div>
-
-                {/* Media area */}
-                {video ? (
-                  <div className="w-full border border-faint overflow-hidden mb-12">
-                    <video autoPlay muted loop playsInline className="w-full h-auto block">
-                      <source src={video} type="video/mp4" />
-                    </video>
-                  </div>
-                ) : image && secondaryImage ? (
-                  <div className="w-full aspect-[3/2] md:aspect-[16/7] border border-faint overflow-hidden mb-12 flex gap-px" style={{ background: "var(--color-faint)" }}>
-                    <div className="relative flex-[3] overflow-hidden" style={{ background: primaryBg ?? "#EDECE8" }}>
-                      {imagePadding ? (
-                        <div className="absolute" style={{ inset: imagePadding }}>
-                          <Image src={image} alt={client} fill style={{ objectFit: "contain", objectPosition: "center" }} />
-                        </div>
-                      ) : (
-                        <Image src={image} alt={client} fill style={{ objectFit: imageFit === "contain" ? "contain" : "cover", objectPosition: imagePosition ?? "center" }} />
-                      )}
-                    </div>
-                    <div className="relative overflow-hidden" style={{ flex: secondaryFlex ?? 1, background: secondaryBg ?? "#EDECE8" }}>
-                      <Image src={secondaryImage} alt="" fill className="object-cover" style={{ objectPosition: secondaryImagePosition ?? "top" }} />
-                    </div>
-                  </div>
-                ) : image ? (
-                  <div className="relative w-full aspect-[3/2] md:aspect-[16/7] border border-faint overflow-hidden mb-12">
-                    <Image src={image} alt={client} fill className="object-cover" style={{ objectPosition: imagePosition ?? "center" }} />
-                  </div>
-                ) : (
-                  <div
-                    className="w-full aspect-[3/2] md:aspect-[16/7] border border-faint flex items-center justify-center mb-12"
-                    style={{ background: "#E8E6E1" }}
-                  >
-                    <span className="font-sans text-[13px] text-muted tracking-[0.04em]">
-                      {client} — images coming
-                    </span>
-                  </div>
-                )}
-
-                {/* Outcome — centered block, labels flush left within it */}
-                <div className="max-w-[1000px] mx-auto">
+                  {/* Client + industry */}
                   <div className="mb-6">
-                    <div className="font-sans text-[11px] tracking-[0.18em] uppercase text-muted mb-1">
-                      The outcome
+                    <div className="font-sans text-[12px] tracking-[0.18em] uppercase" style={{ color: "#8A8A82" }}>
+                      {client}
                     </div>
-                    <div className="font-sans text-[11px] tracking-[0.14em] uppercase text-muted">
-                      {deliverables}
+                    <div className="font-sans text-[12px] tracking-[0.18em] uppercase" style={{ color: "#8A8A82" }}>
+                      {industry}
                     </div>
                   </div>
 
-                  {/* Metrics box */}
-                  <div className="border border-faint flex flex-col sm:flex-row">
-                    {metrics.map(({ value, label, logo }: { value: string; label: string; logo?: string }) => (
-                      <div key={label} className="flex-1 px-6 py-8 md:px-12 md:py-10 text-center">
-                        {logo ? (
-                          <div className="flex items-center justify-center gap-3">
-                            <Image src={logo} alt="" width={40} height={34} style={{ height: 34, width: "auto" }} />
-                            <div className="font-serif text-[36px] font-normal leading-[1.1] tracking-[-0.02em] text-amber">
-                              {value}
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="font-serif text-[36px] font-normal tracking-[-0.02em] text-amber">
-                            {value}
-                          </div>
-                        )}
-                        <div className="font-sans text-[17px] font-light mt-2 text-ink">
-                          {label}
-                        </div>
-                      </div>
+                  {/* Headline */}
+                  <h2 className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10" style={{ maxWidth: headlineMaxWidth ?? "820px" }}>
+                    {headline}
+                  </h2>
+
+                  {/* Body copy */}
+                  <div className="space-y-5 max-w-[640px] mb-16">
+                    {body.map((para, i) => (
+                      <p key={i} className="font-sans text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
+                        {para}
+                      </p>
                     ))}
                   </div>
 
-                </div>{/* end outcome wrapper */}
+                  {/* Media area */}
+                  {video ? (
+                    <div className="w-full border border-faint overflow-hidden mb-12">
+                      <video autoPlay muted loop playsInline className="w-full h-auto block">
+                        <source src={video} type="video/mp4" />
+                      </video>
+                    </div>
+                  ) : image && secondaryImage ? (
+                    <div className="w-full aspect-[3/2] md:aspect-[16/7] border border-faint overflow-hidden mb-12 flex gap-px" style={{ background: "var(--color-faint)" }}>
+                      <div className="relative flex-[3] overflow-hidden" style={{ background: primaryBg ?? "#EDECE8" }}>
+                        {imagePadding ? (
+                          <div className="absolute" style={{ inset: imagePadding }}>
+                            <Image src={image} alt={client} fill style={{ objectFit: "contain", objectPosition: "center" }} />
+                          </div>
+                        ) : (
+                          <Image src={image} alt={client} fill style={{ objectFit: imageFit === "contain" ? "contain" : "cover", objectPosition: imagePosition ?? "center" }} />
+                        )}
+                      </div>
+                      <div className="relative overflow-hidden" style={{ flex: secondaryFlex ?? 1, background: secondaryBg ?? "#EDECE8" }}>
+                        <Image src={secondaryImage} alt="" fill className="object-cover" style={{ objectPosition: secondaryImagePosition ?? "top" }} />
+                      </div>
+                    </div>
+                  ) : image ? (
+                    <div className="relative w-full aspect-[3/2] md:aspect-[16/7] border border-faint overflow-hidden mb-12">
+                      <Image src={image} alt={client} fill className="object-cover" style={{ objectPosition: imagePosition ?? "center" }} />
+                    </div>
+                  ) : (
+                    <div
+                      className="w-full aspect-[3/2] md:aspect-[16/7] border border-faint flex items-center justify-center mb-12"
+                      style={{ background: "#E8E6E1" }}
+                    >
+                      <span className="font-sans text-[13px] text-muted tracking-[0.04em]">
+                        {client} — images coming
+                      </span>
+                    </div>
+                  )}
 
-              </div>
+                  {/* Outcome */}
+                  <div className="max-w-[1000px] mx-auto">
+                    <div className="mb-6">
+                      <div className="font-sans text-[11px] tracking-[0.18em] uppercase text-muted mb-1">
+                        The outcome
+                      </div>
+                      <div className="font-sans text-[11px] tracking-[0.14em] uppercase text-muted">
+                        {deliverables}
+                      </div>
+                    </div>
+
+                    <div className="border border-faint flex flex-col sm:flex-row">
+                      {metrics.map(({ value, label, logo }: { value: string; label: string; logo?: string }) => (
+                        <div key={label} className="flex-1 px-6 py-8 md:px-12 md:py-10 text-center">
+                          {logo ? (
+                            <div className="flex items-center justify-center gap-3">
+                              <Image src={logo} alt="" width={40} height={34} style={{ height: 34, width: "auto" }} />
+                              <div className="font-serif text-[36px] font-normal leading-[1.1] tracking-[-0.02em] text-amber">
+                                <CountUp value={value} />
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="font-serif text-[36px] font-normal tracking-[-0.02em] text-amber">
+                              <CountUp value={value} />
+                            </div>
+                          )}
+                          <div className="font-sans text-[17px] font-light mt-2 text-ink">
+                            {label}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                  </div>
+
+                </div>
+              </FadeUp>
             ))}
           </div>
         </div>
@@ -294,44 +299,44 @@ export default function WorkPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {MORE_WORK.map(({ client, deliverables, industry, description, image, imagePosition, imageBg }: { client: string; deliverables: string; industry: string; description: string; image?: string; imagePosition?: string; imageBg?: string }) => (
-              <div key={client} className="bg-bg flex flex-col border border-faint">
-                {/* Image — flush top, full width, bottom rule only */}
-                {image ? (
-                  <div className="relative w-full aspect-[4/3] border-b border-faint overflow-hidden" style={imageBg ? { background: imageBg } : undefined}>
-                    <Image
-                      src={image}
-                      alt={client}
-                      fill
-                      className="object-cover"
-                      style={{ objectPosition: imagePosition ?? "top" }}
-                    />
-                  </div>
-                ) : (
-                  <div
-                    className="w-full aspect-[4/3] border-b border-faint flex items-center justify-center"
-                    style={{ background: "#E8E6E1" }}
-                  >
-                    <span className="font-sans text-[12px] text-muted tracking-[0.04em]">
-                      {client}
-                    </span>
-                  </div>
-                )}
+            {MORE_WORK.map(({ client, deliverables, industry, description, image, imagePosition, imageBg }, index) => (
+              <FadeUp key={client} delay={index * 0.07} className="h-full">
+                <div className="bg-bg flex flex-col border border-faint h-full">
+                  {image ? (
+                    <div className="relative w-full aspect-[4/3] border-b border-faint overflow-hidden" style={imageBg ? { background: imageBg } : undefined}>
+                      <Image
+                        src={image}
+                        alt={client}
+                        fill
+                        className="object-cover"
+                        style={{ objectPosition: imagePosition ?? "top" }}
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="w-full aspect-[4/3] border-b border-faint flex items-center justify-center"
+                      style={{ background: "#E8E6E1" }}
+                    >
+                      <span className="font-sans text-[12px] text-muted tracking-[0.04em]">
+                        {client}
+                      </span>
+                    </div>
+                  )}
 
-                {/* Card content */}
-                <div className="p-10 flex flex-col flex-1">
-                  <div className="font-sans text-[12px] tracking-[0.18em] uppercase mb-6" style={{ color: "#8A8A82" }}>
-                    {industry}
+                  <div className="p-10 flex flex-col flex-1">
+                    <div className="font-sans text-[12px] tracking-[0.18em] uppercase mb-6" style={{ color: "#8A8A82" }}>
+                      {industry}
+                    </div>
+                    <h3 className="font-serif text-[22px] font-normal text-ink tracking-[-0.01em] mb-5">
+                      {client}
+                    </h3>
+                    <p className="font-sans text-[15px] leading-[1.65] font-light mb-8 flex-1" style={{ color: "#6B6A63" }}>
+                      {description}
+                    </p>
+                    <Deliverables value={deliverables} />
                   </div>
-                  <h3 className="font-serif text-[22px] font-normal text-ink tracking-[-0.01em] mb-5">
-                    {client}
-                  </h3>
-                  <p className="font-sans text-[15px] leading-[1.65] font-light mb-8 flex-1" style={{ color: "#6B6A63" }}>
-                    {description}
-                  </p>
-                  <Deliverables value={deliverables} />
                 </div>
-              </div>
+              </FadeUp>
             ))}
           </div>
         </div>
@@ -340,26 +345,28 @@ export default function WorkPage() {
       {/* Gated CTA — dark */}
       <section className="w-full bg-ink">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
-          <div className="max-w-[680px]">
-            <h2
-              className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-6 md:mb-8"
-              style={{ color: "#F4F3EF" }}
-            >
-              There&rsquo;s more to see.
-            </h2>
-            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14" style={{ color: "#C8C2BA" }}>
-              A significant portion of enterprise work is client-confidential — including
-              work delivered as white-label senior capacity for agencies. If you want to
-              see the full range — regulated healthcare, additional fintech, and direct
-              agency work — schedule a call for a live portfolio review.
-            </p>
-            <a
-              href="/contact"
-              className="inline-block font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
-            >
-              Let&rsquo;s talk →
-            </a>
-          </div>
+          <FadeUp>
+            <div className="max-w-[680px]">
+              <h2
+                className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-6 md:mb-8"
+                style={{ color: "#F4F3EF" }}
+              >
+                There&rsquo;s more to see.
+              </h2>
+              <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14" style={{ color: "#C8C2BA" }}>
+                A significant portion of enterprise work is client-confidential — including
+                work delivered as white-label senior capacity for agencies. If you want to
+                see the full range — regulated healthcare, additional fintech, and direct
+                agency work — schedule a call for a live portfolio review.
+              </p>
+              <a
+                href="/contact"
+                className="inline-block font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
+              >
+                Let&rsquo;s talk →
+              </a>
+            </div>
+          </FadeUp>
         </div>
       </section>
 

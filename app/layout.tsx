@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | nnstudio",
   },
   description:
-    "Senior design partner for in-house marketing and brand teams. Dual-stack Figma and Adobe practice — design systems, eBooks, whitepapers, decks, and print. One partner, no overhead.",
+    "Senior design partner for in-house marketing and brand teams — and white-label capacity for the agencies that serve them. Design systems, eBooks, whitepapers, decks, and print. One partner, no management overhead.",
   openGraph: {
     siteName: "nnstudio",
     type: "website",

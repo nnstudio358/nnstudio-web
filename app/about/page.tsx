@@ -4,6 +4,7 @@ export const viewport: Viewport = { themeColor: "#111110" };
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import FadeUp from "@/components/FadeUp";
 
 export const metadata: Metadata = {
   title: "About",
@@ -21,7 +22,7 @@ export default function AboutPage() {
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-12 md:pt-24 md:pb-20">
           <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-12 md:gap-24 items-center">
 
-            <div>
+            <FadeUp>
               <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6 md:mb-8">
                 About
               </div>
@@ -35,7 +36,7 @@ export default function AboutPage() {
                 agencies that serve them — who need senior design output without the
                 management overhead.
               </p>
-            </div>
+            </FadeUp>
 
             <div className="flex items-center justify-start md:justify-center">
               <div className="w-[200px] md:w-[280px] aspect-square overflow-hidden">
@@ -58,6 +59,7 @@ export default function AboutPage() {
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-12 md:py-24">
           <div className="max-w-[1040px] mx-auto">
 
+            <FadeUp>
             <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 md:gap-16 px-0 md:px-14 py-10 md:py-16">
               <div>
                 <h2 className="font-serif text-[24px] md:text-[28px] font-normal text-ink tracking-[-0.02em] leading-[1.2]">
@@ -66,14 +68,14 @@ export default function AboutPage() {
               </div>
               <div className="space-y-6 font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
                 <p>
-                  I&rsquo;ve spent 20+ years designing for enterprise and complex organizations —
-                  regulated healthcare, enterprise fintech, global tech platforms,
-                  cybersecurity, logistics, and more. The brands I&rsquo;ve worked with operate
-                  under strict standards, tight timelines, and multi-team stakeholder review.
-                  That environment shaped how I work.
+                  I&rsquo;ve spent 20+ years designing for B2B organizations across regulated
+                  industries — healthcare, fintech, global tech platforms, cybersecurity,
+                  logistics, and more. The brands I&rsquo;ve worked with operate under strict
+                  standards, tight timelines, and multi-team stakeholder review. That
+                  environment shaped how I work.
                 </p>
                 <p>
-                  What it produced is a dual-stack practice that most designers don&rsquo;t have.
+                  What it produced is a practice most designers don&rsquo;t have.
                   I build and maintain Figma-based design systems — variables, tokens,
                   component libraries, dev-ready handoff — and I produce high-fidelity Adobe
                   marketing assets: eBooks, whitepapers, sales decks, print collateral,
@@ -82,9 +84,11 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
+            </FadeUp>
 
             <div className="border-t border-faint" />
 
+            <FadeUp delay={0.05}>
             <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 md:gap-16 px-0 md:px-14 py-10 md:py-16">
               <div>
                 <h2 className="font-serif text-[24px] md:text-[28px] font-normal text-ink tracking-[-0.02em] leading-[1.2]">
@@ -104,16 +108,17 @@ export default function AboutPage() {
                   create more work than they solve.
                 </p>
                 <p>
-                  I work directly with marketing and brand directors at enterprise
-                  organizations, and as white-label senior capacity for agencies on complex
-                  projects. In both cases, the commitment is the same: I show up at the level
-                  the work requires.
+                  I work directly with marketing and brand teams at B2B organizations, and
+                  as white-label senior capacity for agencies. In both cases, the commitment
+                  is the same: I show up at the level the work requires.
                 </p>
               </div>
             </div>
+            </FadeUp>
 
             <div className="border-t border-faint" />
 
+            <FadeUp delay={0.05}>
             <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 md:gap-16 px-0 md:px-14 py-10 md:py-16">
               <div>
                 <h2 className="font-serif text-[24px] md:text-[28px] font-normal text-ink tracking-[-0.02em] leading-[1.2]">
@@ -132,6 +137,7 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
+            </FadeUp>
 
           </div>
         </div>
@@ -140,6 +146,7 @@ export default function AboutPage() {
       {/* Closing CTA — dark */}
       <section className="w-full bg-ink">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
+          <FadeUp>
           <div className="max-w-[680px]">
             <h2
               className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-10 md:mb-14"
@@ -155,6 +162,7 @@ export default function AboutPage() {
               Let&rsquo;s talk →
             </a>
           </div>
+          </FadeUp>
         </div>
       </section>
 

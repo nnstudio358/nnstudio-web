@@ -1,13 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import FadeUp from "@/components/FadeUp";
 
 export const viewport: Viewport = { themeColor: "#111110" };
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Project and retainer engagements for in-house marketing teams and agency partners. Figma design systems and Adobe marketing production — one partner covering both worlds.",
+    "Project and retainer engagements for in-house marketing teams and agency partners. Design systems and marketing production — one partner covering every format.",
 };
 
 const FIGMA_ITEMS = [
@@ -47,7 +48,7 @@ const ENGAGEMENTS = [
     name: "Design Partner",
     qualifier: "For teams building or scaling design infrastructure alongside ongoing production.",
     description:
-      "A monthly retainer covering full dual-stack engagement at system scale — Figma design systems with variables, tokens, and component libraries built and maintained for your team, alongside ongoing Adobe marketing production. Right for organizations that need a living design system and regular marketing output maintained together, by the same partner, with full brand consistency across every format.",
+      "A monthly retainer at system scale — Figma design systems with variables, tokens, and component libraries built and maintained for your team, alongside ongoing Adobe marketing production. Right for teams that need a living design system and regular marketing output maintained together, by the same partner, with full brand consistency across every format.",
     detail: "Retainer · 30–40 hrs/month",
   },
 ];
@@ -66,25 +67,76 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="w-full bg-bg border-b border-faint">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-12 md:pt-24 md:pb-20">
-          <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
-            Services
-          </div>
-          <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10">
-            Senior-level design output.<br />
-            <em className="italic">No management overhead.</em>
-          </h1>
-          <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[640px]" style={{ color: "#6B6A63" }}>
-            I work with in-house marketing and brand teams at enterprise and complex
-            organizations — regulated healthcare, fintech, global tech — as a direct
-            partner or white-label capacity for agencies. Strict brand governance,
-            compliance review, multi-team sign-off: that&rsquo;s not a constraint.
-            Every engagement runs on one premise: take the brief, ask the right
-            questions once, and deliver.
-          </p>
+          <FadeUp>
+            <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
+              Services
+            </div>
+            <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10">
+              Senior-level design output.<br />
+              <em className="italic">No management overhead.</em>
+            </h1>
+            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[640px]" style={{ color: "#6B6A63" }}>
+              I work with in-house marketing and brand teams — and as white-label
+              capacity for the agencies that serve them. Strict brand standards,
+              compliance requirements, multi-team sign-off: that&rsquo;s not a
+              constraint. Every engagement runs on one premise: take the brief,
+              ask the right questions once, and deliver.
+            </p>
+          </FadeUp>
         </div>
       </section>
 
-      {/* Dual-stack section */}
+      {/* Engagements */}
+      <section className="w-full bg-bg border-b border-faint">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
+
+          <FadeUp className="max-w-[720px] mb-6">
+            <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-6 md:mb-8">
+              How we can work together.
+            </h2>
+            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
+              I work with a small number of retainer clients at a time to maintain the
+              quality and responsiveness each engagement requires.
+            </p>
+          </FadeUp>
+
+          <div className="mt-12 md:mt-20 divide-y divide-faint border-t border-faint">
+            {ENGAGEMENTS.map(({ name, qualifier, description, detail }, index) => (
+              <FadeUp key={name} delay={index * 0.1}>
+              <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 md:gap-24 py-12 md:py-16">
+                <div>
+                  {detail && (
+                    <div className="font-sans text-[12px] tracking-[0.14em] uppercase text-amber mb-3">
+                      {detail}
+                    </div>
+                  )}
+                  <h3 className="font-serif text-[32px] md:text-[36px] lg:text-[40px] font-normal text-ink tracking-[-0.02em] mb-4">
+                    {name}
+                  </h3>
+                  <p className="font-sans text-[15px] leading-[1.65] font-light" style={{ color: "#8A8A82" }}>
+                    {qualifier}
+                  </p>
+                </div>
+                <div className="flex flex-col justify-between gap-8">
+                  <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
+                    {description}
+                  </p>
+                  <a
+                    href="/contact"
+                    className="self-start font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
+                  >
+                    Let&rsquo;s talk →
+                  </a>
+                </div>
+              </div>
+              </FadeUp>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* One partner section */}
       <section className="w-full bg-bg border-b border-faint">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
 
@@ -141,54 +193,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Engagements */}
-      <section className="w-full bg-bg border-b border-faint">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
-
-          <div className="max-w-[720px] mb-6">
-            <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-6 md:mb-8">
-              How we can work together.
-            </h2>
-            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
-              I work with a small number of retainer clients at a time to maintain the
-              quality and responsiveness each engagement requires.
-            </p>
-          </div>
-
-          <div className="mt-12 md:mt-20 divide-y divide-faint border-t border-faint">
-            {ENGAGEMENTS.map(({ name, qualifier, description, detail }) => (
-              <div key={name} className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 md:gap-24 py-12 md:py-16">
-                <div>
-                  {detail && (
-                    <div className="font-sans text-[12px] tracking-[0.14em] uppercase text-amber mb-3">
-                      {detail}
-                    </div>
-                  )}
-                  <h3 className="font-serif text-[32px] md:text-[36px] lg:text-[40px] font-normal text-ink tracking-[-0.02em] mb-4">
-                    {name}
-                  </h3>
-                  <p className="font-sans text-[15px] leading-[1.65] font-light" style={{ color: "#8A8A82" }}>
-                    {qualifier}
-                  </p>
-                </div>
-                <div className="flex flex-col justify-between gap-8">
-                  <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
-                    {description}
-                  </p>
-                  <a
-                    href="/contact"
-                    className="self-start font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
-                  >
-                    Let&rsquo;s talk →
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
       {/* Closing CTA — dark */}
       <section className="w-full bg-ink">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
@@ -202,9 +206,8 @@ export default function ServicesPage() {
               <em className="italic">Let&rsquo;s figure it out.</em>
             </h2>
             <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14" style={{ color: "#C8C2BA" }}>
-              Most clients know what they need to get done — not necessarily which structure
-              makes sense. Complex environment, tight brand standards, multi-team review:
-              those are the conditions I work best in. Reach out and describe the work.
+              Most clients know what they need to get done — not necessarily which
+              structure makes sense. Reach out and describe the work.
               We&rsquo;ll find the right fit.
             </p>
             <a

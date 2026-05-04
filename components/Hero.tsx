@@ -1,20 +1,40 @@
+"use client";
+import { motion } from "framer-motion";
+
 export default function Hero() {
   return (
     <section className="w-full bg-bg">
       <div className="max-w-[1440px] mx-auto">
         <div className="px-5 md:px-10 lg:px-16 pt-16 pb-20 md:pt-24 md:pb-32 max-w-[860px]">
-          <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+            className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10"
+          >
             Senior design partner<br />
             for in-house<br />
             <em className="italic">marketing teams.</em>
-          </h1>
+          </motion.h1>
 
-          <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] max-w-[480px] mb-10 md:mb-14 font-light" style={{ color: "#6B6A63" }}>
-            Strategic design work — brand, campaigns, systems — delivered with the
-            speed and judgment of someone who&rsquo;s done it before.
-          </p>
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: 0.15 }}
+            className="font-sans text-[16px] md:text-[19px] leading-[1.65] max-w-[480px] mb-10 md:mb-14 font-light"
+            style={{ color: "#6B6A63" }}
+          >
+            I work directly with in-house marketing teams and the agencies that
+            serve them — senior design capacity that takes the brief, asks the
+            right questions once, and delivers.
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10"
+          >
             <a
               href="/contact"
               className="font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
@@ -27,7 +47,7 @@ export default function Hero() {
             >
               See the work
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
