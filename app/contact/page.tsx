@@ -38,7 +38,7 @@ export default function ContactPage() {
       </div>
 
       {/* Two paths */}
-      <section className="w-full bg-bg" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23232520' fill-opacity='0.13' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\")" }}>
+      <section className="w-full bg-bg">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-6 pb-16 md:pt-8 md:pb-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
 
