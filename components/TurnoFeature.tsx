@@ -11,7 +11,7 @@ const METRICS = [
 
 export default function TurnoFeature() {
   return (
-    <section className="w-full bg-ink">
+    <section className="w-full bg-ink grain-dark">
       <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:pt-24 md:pb-32">
 
         <motion.div
