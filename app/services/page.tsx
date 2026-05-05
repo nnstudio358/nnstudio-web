@@ -62,10 +62,11 @@ function DiamondBullet() {
 export default function ServicesPage() {
   return (
     <main>
-      <Nav />
+      <div className="relative bg-bg hero-bg">
+        <div className="absolute inset-x-0 top-0 z-10"><Nav /></div>
 
-      {/* Hero */}
-      <section className="w-full bg-bg border-b border-faint">
+        {/* Hero */}
+        <section className="w-full bg-transparent border-b border-faint pt-[64px] md:pt-[80px]">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-12 md:pt-24 md:pb-20">
           <FadeUp>
             <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
@@ -84,7 +85,8 @@ export default function ServicesPage() {
             </p>
           </FadeUp>
         </div>
-      </section>
+        </section>
+      </div>
 
       {/* Engagements */}
       <section className="w-full bg-bg border-b border-faint">

@@ -14,10 +14,11 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main>
-      <Nav />
+      <div className="relative bg-bg hero-bg">
+        <div className="absolute inset-x-0 top-0 z-10"><Nav /></div>
 
-      {/* Header */}
-      <section className="w-full bg-bg">
+        {/* Header */}
+        <section className="w-full bg-transparent pt-[64px] md:pt-[80px]">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-6 md:pt-24 md:pb-8">
           <div className="max-w-[720px]">
             <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
@@ -33,7 +34,8 @@ export default function ContactPage() {
             </p>
           </div>
         </div>
-      </section>
+        </section>
+      </div>
 
       {/* Two paths */}
       <section className="w-full bg-bg">
