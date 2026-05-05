@@ -29,7 +29,7 @@ export default function Nav() {
           ))}
           <a
             href="/contact"
-            className="font-sans text-[13px] tracking-[0.04em] text-ink bg-amber px-5 py-2 hover:bg-[#D4A55A] transition-colors"
+            className="font-sans text-[13px] tracking-[0.04em] text-ink bg-amber px-5 py-2 hover:bg-[#D4A55A] transition-colors lg:mr-3"
           >
             Let&rsquo;s talk →
           </a>
