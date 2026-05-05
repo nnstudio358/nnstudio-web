@@ -48,7 +48,7 @@ export default function ContactPage() {
             </div>
 
             {/* Book a call */}
-            <div className="border border-faint p-8 md:p-12 flex flex-col" style={{ background: "#E0DAD1" }}>
+            <div className="border border-faint p-8 md:p-12 flex flex-col" style={{ background: "#F4F3EF" }}>
               <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-2">
                 Book a call
               </div>
