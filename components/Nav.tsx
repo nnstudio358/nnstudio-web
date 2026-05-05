@@ -9,10 +9,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav
-      className="w-full border-b border-faint"
-      style={{ backgroundColor: "rgba(237, 236, 232, 0.82)" }}
-    >
+    <nav className="w-full border-b border-faint">
       <div className="max-w-[1440px] mx-auto flex items-center justify-between px-5 md:px-10 lg:px-16 h-[64px] md:h-[80px]">
         {/* Logo */}
         <a href="/" className="flex items-center">
