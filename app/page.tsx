@@ -23,7 +23,10 @@ export default function Home() {
         className="relative bg-bg"
         style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23232520' fill-opacity='0.13' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\"), radial-gradient(ellipse at 80% 10%, #E0DAD1 0%, #EDECE8 60%)" }}
       >
-        <Nav />
+        {/* Nav floats over hero so the shared background shows through it */}
+        <div className="absolute inset-x-0 top-0 z-10">
+          <Nav />
+        </div>
         <Hero />
         {/* Left guide — x-aligned with logo / left content edge */}
         <div

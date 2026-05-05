@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="w-full bg-transparent">
+    <section className="w-full bg-transparent pt-[64px] md:pt-[80px]">
       <div className="max-w-[1440px] mx-auto">
         <div className="px-5 md:px-10 lg:pl-28 lg:pr-16 pt-16 pb-20 md:pt-24 md:pb-32 max-w-[860px]">
           <motion.h1
