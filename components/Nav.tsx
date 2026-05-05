@@ -9,7 +9,10 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="w-full border-b border-faint bg-bg">
+    <nav
+      className="w-full border-b border-faint bg-bg"
+      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23232520' fill-opacity='0.13' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\")" }}
+    >
       <div className="max-w-[1440px] mx-auto flex items-center justify-between px-5 md:px-10 lg:px-16 h-[64px] md:h-[80px]">
         {/* Logo */}
         <a href="/" className="flex items-center">
