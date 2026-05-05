@@ -3,23 +3,11 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="w-full bg-bg relative">
-
-      {/* Texture zones — desktop only, one per column defined by the vertical grid lines */}
-      {/* Zone 1: left margin — ink 0.13 */}
-      <div className="hidden lg:block absolute inset-y-0 pointer-events-none"
-        style={{ left: 0, right: "min(calc(100% - 64px), calc(50% + 656px))", backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23232520' fill-opacity='0.13' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\")" }} />
-      {/* Zone 2: main content — ink 0.09 */}
-      <div className="hidden lg:block absolute inset-y-0 pointer-events-none"
-        style={{ left: "max(64px, calc(50% - 656px))", right: "max(194px, calc(50% - 526px))", backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23232520' fill-opacity='0.09' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\")" }} />
-      {/* Zone 3: button channel — amber 0.18 */}
-      <div className="hidden lg:block absolute inset-y-0 pointer-events-none"
-        style={{ left: "min(calc(100% - 194px), calc(50% + 526px))", right: "max(64px, calc(50% - 656px))", backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23C8923A' fill-opacity='0.18' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\")" }} />
-      {/* Zone 4: right margin — amber 0.28 */}
-      <div className="hidden lg:block absolute inset-y-0 pointer-events-none"
-        style={{ left: "min(calc(100% - 64px), calc(50% + 656px))", right: 0, backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23C8923A' fill-opacity='0.28' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\")" }} />
-
-      <div className="relative z-[1] max-w-[1440px] mx-auto">
+    <section
+      className="w-full bg-bg"
+      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23232520' fill-opacity='0.13' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\"), radial-gradient(ellipse at 20% 90%, #E0DAD1 0%, #EDECE8 60%)" }}
+    >
+      <div className="max-w-[1440px] mx-auto">
         <div className="px-5 md:px-10 lg:pl-28 lg:pr-16 pt-16 pb-20 md:pt-24 md:pb-32 max-w-[860px]">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
