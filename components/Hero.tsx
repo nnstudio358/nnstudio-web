@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       className="w-full bg-bg"
-      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23232520' fill-opacity='0.13' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\"), radial-gradient(ellipse at 20% 90%, #E0DAD1 0%, #EDECE8 60%)" }}
+      style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23232520' fill-opacity='0.13' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E\"), radial-gradient(ellipse at 80% 10%, #E0DAD1 0%, #EDECE8 60%)" }}
     >
       <div className="max-w-[1440px] mx-auto">
         <div className="px-5 md:px-10 lg:pl-28 lg:pr-16 pt-16 pb-20 md:pt-24 md:pb-32 max-w-[860px]">
