@@ -24,11 +24,18 @@ export default function ProblemAndPillars() {
   return (
     <section className="w-full border-t border-faint bg-bg relative overflow-hidden">
 
-      {/* Centered gradient — lightens dot texture behind the problem statement */}
+      {/* Amber wash at top — warm tint where section meets LogoStrip */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at 50% 28%, rgba(253,252,248,0.75) 0%, transparent 58%)',
+          background: 'linear-gradient(to bottom, rgba(200,146,58,0.07) 0%, transparent 32%)',
+        }}
+      />
+      {/* Brightening spotlight at bottom — lifts dot texture behind problem text */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 88%, rgba(253,252,248,0.75) 0%, transparent 52%)',
           mixBlendMode: 'screen',
         }}
       />
@@ -59,7 +66,7 @@ export default function ProblemAndPillars() {
 
       {/* Pillars */}
       <div className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pb-16 md:pb-24 lg:pb-32">
-        <div className="border border-faint grid grid-cols-1 lg:grid-cols-3" style={{ backgroundColor: 'rgba(200,146,58,0.05)' }}>
+        <div className="border border-faint grid grid-cols-1 lg:grid-cols-3" style={{ backgroundColor: '#EDECE8' }}>
           {PILLARS.map((pillar, index) => (
             <motion.div
               key={pillar.name}
