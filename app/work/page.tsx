@@ -73,6 +73,8 @@ const FEATURED = [
       { value: "775", label: "Visitors" },
       { value: "928", label: "clicks in 1,331 views" },
     ],
+    headlineMaxWidth: "680px",
+    bodyMaxWidth: "585px",
     video: "/work-intralinks.mp4",
   },
 ];
@@ -196,7 +198,7 @@ export default function WorkPage() {
           </div>
 
           <div className="divide-y divide-faint">
-            {FEATURED.map(({ client, headline, deliverables, industry, body, metrics, image, imagePosition, imageFit, imagePadding, primaryBg, headlineMaxWidth, secondaryImage, secondaryImagePosition, secondaryFlex, secondaryBg, video }: { client: string; headline: React.ReactNode; deliverables: string; industry: string; body: string[]; metrics: { value: string; label: string; logo?: string }[]; image?: string; imagePosition?: string; imageFit?: string; imagePadding?: string; primaryBg?: string; headlineMaxWidth?: string; secondaryImage?: string; secondaryImagePosition?: string; secondaryFlex?: number; secondaryBg?: string; video?: string }) => (
+            {FEATURED.map(({ client, headline, deliverables, industry, body, metrics, image, imagePosition, imageFit, imagePadding, primaryBg, headlineMaxWidth, bodyMaxWidth, secondaryImage, secondaryImagePosition, secondaryFlex, secondaryBg, video }: { client: string; headline: React.ReactNode; deliverables: string; industry: string; body: string[]; metrics: { value: string; label: string; logo?: string }[]; image?: string; imagePosition?: string; imageFit?: string; imagePadding?: string; primaryBg?: string; headlineMaxWidth?: string; bodyMaxWidth?: string; secondaryImage?: string; secondaryImagePosition?: string; secondaryFlex?: number; secondaryBg?: string; video?: string }) => (
               <FadeUp key={client}>
                 <div className="py-12 md:py-20">
 
@@ -216,7 +218,7 @@ export default function WorkPage() {
                   </h2>
 
                   {/* Body copy */}
-                  <div className="space-y-5 max-w-[560px] mb-16">
+                  <div className="space-y-5 mb-16" style={{ maxWidth: bodyMaxWidth ?? '560px' }}>
                     {body.map((para, i) => (
                       <p key={i} className="font-sans text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
                         {para}
@@ -358,7 +360,7 @@ export default function WorkPage() {
       <section className="w-full" style={{ backgroundColor: '#2D3D46' }}>
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
           <FadeUp>
-            <div className="max-w-[820px]">
+            <div className="max-w-[740px]">
               <h2
                 className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-6 md:mb-8"
                 style={{ color: "#F4F3EF" }}
