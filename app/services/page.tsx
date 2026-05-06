@@ -76,7 +76,7 @@ export default function ServicesPage() {
             <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
               Services
             </div>
-            <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10 max-w-[860px]">
+            <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10 max-w-[980px]">
               Senior-level design output. <em className="italic">Works to brief.</em>
             </h1>
             <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[760px]" style={{ color: "#6B6A63" }}>
@@ -215,7 +215,7 @@ export default function ServicesPage() {
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
           <div className="max-w-[860px]">
             <h2
-              className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-6 md:mb-8 text-balance"
+              className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-6 md:mb-8"
               style={{ color: "#F4F3EF" }}
             >
               Not sure which engagement fits? <em className="italic">Let&rsquo;s figure it out.</em>
