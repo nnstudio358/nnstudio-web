@@ -22,7 +22,16 @@ const PILLARS = [
 
 export default function ProblemAndPillars() {
   return (
-    <section className="w-full border-t border-faint bg-bg">
+    <section className="w-full border-t border-faint bg-bg relative overflow-hidden">
+
+      {/* Centered gradient — lightens dot texture behind the problem statement */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 28%, rgba(253,252,248,0.75) 0%, transparent 58%)',
+          mixBlendMode: 'screen',
+        }}
+      />
 
       {/* Problem */}
       <motion.div
@@ -30,7 +39,7 @@ export default function ProblemAndPillars() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-        className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32 flex flex-col items-center text-center"
+        className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32 flex flex-col items-center text-center"
       >
         <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10">
           Design shouldn&rsquo;t be a bottleneck.
@@ -49,8 +58,8 @@ export default function ProblemAndPillars() {
       </motion.div>
 
       {/* Pillars */}
-      <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pb-16 md:pb-24 lg:pb-32">
-        <div className="border border-faint grid grid-cols-1 lg:grid-cols-3">
+      <div className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pb-16 md:pb-24 lg:pb-32">
+        <div className="border border-faint grid grid-cols-1 lg:grid-cols-3" style={{ backgroundColor: 'rgba(200,146,58,0.05)' }}>
           {PILLARS.map((pillar, index) => (
             <motion.div
               key={pillar.name}
