@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 
-export const viewport: Viewport = { themeColor: "#232520" };
+export const viewport: Viewport = { themeColor: "#3A4A52" };
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Image from "next/image";
@@ -15,10 +15,15 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main>
-      <Nav />
-
-      {/* Opening — copy left, photo right */}
-      <section className="w-full bg-bg border-b border-faint">
+      <div className="relative bg-bg hero-bg">
+        <div className="absolute inset-x-0 top-0 z-10"><Nav /></div>
+        <div className="absolute inset-0 pointer-events-none z-0" style={{
+          background: "radial-gradient(ellipse at 90% -5%, rgba(255,253,250,0.88) 0%, rgba(244,243,239,0.5) 35%, transparent 62%)",
+          mixBlendMode: "screen",
+        }} />
+        <div className="relative z-[1]">
+        {/* Opening — copy left, photo right */}
+        <section className="w-full bg-transparent border-b border-faint pt-[64px] md:pt-[80px]">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-12 md:pt-24 md:pb-20">
           <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-12 md:gap-24 items-center">
 
@@ -26,15 +31,13 @@ export default function AboutPage() {
               <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6 md:mb-8">
                 About
               </div>
-              <h1 className="font-serif text-[32px] md:text-[44px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-6 md:mb-8">
-                I&rsquo;m Nathan Billman.{" "}
-                <br className="lg:hidden" />
-                I run nnstudio.
+              <h1 className="font-serif text-[32px] md:text-[44px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-6 md:mb-8 text-balance">
+                I&rsquo;m Nathan Billman. I run nnstudio.
               </h1>
               <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
                 A solo design practice for in-house marketing and brand teams — and the
                 agencies that serve them — who need senior design output without the
-                management overhead.
+                back-and-forth.
               </p>
             </FadeUp>
 
@@ -52,11 +55,17 @@ export default function AboutPage() {
 
           </div>
         </div>
-      </section>
+        </section>
+        </div>
+      </div>
 
       {/* Body sections */}
-      <section className="w-full bg-bg border-b border-faint">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-12 md:py-24">
+      <section className="w-full bg-bg border-b border-faint relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'radial-gradient(ellipse at 50% 100%, rgba(253,252,248,0.8) 0%, transparent 55%)',
+          mixBlendMode: 'screen',
+        }} />
+        <div className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-12 md:py-24">
           <div className="max-w-[1040px] mx-auto">
 
             <FadeUp>
@@ -144,7 +153,7 @@ export default function AboutPage() {
       </section>
 
       {/* Closing CTA — dark */}
-      <section className="w-full bg-ink">
+      <section className="w-full" style={{ backgroundColor: '#2D3D46' }}>
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
           <FadeUp>
           <div className="max-w-[680px]">

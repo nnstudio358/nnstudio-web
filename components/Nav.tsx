@@ -9,7 +9,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="w-full border-b border-faint bg-bg">
+    <nav className="w-full border-b border-faint">
       <div className="max-w-[1440px] mx-auto flex items-center justify-between px-5 md:px-10 lg:px-16 h-[64px] md:h-[80px]">
         {/* Logo */}
         <a href="/" className="flex items-center">
@@ -29,7 +29,7 @@ export default function Nav() {
           ))}
           <a
             href="/contact"
-            className="font-sans text-[13px] tracking-[0.04em] text-ink bg-amber px-5 py-2 hover:bg-[#D4A55A] transition-colors"
+            className="font-sans text-[13px] tracking-[0.04em] text-ink bg-amber px-5 py-2 hover:bg-[#D4A55A] transition-colors lg:mr-2"
           >
             Let&rsquo;s talk →
           </a>

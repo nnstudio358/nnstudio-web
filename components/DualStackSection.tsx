@@ -22,8 +22,16 @@ const ADOBE_ITEMS = [
 
 export default function DualStackSection() {
   return (
-    <section className="w-full bg-bg border-t border-faint">
-      <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
+    <section className="w-full bg-bg border-t border-faint relative overflow-hidden">
+      {/* Bottom spotlight — draws focus to the list area and flows into ClosingCTA */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(253,252,248,0.8) 0%, transparent 55%)',
+          mixBlendMode: 'screen',
+        }}
+      />
+      <div className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
 
         {/* Header */}
         <motion.div
@@ -35,11 +43,9 @@ export default function DualStackSection() {
         >
           <div>
             <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10">
-              Most designers live in one world.
-              <br className="hidden md:block" />
-              {" "}<em className="italic">Your brand lives in both.</em>
+              Most designers live in one world. <em className="italic">Your brand lives in both.</em>
             </h2>
-            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[500px]" style={{ color: "#6B6A63" }}>
+            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[600px]" style={{ color: "#6B6A63" }}>
               Marketing teams need design that works across every format — from a Figma
               component library to a 20-page technical whitepaper. Most designers force
               you to split that work across two vendors. I don&rsquo;t.
@@ -99,16 +105,6 @@ export default function DualStackSection() {
               ))}
             </ul>
 
-          </div>
-
-          <div
-            className="flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-amber items-center justify-center z-10"
-            aria-hidden="true"
-          >
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <line x1="7" y1="1" x2="7" y2="13" stroke="#EDECE8" strokeWidth="1.5" strokeLinecap="round"/>
-              <line x1="1" y1="7" x2="13" y2="7" stroke="#EDECE8" strokeWidth="1.5" strokeLinecap="round"/>
-            </svg>
           </div>
 
         </motion.div>

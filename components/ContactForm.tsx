@@ -117,6 +117,7 @@ export default function ContactForm() {
         type="submit"
         disabled={pending}
         className="font-sans text-[14px] tracking-[0.04em] border border-faint text-muted px-9 py-4 hover:text-ink hover:border-ink transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        style={{ backgroundColor: '#EDECE8' }}
       >
         {pending ? 'Sending…' : 'Send it →'}
       </button>

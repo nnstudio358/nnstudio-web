@@ -16,12 +16,13 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nnstudio.com"),
   title: {
     default: "nnstudio — Senior Design Partner",
     template: "%s | nnstudio",
   },
   description:
-    "Senior design partner for in-house marketing and brand teams — and white-label capacity for the agencies that serve them. Design systems, eBooks, whitepapers, decks, and print. One partner, no management overhead.",
+    "Senior design partner for in-house marketing and brand teams — and white-label capacity for the agencies that serve them. Design systems, eBooks, whitepapers, decks, and print. One partner, full brand consistency.",
   openGraph: {
     siteName: "nnstudio",
     type: "website",

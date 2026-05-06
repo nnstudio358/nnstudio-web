@@ -22,7 +22,16 @@ const PILLARS = [
 
 export default function ProblemAndPillars() {
   return (
-    <section className="w-full border-t border-faint bg-bg">
+    <section className="w-full border-t border-faint bg-bg relative overflow-hidden">
+
+      {/* Brightening spotlight at bottom — lifts dot texture behind problem text */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 88%, rgba(253,252,248,0.75) 0%, transparent 52%)',
+          mixBlendMode: 'screen',
+        }}
+      />
 
       {/* Problem */}
       <motion.div
@@ -30,26 +39,26 @@ export default function ProblemAndPillars() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-        className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32 flex flex-col items-center text-center"
+        className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32 flex flex-col items-center text-center"
       >
         <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10">
           Design shouldn&rsquo;t be a bottleneck.
         </h2>
         <div className="space-y-6 font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[640px]" style={{ color: "#6B6A63" }}>
           <p>
-            If you&rsquo;re running an in-house marketing or brand team, you&rsquo;ve felt it:
-            senior designers who need constant direction, revision cycles that eat your
-            timeline, and final files that create more work than they solve.
+            You&rsquo;ve worked with designers — maybe agencies — and still found yourself
+            directing the work, managing revision cycles, and receiving final files
+            that create more work than they solve.
           </p>
           <p>
-            You don&rsquo;t need more overhead. You need someone who takes the brief,
-            asks the right questions once, and delivers.
+            You don&rsquo;t need to manage the design process. You need a partner who
+            already knows what&rsquo;s needed and delivers without being directed.
           </p>
         </div>
       </motion.div>
 
       {/* Pillars */}
-      <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pb-16 md:pb-24 lg:pb-32">
+      <div className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pb-16 md:pb-24 lg:pb-32">
         <div className="border border-faint grid grid-cols-1 lg:grid-cols-3">
           {PILLARS.map((pillar, index) => (
             <motion.div
@@ -66,7 +75,7 @@ export default function ProblemAndPillars() {
               <h3 className="font-serif text-[32px] md:text-[36px] lg:text-[40px] italic font-normal leading-[1.1] tracking-[-0.02em] text-ink mb-6">
                 {pillar.name}
               </h3>
-              <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
+              <p className={`font-sans text-[16px] md:text-[17px] leading-[1.65] font-light${index === 2 ? ' pr-6 lg:pr-8' : ''}`} style={{ color: "#6B6A63" }}>
                 {pillar.body}
               </p>
             </motion.div>

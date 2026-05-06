@@ -11,7 +11,7 @@ const METRICS = [
 
 export default function TurnoFeature() {
   return (
-    <section className="w-full bg-ink">
+    <section className="w-full" style={{ backgroundColor: '#2D3D46' }}>
       <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:pt-24 md:pb-32">
 
         <motion.div
@@ -24,7 +24,7 @@ export default function TurnoFeature() {
             Featured work
           </div>
 
-          <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] tracking-[-0.02em] mb-10 md:mb-16 max-w-[820px]" style={{ color: "#F4F3EF" }}>
+          <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] tracking-[-0.02em] mb-10 md:mb-16 max-w-[750px]" style={{ color: "#F4F3EF" }}>
             A content system that converted 65% of visitors into new signups.
           </h2>
         </motion.div>
@@ -44,7 +44,7 @@ export default function TurnoFeature() {
               the same audience, under the same brand.
             </p>
 
-            <div className="grid grid-cols-3 gap-4 md:gap-8 mb-10 md:mb-14 border-t pt-8 md:pt-10" style={{ borderColor: "#252523" }}>
+            <div className="grid grid-cols-3 gap-4 md:gap-8 mb-10 md:mb-14 border-t pt-8 md:pt-10" style={{ borderColor: "#3D4D55" }}>
               {METRICS.map(({ value, label }) => (
                 <div key={label}>
                   <div className="font-serif text-[28px] md:text-[36px] font-normal tracking-[-0.02em]" style={{ color: "#C8923A" }}>
@@ -57,12 +57,20 @@ export default function TurnoFeature() {
               ))}
             </div>
 
-            <a
-              href="/contact"
-              className="inline-block font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
-            >
-              Let&rsquo;s talk →
-            </a>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8">
+              <a
+                href="/contact"
+                className="font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
+              >
+                Let&rsquo;s talk →
+              </a>
+              <a
+                href="/work"
+                className="font-sans text-[14px] tracking-[0.04em] px-9 py-4 border border-[#3D4D55] text-[#C8C2BA] transition-colors hover:text-[#F4F3EF] hover:border-[#F4F3EF]"
+              >
+                See the work →
+              </a>
+            </div>
           </motion.div>
 
           {/* Right — image */}

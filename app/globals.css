@@ -7,7 +7,7 @@
 
   /* Colors */
   --color-bg:       #EDECE8;
-  --color-ink:      #232520;
+  --color-ink:      #3A4A52;
   --color-muted:    #8A8A82;
   --color-faint:    #D6D2CA;
   --color-rule:     #C8C2BA;
@@ -18,5 +18,15 @@
 
 html, body {
   background: #EDECE8;
-  color: #232520;
+  color: #3A4A52;
+}
+
+.bg-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23232520' fill-opacity='0.13' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.hero-bg {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23232520' fill-opacity='0.13' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 90% -5%, #FDFCF8 0%, #F4F3EF 28%, transparent 58%);
 }
