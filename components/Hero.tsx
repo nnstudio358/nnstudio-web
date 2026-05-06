@@ -10,9 +10,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10 max-w-[780px]"
+            className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10"
           >
-            Senior design partner for in-house <em className="italic">marketing teams.</em>
+            Senior design partner.
           </motion.h1>
 
           <motion.p
@@ -22,9 +22,10 @@ export default function Hero() {
             className="font-sans text-[16px] md:text-[19px] leading-[1.65] max-w-[480px] mb-10 md:mb-14 font-light"
             style={{ color: "#6B6A63" }}
           >
-            Direct partner for marketing and brand teams — and white-label
-            capacity for the agencies that serve them. Take the brief, ask the
-            right questions once, deliver.
+            Direct partner for in-house marketing and brand teams at B2B
+            organizations — and white-label senior capacity for the agencies
+            that serve them. Take the brief, ask the right questions once,
+            deliver.
           </motion.p>
 
           <motion.div
