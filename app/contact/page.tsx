@@ -16,7 +16,11 @@ export default function ContactPage() {
     <main>
       <div className="relative bg-bg hero-bg">
         <div className="absolute inset-x-0 top-0 z-10"><Nav /></div>
-
+        <div className="absolute inset-0 pointer-events-none z-0" style={{
+          background: "radial-gradient(ellipse at 90% -5%, rgba(255,253,250,0.88) 0%, rgba(244,243,239,0.5) 35%, transparent 62%)",
+          mixBlendMode: "screen",
+        }} />
+        <div className="relative z-[1]">
         {/* Header */}
         <section className="w-full bg-transparent pt-[64px] md:pt-[80px]">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-6 md:pt-24 md:pb-8">
@@ -35,6 +39,7 @@ export default function ContactPage() {
           </div>
         </div>
         </section>
+        </div>
       </div>
 
       {/* Two paths */}
