@@ -220,7 +220,7 @@ export default function ServicesPage() {
             >
               Not sure which engagement fits? <em className="italic">Let&rsquo;s figure it out.</em>
             </h2>
-            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14 max-w-[560px]" style={{ color: "#C8C2BA" }}>
+            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14 max-w-[500px]" style={{ color: "#C8C2BA" }}>
               Most clients know what they need to get done — not necessarily which
               structure makes sense. Reach out and describe the work.
               We&rsquo;ll find the right fit.
