@@ -21,15 +21,13 @@ export default function ClosingCTA() {
           className="relative z-[1] max-w-[800px]"
         >
           <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10">
-            If you need senior-level design output without the management overhead —{" "}
+            If that&rsquo;s the kind of design partner you&rsquo;re looking for —{" "}
             <em className="italic">let&rsquo;s talk.</em>
           </h2>
-          <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light mb-4 max-w-[640px]" style={{ color: "#6B6A63" }}>
-            I work directly with marketing and brand teams at B2B organizations.
-          </p>
           <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light mb-10 md:mb-14 max-w-[640px]" style={{ color: "#6B6A63" }}>
-            For agencies: I operate as white-label senior capacity — no client
-            management required on your end.
+            I work directly with in-house marketing and brand teams at B2B
+            organizations, and as white-label senior capacity for the agencies
+            that serve them.
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10">
             <a

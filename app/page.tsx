@@ -38,8 +38,8 @@ export default function Home() {
       </div>
       <LogoStrip />
       <ProblemAndPillars />
-      <TurnoFeature />
       <DualStackSection />
+      <TurnoFeature />
       <ClosingCTA />
       <Footer />
     </main>
