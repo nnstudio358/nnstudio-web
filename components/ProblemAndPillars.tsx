@@ -28,7 +28,8 @@ export default function ProblemAndPillars() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'linear-gradient(to bottom, rgba(200,146,58,0.07) 0%, transparent 32%)',
+          background: 'linear-gradient(to bottom, rgba(200,146,58,0.05) 0%, transparent 32%)',
+          mixBlendMode: 'multiply',
         }}
       />
       {/* Brightening spotlight at bottom — lifts dot texture behind problem text */}
@@ -66,7 +67,7 @@ export default function ProblemAndPillars() {
 
       {/* Pillars */}
       <div className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pb-16 md:pb-24 lg:pb-32">
-        <div className="border border-faint grid grid-cols-1 lg:grid-cols-3" style={{ backgroundColor: '#EDECE8' }}>
+        <div className="border border-faint grid grid-cols-1 lg:grid-cols-3" style={{ backgroundColor: '#F4F3EF' }}>
           {PILLARS.map((pillar, index) => (
             <motion.div
               key={pillar.name}
