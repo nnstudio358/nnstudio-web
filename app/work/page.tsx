@@ -216,7 +216,7 @@ export default function WorkPage() {
                   </h2>
 
                   {/* Body copy */}
-                  <div className="space-y-5 max-w-[640px] mb-16">
+                  <div className="space-y-5 max-w-[560px] mb-16">
                     {body.map((para, i) => (
                       <p key={i} className="font-sans text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
                         {para}
@@ -358,7 +358,7 @@ export default function WorkPage() {
       <section className="w-full" style={{ backgroundColor: '#2D3D46' }}>
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
           <FadeUp>
-            <div className="max-w-[680px]">
+            <div className="max-w-[820px]">
               <h2
                 className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-6 md:mb-8"
                 style={{ color: "#F4F3EF" }}
