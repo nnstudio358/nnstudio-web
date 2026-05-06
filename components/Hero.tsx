@@ -5,12 +5,12 @@ export default function Hero() {
   return (
     <section className="w-full bg-transparent pt-[64px] md:pt-[80px]">
       <div className="max-w-[1440px] mx-auto">
-        <div className="px-5 md:px-10 lg:pl-28 lg:pr-16 pt-16 pb-20 md:pt-24 md:pb-32 max-w-[860px]">
+        <div className="px-5 md:px-10 lg:px-16 pt-16 pb-20 md:pt-24 md:pb-32 max-w-[860px]">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10 max-w-[680px]"
+            className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10 max-w-[700px]"
           >
             Senior design partner for in-house <em className="italic">marketing teams.</em>
           </motion.h1>
