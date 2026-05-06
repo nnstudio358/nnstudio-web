@@ -24,14 +24,6 @@ export default function ProblemAndPillars() {
   return (
     <section className="w-full border-t border-faint bg-bg relative overflow-hidden">
 
-      {/* Amber wash at top — warm tint where section meets LogoStrip */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: 'linear-gradient(to bottom, rgba(200,146,58,0.05) 0%, transparent 32%)',
-          mixBlendMode: 'multiply',
-        }}
-      />
       {/* Brightening spotlight at bottom — lifts dot texture behind problem text */}
       <div
         className="absolute inset-0 pointer-events-none"
