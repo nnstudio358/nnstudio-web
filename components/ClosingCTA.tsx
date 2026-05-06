@@ -24,10 +24,10 @@ export default function ClosingCTA() {
             If you need senior-level design output without the management overhead —{" "}
             <em className="italic">let&rsquo;s talk.</em>
           </h2>
-          <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light mb-4" style={{ color: "#6B6A63" }}>
+          <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light mb-4 max-w-[640px]" style={{ color: "#6B6A63" }}>
             I work directly with marketing and brand teams at B2B organizations.
           </p>
-          <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light mb-10 md:mb-14" style={{ color: "#6B6A63" }}>
+          <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light mb-10 md:mb-14 max-w-[640px]" style={{ color: "#6B6A63" }}>
             For agencies: I operate as white-label senior capacity — no client
             management required on your end.
           </p>

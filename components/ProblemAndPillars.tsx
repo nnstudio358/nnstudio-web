@@ -59,7 +59,7 @@ export default function ProblemAndPillars() {
 
       {/* Pillars */}
       <div className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pb-16 md:pb-24 lg:pb-32">
-        <div className="border border-faint grid grid-cols-1 lg:grid-cols-3" style={{ backgroundColor: '#F4F3EF' }}>
+        <div className="border border-faint grid grid-cols-1 lg:grid-cols-3">
           {PILLARS.map((pillar, index) => (
             <motion.div
               key={pillar.name}
@@ -75,7 +75,7 @@ export default function ProblemAndPillars() {
               <h3 className="font-serif text-[32px] md:text-[36px] lg:text-[40px] italic font-normal leading-[1.1] tracking-[-0.02em] text-ink mb-6">
                 {pillar.name}
               </h3>
-              <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
+              <p className={`font-sans text-[16px] md:text-[17px] leading-[1.65] font-light${index === 2 ? ' pr-6 lg:pr-8' : ''}`} style={{ color: "#6B6A63" }}>
                 {pillar.body}
               </p>
             </motion.div>
