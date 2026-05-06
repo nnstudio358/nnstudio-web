@@ -27,10 +27,8 @@ export default function AboutPage() {
               <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6 md:mb-8">
                 About
               </div>
-              <h1 className="font-serif text-[32px] md:text-[44px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-6 md:mb-8">
-                I&rsquo;m Nathan Billman.{" "}
-                <br className="lg:hidden" />
-                I run nnstudio.
+              <h1 className="font-serif text-[32px] md:text-[44px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-6 md:mb-8 text-balance">
+                I&rsquo;m Nathan Billman. I run nnstudio.
               </h1>
               <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
                 A solo design practice for in-house marketing and brand teams — and the
