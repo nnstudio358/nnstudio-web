@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import React from "react";
 
-export const viewport: Viewport = { themeColor: "#232520" };
+export const viewport: Viewport = { themeColor: "#3A4A52" };
 
 export const metadata: Metadata = {
   title: "Work",

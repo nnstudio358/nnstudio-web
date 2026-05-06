@@ -44,7 +44,7 @@ export default function TurnoFeature() {
               the same audience, under the same brand.
             </p>
 
-            <div className="grid grid-cols-3 gap-4 md:gap-8 mb-10 md:mb-14 border-t pt-8 md:pt-10" style={{ borderColor: "#252523" }}>
+            <div className="grid grid-cols-3 gap-4 md:gap-8 mb-10 md:mb-14 border-t pt-8 md:pt-10" style={{ borderColor: "#3D4D55" }}>
               {METRICS.map(({ value, label }) => (
                 <div key={label}>
                   <div className="font-serif text-[28px] md:text-[36px] font-normal tracking-[-0.02em]" style={{ color: "#C8923A" }}>
