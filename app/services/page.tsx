@@ -213,7 +213,7 @@ export default function ServicesPage() {
       {/* Closing CTA — dark */}
       <section className="w-full" style={{ backgroundColor: '#2D3D46' }}>
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
-          <div className="max-w-[860px]">
+          <div className="max-w-[720px]">
             <h2
               className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-6 md:mb-8"
               style={{ color: "#F4F3EF" }}
