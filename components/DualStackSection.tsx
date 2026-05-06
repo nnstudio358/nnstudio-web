@@ -22,8 +22,16 @@ const ADOBE_ITEMS = [
 
 export default function DualStackSection() {
   return (
-    <section className="w-full bg-bg border-t border-faint">
-      <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
+    <section className="w-full bg-bg border-t border-faint relative overflow-hidden">
+      {/* Bottom spotlight — draws focus to the list area and flows into ClosingCTA */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at 50% 100%, rgba(253,252,248,0.8) 0%, transparent 55%)',
+          mixBlendMode: 'screen',
+        }}
+      />
+      <div className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
 
         {/* Header */}
         <motion.div
