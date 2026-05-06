@@ -24,6 +24,14 @@ export default function Home() {
         <div className="absolute inset-x-0 top-0 z-10">
           <Nav />
         </div>
+        {/* Gradient overlay — screens against the dot texture so dots lighten in the upper right */}
+        <div
+          className="absolute inset-0 pointer-events-none z-0"
+          style={{
+            background: "radial-gradient(ellipse at 90% -5%, rgba(255,253,250,0.88) 0%, rgba(244,243,239,0.5) 35%, transparent 62%)",
+            mixBlendMode: "screen",
+          }}
+        />
         <Hero />
         {/* Left guide — x-aligned with logo / left content edge */}
         <div

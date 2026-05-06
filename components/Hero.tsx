@@ -43,7 +43,7 @@ export default function Hero() {
             </a>
             <a
               href="/work"
-              className="font-sans text-[14px] text-muted border border-faint px-9 py-4 hover:text-ink hover:border-ink transition-colors"
+              className="font-sans text-[14px] text-muted bg-bg border border-faint px-9 py-4 hover:text-ink hover:border-ink transition-colors"
             >
               See the work
             </a>
