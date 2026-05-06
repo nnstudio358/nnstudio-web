@@ -46,13 +46,13 @@ export default function ProblemAndPillars() {
         </h2>
         <div className="space-y-6 font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[640px]" style={{ color: "#6B6A63" }}>
           <p>
-            If you&rsquo;re running an in-house marketing or brand team, you&rsquo;ve felt it:
-            senior designers who need constant direction, revision cycles that eat your
-            timeline, and final files that create more work than they solve.
+            You&rsquo;ve worked with designers — maybe agencies — and still found yourself
+            directing the work, managing revision cycles, and receiving final files
+            that create more work than they solve.
           </p>
           <p>
-            You don&rsquo;t need more overhead. You need someone who takes the brief,
-            asks the right questions once, and delivers.
+            You don&rsquo;t need to manage the design process. You need a partner who
+            already knows what&rsquo;s needed and delivers without being directed.
           </p>
         </div>
       </motion.div>
