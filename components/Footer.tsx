@@ -3,7 +3,7 @@ import NNStudioLogo from "@/components/NNStudioLogo";
 export default function Footer({ dark = false }: { dark?: boolean }) {
   if (dark) {
     return (
-      <footer className="w-full bg-ink border-t" style={{ borderColor: "#3D4D55" }}>
+      <footer className="w-full border-t" style={{ backgroundColor: '#2D3D46', borderColor: "#3D4D55" }}>
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-8 md:py-10 flex flex-col lg:flex-row gap-4 lg:gap-0 items-start lg:items-baseline justify-between">
           <div className="flex flex-col sm:flex-row sm:items-baseline gap-3 sm:gap-4">
             <NNStudioLogo height={16} color="#F4F3EF" />

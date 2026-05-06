@@ -313,7 +313,7 @@ export default function WorkPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {MORE_WORK.map(({ client, deliverables, industry, description, image, imagePosition, imageBg }, index) => (
               <FadeUp key={client} delay={index * 0.07} className="h-full">
-                <div className="bg-bg flex flex-col border border-faint h-full transition-colors duration-500 hover:bg-offwhite">
+                <div className="flex flex-col border border-faint h-full transition-colors duration-500 hover:bg-offwhite" style={{ backgroundColor: '#EDECE8' }}>
                   {image ? (
                     <div className="relative w-full aspect-[4/3] border-b border-faint overflow-hidden" style={imageBg ? { background: imageBg } : undefined}>
                       <Image
