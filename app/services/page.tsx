@@ -137,12 +137,19 @@ export default function ServicesPage() {
             ))}
           </div>
 
-          <div className="mt-12 md:mt-16">
+          <div className="mt-12 md:mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10">
             <a
               href="/contact"
-              className="inline-block font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
+              className="font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
             >
               Let&rsquo;s talk →
+            </a>
+            <a
+              href="/work"
+              className="font-sans text-[14px] text-muted border border-faint px-9 py-4 hover:text-ink hover:border-ink transition-colors"
+              style={{ backgroundColor: '#EDECE8' }}
+            >
+              See the work →
             </a>
           </div>
 
@@ -193,16 +200,6 @@ export default function ServicesPage() {
                 ))}
               </ul>
 
-            </div>
-
-            <div
-              className="flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-amber items-center justify-center z-10"
-              aria-hidden="true"
-            >
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <line x1="7" y1="1" x2="7" y2="13" stroke="#EDECE8" strokeWidth="1.5" strokeLinecap="round"/>
-                <line x1="1" y1="7" x2="13" y2="7" stroke="#EDECE8" strokeWidth="1.5" strokeLinecap="round"/>
-              </svg>
             </div>
 
           </div>

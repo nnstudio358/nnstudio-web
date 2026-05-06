@@ -8,7 +8,7 @@ export default function ClosingCTA() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at 50% 0%, rgba(253,252,248,0.8) 0%, transparent 55%)',
+          background: 'radial-gradient(ellipse at 15% 100%, rgba(253,252,248,0.8) 0%, transparent 55%)',
           mixBlendMode: 'screen',
         }}
       />

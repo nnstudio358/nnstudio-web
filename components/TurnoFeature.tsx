@@ -57,12 +57,20 @@ export default function TurnoFeature() {
               ))}
             </div>
 
-            <a
-              href="/contact"
-              className="inline-block font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
-            >
-              Let&rsquo;s talk →
-            </a>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8">
+              <a
+                href="/contact"
+                className="font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
+              >
+                Let&rsquo;s talk →
+              </a>
+              <a
+                href="/work"
+                className="font-sans text-[14px] tracking-[0.04em] px-9 py-4 border border-[#3D4D55] text-[#C8C2BA] transition-colors hover:text-[#F4F3EF] hover:border-[#F4F3EF]"
+              >
+                See the work →
+              </a>
+            </div>
           </motion.div>
 
           {/* Right — image */}

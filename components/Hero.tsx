@@ -45,7 +45,7 @@ export default function Hero() {
               className="font-sans text-[14px] text-muted border border-faint px-9 py-4 hover:text-ink hover:border-ink transition-colors"
               style={{ backgroundColor: '#EDECE8' }}
             >
-              See the work
+              See the work →
             </a>
           </motion.div>
         </div>

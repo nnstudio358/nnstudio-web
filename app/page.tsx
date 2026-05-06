@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 export const metadata: Metadata = {
   title: "nnstudio — Senior Design Partner for In-House Marketing Teams",
   description:
-    "Senior design partner for enterprise marketing and brand teams. Figma design systems, Adobe marketing production — eBooks, whitepapers, decks, and print. One partner, full brand consistency, no management overhead.",
+    "Senior design partner for in-house marketing and brand teams at B2B organizations — and white-label capacity for the agencies that serve them. Figma design systems, Adobe marketing production — eBooks, whitepapers, decks, and print. One partner, full brand consistency.",
 };
 import Hero from "@/components/Hero";
 import LogoStrip from "@/components/LogoStrip";

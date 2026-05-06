@@ -37,7 +37,7 @@ export default function AboutPage() {
               <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
                 A solo design practice for in-house marketing and brand teams — and the
                 agencies that serve them — who need senior design output without the
-                management overhead.
+                back-and-forth.
               </p>
             </FadeUp>
 
