@@ -64,7 +64,11 @@ export default function ServicesPage() {
     <main>
       <div className="relative bg-bg hero-bg">
         <div className="absolute inset-x-0 top-0 z-10"><Nav /></div>
-
+        <div className="absolute inset-0 pointer-events-none z-0" style={{
+          background: "radial-gradient(ellipse at 90% -5%, rgba(255,253,250,0.88) 0%, rgba(244,243,239,0.5) 35%, transparent 62%)",
+          mixBlendMode: "screen",
+        }} />
+        <div className="relative z-[1]">
         {/* Hero */}
         <section className="w-full bg-transparent border-b border-faint pt-[64px] md:pt-[80px]">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-12 md:pt-24 md:pb-20">
@@ -72,10 +76,10 @@ export default function ServicesPage() {
             <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
               Services
             </div>
-            <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10 text-balance">
+            <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10 max-w-[860px]">
               Senior-level design output. <em className="italic">Works to brief.</em>
             </h1>
-            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[640px]" style={{ color: "#6B6A63" }}>
+            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[760px]" style={{ color: "#6B6A63" }}>
               I work with in-house marketing and brand teams — and as white-label
               capacity for the agencies that serve them. Strict brand standards,
               compliance requirements, multi-team sign-off: that&rsquo;s not a
@@ -85,11 +89,16 @@ export default function ServicesPage() {
           </FadeUp>
         </div>
         </section>
+        </div>
       </div>
 
       {/* Engagements */}
-      <section className="w-full bg-bg border-b border-faint">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
+      <section className="w-full bg-bg border-b border-faint relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'radial-gradient(ellipse at 50% 100%, rgba(253,252,248,0.8) 0%, transparent 55%)',
+          mixBlendMode: 'screen',
+        }} />
+        <div className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
 
           <FadeUp className="max-w-[720px] mb-6">
             <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-6 md:mb-8">
@@ -141,8 +150,12 @@ export default function ServicesPage() {
       </section>
 
       {/* One partner section */}
-      <section className="w-full bg-bg border-b border-faint">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
+      <section className="w-full bg-bg border-b border-faint relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'radial-gradient(ellipse at 50% 0%, rgba(253,252,248,0.8) 0%, transparent 55%)',
+          mixBlendMode: 'screen',
+        }} />
+        <div className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
 
           <div className="mb-12 md:mb-20">
             <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10 lg:whitespace-nowrap">
@@ -198,16 +211,16 @@ export default function ServicesPage() {
       </section>
 
       {/* Closing CTA — dark */}
-      <section className="w-full bg-ink">
+      <section className="w-full" style={{ backgroundColor: '#2D3D46' }}>
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
-          <div className="max-w-[720px]">
+          <div className="max-w-[860px]">
             <h2
               className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-6 md:mb-8 text-balance"
               style={{ color: "#F4F3EF" }}
             >
               Not sure which engagement fits? <em className="italic">Let&rsquo;s figure it out.</em>
             </h2>
-            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14" style={{ color: "#C8C2BA" }}>
+            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14 max-w-[560px]" style={{ color: "#C8C2BA" }}>
               Most clients know what they need to get done — not necessarily which
               structure makes sense. Reach out and describe the work.
               We&rsquo;ll find the right fit.
