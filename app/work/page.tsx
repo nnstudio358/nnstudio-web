@@ -149,7 +149,11 @@ export default function WorkPage() {
     <main>
       <div className="relative bg-bg hero-bg">
         <div className="absolute inset-x-0 top-0 z-10"><Nav /></div>
-
+        <div className="absolute inset-0 pointer-events-none z-0" style={{
+          background: "radial-gradient(ellipse at 90% -5%, rgba(255,253,250,0.88) 0%, rgba(244,243,239,0.5) 35%, transparent 62%)",
+          mixBlendMode: "screen",
+        }} />
+        <div className="relative z-[1]">
         {/* Page intro */}
         <section className="w-full bg-transparent border-b border-faint pt-[64px] md:pt-[80px]">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-12 md:pt-24 md:pb-20">
@@ -169,6 +173,7 @@ export default function WorkPage() {
               <a
                 href="/contact"
                 className="inline-block font-sans text-[14px] tracking-[0.04em] border border-faint text-muted px-9 py-4 hover:text-ink hover:border-ink transition-colors"
+                style={{ backgroundColor: '#EDECE8' }}
               >
                 Let&rsquo;s talk →
               </a>
@@ -176,11 +181,16 @@ export default function WorkPage() {
           </FadeUp>
         </div>
         </section>
+        </div>
       </div>
 
       {/* Featured work */}
-      <section className="w-full bg-bg">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-12 md:py-20">
+      <section className="w-full bg-bg relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: 'radial-gradient(ellipse at 50% 50%, rgba(253,252,248,0.7) 0%, transparent 60%)',
+          mixBlendMode: 'screen',
+        }} />
+        <div className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-12 md:py-20">
           <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-8">
             Featured case studies
           </div>
@@ -291,6 +301,7 @@ export default function WorkPage() {
             ))}
           </div>
         </div>
+        </div>
       </section>
 
       {/* More work grid */}
@@ -303,7 +314,7 @@ export default function WorkPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {MORE_WORK.map(({ client, deliverables, industry, description, image, imagePosition, imageBg }, index) => (
               <FadeUp key={client} delay={index * 0.07} className="h-full">
-                <div className="bg-bg flex flex-col border border-faint h-full">
+                <div className="bg-bg flex flex-col border border-faint h-full transition-colors duration-500 hover:bg-offwhite">
                   {image ? (
                     <div className="relative w-full aspect-[4/3] border-b border-faint overflow-hidden" style={imageBg ? { background: imageBg } : undefined}>
                       <Image
@@ -345,7 +356,7 @@ export default function WorkPage() {
       </section>
 
       {/* Gated CTA — dark */}
-      <section className="w-full bg-ink">
+      <section className="w-full" style={{ backgroundColor: '#2D3D46' }}>
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
           <FadeUp>
             <div className="max-w-[680px]">
