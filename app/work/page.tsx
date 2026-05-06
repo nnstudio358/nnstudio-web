@@ -301,7 +301,6 @@ export default function WorkPage() {
             ))}
           </div>
         </div>
-        </div>
       </section>
 
       {/* More work grid */}
