@@ -24,7 +24,7 @@ export default function TurnoFeature() {
             Featured work
           </div>
 
-          <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] tracking-[-0.02em] mb-10 md:mb-16 max-w-[520px]" style={{ color: "#F4F3EF" }}>
+          <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] tracking-[-0.02em] mb-10 md:mb-16 max-w-[600px]" style={{ color: "#F4F3EF" }}>
             A content system that converted 65% of visitors into new signups.
           </h2>
         </motion.div>
