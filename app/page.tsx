@@ -32,7 +32,9 @@ export default function Home() {
             mixBlendMode: "screen",
           }}
         />
-        <Hero />
+        <div className="relative z-[1]">
+          <Hero />
+        </div>
         {/* Left guide — x-aligned with logo / left content edge */}
         <div
           className="hidden lg:block absolute bottom-0 w-px pointer-events-none"
