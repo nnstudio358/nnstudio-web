@@ -35,21 +35,6 @@ export default function Home() {
         <div className="relative z-[1]">
           <Hero />
         </div>
-        {/* Left guide — x-aligned with logo / left content edge */}
-        <div
-          className="hidden lg:block absolute bottom-0 w-px pointer-events-none"
-          style={{ top: "80px", backgroundColor: "#C8C2BA", left: "max(64px, calc(50% - 656px))" }}
-        />
-        {/* Right outer guide — x-aligned with right content edge / right edge of Let's talk button */}
-        <div
-          className="hidden lg:block absolute bottom-0 w-px pointer-events-none"
-          style={{ top: "80px", backgroundColor: "#C8C2BA", right: "max(64px, calc(50% - 656px))" }}
-        />
-        {/* Right inner guide — x-aligned with left edge of Let's talk button (~130px wide) */}
-        <div
-          className="hidden lg:block absolute bottom-0 w-px pointer-events-none"
-          style={{ top: "80px", backgroundColor: "#C8C2BA", right: "max(194px, calc(50% - 526px))" }}
-        />
       </div>
       <LogoStrip />
       <ProblemAndPillars />
