@@ -6,7 +6,7 @@ export const viewport: Viewport = { themeColor: "#3A4A52" };
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Enterprise design work across fintech, technology, cybersecurity, and healthcare — eBooks, whitepapers, interactive content, design systems, and sales decks for brands including Meta, Google, Capital One, and OutSystems.",
+    "Senior B2B design work across campaigns, content systems, digital products, and long-form marketing — built for enterprise teams, regulated industries, and agency partners.",
 };
 import Image from "next/image";
 import Nav from "@/components/Nav";
@@ -22,8 +22,7 @@ const FEATURED = [
     deliverables: "UI design · eBook · Print",
     body: [
       "A single content system designed to work across three formats — a digital guide, a downloadable eBook, and a print coffee table book — all for the same audience, under the same brand.",
-      "Turno needed to reach Airbnb hosts at every stage of the content journey — discovery, depth, and offline. Three formats, one consistent brand treatment, built to convert.",
-      "Three formats coordinated under a single brief meant the brand system had to hold across digital, PDF, and print production simultaneously. No consistency gaps, no reconciliation between vendors.",
+      "The challenge was keeping the experience consistent across digital, downloadable, and print formats without losing clarity or creating disconnected brand experiences.",
     ],
     metrics: [
       { value: "8,000+", label: "Unique views" },
@@ -47,9 +46,9 @@ const FEATURED = [
     industry: "Enterprise Software / Low-code development",
     deliverables: "Research report · eBook · Infographic",
     body: [
-      "A research-backed thought leadership system designed to establish OutSystems as the authoritative voice on application development trends — across an eBook and infographic.",
-      "1,200+ survey responses needed to be translated into content that drove lead generation and brand authority — not just data presented on a page, but a designed narrative that moved readers toward action.",
-      "The project ran through OutSystems' full content and brand review process. One brief, structured upfront. No revision cycles on the back end — assets delivered ready for campaign deployment.",
+      "A research-backed content system designed to position OutSystems as an authoritative voice on application development trends across long-form and campaign formats.",
+      "The project translated more than 1,200 survey responses into an eBook and infographic system structured for both lead generation and readability — turning dense research into clear, usable content rather than pages of raw data.",
+      "The work moved through OutSystems' full content and brand review process with a single structured brief upfront, delivering campaign-ready assets from the first round.",
     ],
     metrics: [{ value: "Finnys Award", label: "Best research-based content", logo: "/finnys-logo-accent.png" }],
     image: "/work-outsystems.png",
@@ -60,13 +59,13 @@ const FEATURED = [
   },
   {
     client: "SSC Intralinks",
-    headline: <>An interactive assessment that earned 928 clicks and a Finnys Award.</>,
+    headline: <>An award-winning interactive built for enterprise review and engagement.</>,
     industry: "Fintech / Investor communications",
     deliverables: "Interactive · Assessment",
     body: [
-      "An interactive assessment experience designed to help financial professionals benchmark their current investor portal against modern platform standards — and discover where they were falling behind.",
-      "A traditional whitepaper wasn't going to cut through. The brief required an experience that engaged users, collected meaningful data, and moved them toward the Intralinks product — without feeling like a sales funnel.",
-      "Intralinks operates under strict brand governance and multi-team sign-off. The interactive was scoped and built to pass their full approval process from the first submission — no post-delivery cleanup, no files that created more work than they solved.",
+      "An interactive assessment designed to help financial professionals evaluate their investor portal experience against modern platform expectations — while guiding users toward the Intralinks product naturally through the experience itself.",
+      "The challenge was balancing engagement, clarity, and enterprise review requirements within a highly regulated brand environment. The interactive needed to feel genuinely useful first — not like a thinly veiled product pitch.",
+      "The result was an interactive experience that felt useful first, supported product interest naturally, and held up through enterprise review without adding cleanup work for internal teams.",
     ],
     metrics: [
       { value: "Finnys Award", label: "Best interactive content" },
@@ -82,69 +81,56 @@ const FEATURED = [
 const MORE_WORK = [
   {
     client: "Meta Messenger",
-    deliverables: "Sales enablement · Pitch decks · Marketing guides",
-    industry: "Technology / Social media",
+    industry: "Technology / Sales enablement",
     description:
-      "Sales enablement and external pitch design for Meta's Messenger platform — pitch decks, best practice guides, and marketing materials across multiple initiatives.",
+      "Sales enablement and marketing support across multiple Messenger initiatives — including pitch decks, partner materials, and campaign content built for large internal teams and evolving stakeholder review.",
     image: "/work-meta-messenger.png",
     imagePosition: "center",
   },
   {
     client: "WhatsApp",
-    deliverables: "Sales enablement · Pitch decks · Vertical content",
     industry: "Technology / Communications",
     description:
-      "Marketing and sales enablement design for WhatsApp's business platform, including vertical-specific content for civic engagement and nonprofit audiences.",
+      "Marketing and partner-facing content supporting civic engagement and nonprofit initiatives across the WhatsApp business platform.",
     image: "/work-whatsapp.png",
     imagePosition: "center",
   },
   {
     client: "Capital One Trade Credit",
-    deliverables: "eBook · Infographic · Digital advertising",
     industry: "Fintech / Commercial banking",
     description:
-      "Integrated campaign design across eBook, infographic, and digital advertising — three formats built around a unified campaign concept.",
+      "Integrated campaign work spanning long-form content, digital advertising, and supporting sales materials — all built under strict enterprise brand standards.",
     image: "/work-capital-one.png",
     imagePosition: "center",
     imageBg: "rgba(119, 209, 236, 0.5)",
   },
   {
     client: "Broadridge",
-    deliverables: "eBooks · Whitepapers · Long-form content",
     industry: "Fintech / Investor communications",
     description:
-      "Long-form content design across capital markets, wealth management, and asset management verticals — sustained enterprise engagement.",
+      "Ongoing long-form content support across capital markets, wealth management, and investor communications — designed for consistency across multiple enterprise verticals and stakeholder groups.",
     image: "/work-broadridge.jpg",
     imagePosition: "top",
   },
   {
     client: "Regnology",
-    deliverables: "Infographic · Interactive",
     industry: "RegTech / Regulatory compliance",
     description:
-      "Infographic and interactive content design for a global regulatory technology platform — complex compliance subject matter translated into clear, engaging visual content.",
+      "Complex regulatory subject matter translated into clear visual content designed for readability, engagement, and enterprise credibility.",
     image: "/work-regnology.png",
     imagePosition: "left top",
     imageBg: "#08A74F",
   },
   {
     client: "DataStax",
-    deliverables: "eBook · Whitepaper · Infographic",
     industry: "Data / Technology",
     description:
-      "Content system design across eBook, whitepaper, and infographic formats — multiple subject matters all under a consistent, highly-recognizable brand treatment.",
+      "Multi-format campaign and content design across technical subject matter — maintaining consistency across a highly recognizable brand system.",
     image: "/work-datastax.jpg",
     imagePosition: "right",
   },
 ];
 
-function Deliverables({ value }: { value: string }) {
-  return (
-    <div className="border-t border-rule pt-4 font-sans text-[11px] tracking-[0.14em] uppercase text-muted">
-      {value}
-    </div>
-  );
-}
 
 export default function WorkPage() {
   return (
@@ -164,20 +150,21 @@ export default function WorkPage() {
               Work
             </div>
             <h1 className="font-serif text-[36px] md:text-[52px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-6 md:mb-8">
-              A selection of work across B2B marketing and brand projects.
+              Work built for complex<br className="hidden lg:block" /> marketing environments.
             </h1>
-            <div className="max-w-[720px]">
+            <div className="max-w-[600px]">
               <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-8 md:mb-10" style={{ color: "#6B6A63" }}>
                 Featured case studies include full context and outcomes. For
-                client-confidential work, schedule a call to review the complete
-                portfolio.
+                confidential client work, schedule a portfolio review to see
+                additional projects across healthcare, fintech, and agency
+                partnerships.
               </p>
               <a
                 href="/contact"
                 className="inline-block font-sans text-[14px] tracking-[0.04em] border border-faint text-muted px-9 py-4 hover:text-ink hover:border-ink transition-colors"
                 style={{ backgroundColor: '#EDECE8' }}
               >
-                Let&rsquo;s talk →
+                Schedule portfolio review →
               </a>
             </div>
           </FadeUp>
@@ -309,11 +296,11 @@ export default function WorkPage() {
       <section className="w-full bg-bg border-t border-faint">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-12 md:py-20">
           <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-10 md:mb-16">
-            More work
+            Additional work
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {MORE_WORK.map(({ client, deliverables, industry, description, image, imagePosition, imageBg }, index) => (
+            {MORE_WORK.map(({ client, industry, description, image, imagePosition, imageBg }, index) => (
               <FadeUp key={client} delay={index * 0.07} className="h-full">
                 <div className="flex flex-col border border-faint h-full transition-colors duration-500 hover:bg-offwhite">
                   {image ? (
@@ -344,10 +331,9 @@ export default function WorkPage() {
                     <h3 className="font-serif text-[22px] font-normal text-ink tracking-[-0.01em] mb-5">
                       {client}
                     </h3>
-                    <p className="font-sans text-[15px] leading-[1.65] font-light mb-8 flex-1" style={{ color: "#6B6A63" }}>
+                    <p className="font-sans text-[15px] leading-[1.65] font-light flex-1" style={{ color: "#6B6A63" }}>
                       {description}
                     </p>
-                    <Deliverables value={deliverables} />
                   </div>
                 </div>
               </FadeUp>
@@ -368,16 +354,16 @@ export default function WorkPage() {
                 There&rsquo;s more to see.
               </h2>
               <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14" style={{ color: "#C8C2BA" }}>
-                A significant portion of client work is client-confidential — including
-                work delivered as white-label senior capacity for agencies. If you want to
-                see the full range — regulated healthcare, additional fintech, and direct
-                agency work — schedule a call for a live portfolio review.
+                Much of the work is client-confidential — including projects delivered
+                as white-label senior capacity for agencies. The full range,
+                including regulated healthcare, additional fintech, and direct
+                agency work, is available in a live portfolio review.
               </p>
               <a
                 href="/contact"
                 className="inline-block font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
               >
-                Let&rsquo;s talk →
+                Schedule portfolio review →
               </a>
             </div>
           </FadeUp>

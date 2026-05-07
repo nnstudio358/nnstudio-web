@@ -53,7 +53,7 @@ export default function ContactForm() {
         Send a note
       </div>
       <p className="font-sans text-[15px] font-light mb-8 md:mb-10" style={{ color: '#6B6A63' }}>
-        Prefer to share context first before getting on a call.
+        Prefer to share some context before getting on a call?
       </p>
       <form action={formAction} className="space-y-6">
       <div>

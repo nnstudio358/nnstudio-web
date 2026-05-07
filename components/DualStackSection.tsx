@@ -46,8 +46,7 @@ export default function DualStackSection() {
               Most designers live in one world. <em className="italic">Your brand lives in both.</em>
             </h2>
             <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[600px]" style={{ color: "#6B6A63" }}>
-              Marketing teams need design that works across every format — from a Figma
-              component library to a 20-page technical whitepaper. Most designers force
+              Marketing teams need design that works across every format — from collaborative Figma systems to long-form editorial and print production. Most designers force
               you to split that work across two vendors. I don&rsquo;t.
             </p>
           </div>
@@ -83,27 +82,37 @@ export default function DualStackSection() {
         >
           <div className="grid grid-cols-1 sm:grid-cols-2">
 
-            <ul className="space-y-5 px-8 md:px-10 py-8 md:py-10">
-              {FIGMA_ITEMS.map((item) => (
-                <li key={item} className="flex items-start gap-4">
-                  <span className="mt-[7px] shrink-0 w-[6px] h-[6px] rotate-45 border border-amber inline-block" />
-                  <span className="font-sans text-[16px] md:text-[17px] leading-[1.6] text-ink font-light">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <div className="px-8 md:px-10 py-8 md:py-10">
+              <div className="font-sans text-[11px] tracking-[0.14em] uppercase text-amber mb-6">
+                Digital systems
+              </div>
+              <ul className="space-y-5">
+                {FIGMA_ITEMS.map((item) => (
+                  <li key={item} className="flex items-start gap-4">
+                    <span className="mt-[7px] shrink-0 w-[6px] h-[6px] rotate-45 border border-amber inline-block" />
+                    <span className="font-sans text-[16px] md:text-[17px] leading-[1.6] text-ink font-light">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-            <ul className="space-y-5 px-8 md:px-10 py-8 md:py-10">
-              {ADOBE_ITEMS.map((item) => (
-                <li key={item} className="flex items-start gap-4">
-                  <span className="mt-[7px] shrink-0 w-[6px] h-[6px] rotate-45 border border-amber inline-block" />
-                  <span className="font-sans text-[16px] md:text-[17px] leading-[1.6] text-ink font-light">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <div className="px-8 md:px-10 py-8 md:py-10">
+              <div className="font-sans text-[11px] tracking-[0.14em] uppercase text-amber mb-6">
+                Marketing + editorial
+              </div>
+              <ul className="space-y-5">
+                {ADOBE_ITEMS.map((item) => (
+                  <li key={item} className="flex items-start gap-4">
+                    <span className="mt-[7px] shrink-0 w-[6px] h-[6px] rotate-45 border border-amber inline-block" />
+                    <span className="font-sans text-[16px] md:text-[17px] leading-[1.6] text-ink font-light">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
           </div>
 

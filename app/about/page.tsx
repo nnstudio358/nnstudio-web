@@ -9,7 +9,7 @@ import FadeUp from "@/components/FadeUp";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Nathan Billman is a senior design partner with 20+ years working with marketing teams at Meta, Google, Capital One, ServiceNow, and more. Solo practice, direct engagement, no hand-holding.",
+    "Nathan Billman is an independent senior design partner with 20+ years supporting marketing teams at Meta, Google, Capital One, ServiceNow, and more. Direct collaboration across digital, content, and print.",
 };
 
 export default function AboutPage() {
@@ -32,12 +32,12 @@ export default function AboutPage() {
                 About
               </div>
               <h1 className="font-serif text-[32px] md:text-[44px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-6 md:mb-8 text-balance">
-                I&rsquo;m Nathan Billman. I run nnstudio.
+                I&rsquo;m Nathan Billman. nnstudio is my independent design practice.
               </h1>
               <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
-                A solo design practice for in-house marketing and brand teams — and the
-                agencies that serve them — who need senior design output without the
-                back-and-forth.
+                Independent design support for in-house marketing and brand teams — and
+                the agencies that serve them — who need experienced execution without
+                unnecessary back-and-forth.
               </p>
             </FadeUp>
 
@@ -85,11 +85,14 @@ export default function AboutPage() {
                 </p>
                 <p>
                   What it produced is a practice most designers don&rsquo;t have.
-                  I build and maintain Figma-based design systems — variables, tokens,
-                  component libraries, dev-ready handoff — and I produce high-fidelity Adobe
-                  marketing assets: eBooks, whitepapers, sales decks, print collateral,
-                  infographics. Most designers live in one world. I operate in both, which
-                  means one partner covering every format with full brand consistency.
+                </p>
+                <p>
+                  I build scalable digital systems and long-form marketing content under
+                  the same brand standards — from shared UI patterns and interface design
+                  to eBooks, reports, presentations, and print materials.
+                </p>
+                <p>
+                  Most teams split that work across multiple vendors. I don&rsquo;t.
                 </p>
               </div>
             </div>
@@ -106,20 +109,20 @@ export default function AboutPage() {
               </div>
               <div className="space-y-6 font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
                 <p>
-                  I take the brief, ask the right questions once, and deliver. That&rsquo;s not a
-                  tagline — it&rsquo;s how every engagement runs in practice.
+                  Good design support should make projects easier to move forward, not
+                  harder to manage.
                 </p>
                 <p>
-                  Senior-level judgment means I&rsquo;m not asking you to manage me. I know what
-                  information I need upfront, I know when something is off-brand before it
-                  becomes a revision cycle, and I know how to produce files your team can
-                  actually maintain. No hand-holding, no missed deadlines, no final assets that
-                  create more work than they solve.
+                  I ask the right questions early, work collaboratively, and keep the
+                  process clear from start to delivery.
                 </p>
                 <p>
-                  I work directly with marketing and brand teams at B2B organizations, and
-                  as white-label senior capacity for agencies. Either way, the work is the
-                  same: take the brief, ask the right questions once, and deliver.
+                  Senior-level judgment means understanding what matters upfront, spotting
+                  problems before they become revision cycles, and delivering files your
+                  team can actually maintain.
+                </p>
+                <p>
+                  Clear communication, reliable execution, and no unnecessary friction.
                 </p>
               </div>
             </div>
@@ -131,15 +134,14 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 md:gap-16 px-0 md:px-14 py-10 md:py-16">
               <div>
                 <h2 className="font-serif text-[24px] md:text-[28px] font-normal text-ink tracking-[-0.02em] leading-[1.2]">
-                  A note on scale.
+                  Small by design.
                 </h2>
               </div>
               <div className="space-y-6 font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
                 <p>
-                  nnstudio is intentionally small. I work with a limited number of clients at a
-                  time — that&rsquo;s not a constraint, it&rsquo;s the point. The responsiveness and
-                  quality you get from working with me directly depends on keeping the practice
-                  focused.
+                  nnstudio is intentionally focused. I work with a limited number of clients
+                  at a time so the work stays responsive, consistent, and directly connected
+                  to the person doing it.
                 </p>
                 <p>
                   You&rsquo;re not getting handed off. You&rsquo;re working with me.
@@ -156,19 +158,22 @@ export default function AboutPage() {
       <section className="w-full" style={{ backgroundColor: '#2D3D46' }}>
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
           <FadeUp>
-          <div className="max-w-[680px]">
+          <div className="max-w-[600px]">
             <h2
-              className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-10 md:mb-14"
+              className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-6 md:mb-8 max-w-[460px]"
               style={{ color: "#F4F3EF" }}
             >
-              If that&rsquo;s the kind of design partner you&rsquo;re looking for —{" "}
-              <em className="italic">let&rsquo;s talk.</em>
+              Looking for a consistent design partner?
             </h2>
+            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14 max-w-[525px]" style={{ color: "#C8C2BA" }}>
+              I work directly with a small number of clients at a time so the
+              work stays focused, responsive, and handled by the person you hired.
+            </p>
             <a
               href="/contact"
               className="inline-block font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
             >
-              Let&rsquo;s talk →
+              Start a conversation →
             </a>
           </div>
           </FadeUp>

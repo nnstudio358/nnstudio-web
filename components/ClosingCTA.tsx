@@ -18,31 +18,21 @@ export default function ClosingCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="relative z-[1] max-w-[800px]"
+          className="relative z-[1] max-w-[600px]"
         >
           <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10">
-            If that&rsquo;s the kind of design partner you&rsquo;re looking for —{" "}
-            <em className="italic">let&rsquo;s talk.</em>
+            Have a project or campaign coming up?
           </h2>
-          <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light mb-10 md:mb-14 max-w-[640px]" style={{ color: "#6B6A63" }}>
-            I work directly with in-house marketing and brand teams at B2B
-            organizations, and as white-label senior capacity for the agencies
-            that serve them.
+          <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light mb-10 md:mb-14" style={{ color: "#6B6A63" }}>
+            I work with marketing teams and agencies that need experienced design
+            support across digital, content, and print.
           </p>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10">
-            <a
-              href="/contact"
-              className="font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
-            >
-              Let&rsquo;s talk →
-            </a>
-            <a
-              href="mailto:nathan@nnstudio.com"
-              className="font-sans text-[14px] text-muted hover:text-ink transition-colors"
-            >
-              nathan@nnstudio.com
-            </a>
-          </div>
+          <a
+            href="/contact"
+            className="font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
+          >
+            Start a conversation →
+          </a>
         </motion.div>
       </div>
     </section>

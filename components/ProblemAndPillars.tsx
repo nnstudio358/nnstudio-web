@@ -4,18 +4,27 @@ import { motion } from "framer-motion";
 const PILLARS = [
   {
     number: "01",
-    name: "On-Time.",
-    body: "Enterprise launches don't have flex dates. Neither do I. 100% on-time delivery record across enterprise launches and high-stakes agency workstreams.",
+    name: "Reliable delivery.",
+    body: [
+      "Enterprise launches don’t have flex dates. Neither do I.",
+      "Reliable delivery across enterprise launches, agency timelines, and high-stakes marketing work.",
+    ],
   },
   {
     number: "02",
-    name: "On-Brand.",
-    body: "I've worked inside the strict brand systems of regulated healthcare, enterprise fintech, and global tech platforms. Your guidelines aren't a constraint — they're where I start.",
+    name: "Brand fluency.",
+    body: [
+      "I’ve worked inside the strict brand systems of regulated healthcare, enterprise fintech, and global tech platforms.",
+      "Your guidelines aren’t a constraint — they’re where I start.",
+    ],
   },
   {
     number: "03",
-    name: "Un-Pretentious.",
-    body: "Senior-level judgment means fewer revision cycles and faster time to market. No ego, no missed deadlines, no hand-holding required.",
+    name: "Experienced judgment.",
+    body: [
+      "Knowing when to follow direction is important. Knowing when to push for a better solution matters just as much.",
+      "Clear thinking, thoughtful feedback, and fewer rounds of backtracking.",
+    ],
   },
 ];
 
@@ -51,8 +60,12 @@ export default function ProblemAndPillars() {
             that create more work than they solve.
           </p>
           <p>
-            You don&rsquo;t need to manage the design process. You need a partner who
-            already knows what&rsquo;s needed and delivers without being directed.
+            Good design support should reduce friction, not create more of it.
+          </p>
+          <p>
+            The goal isn&rsquo;t to remove collaboration. It&rsquo;s to work with someone
+            experienced enough to move projects forward without needing every
+            decision mapped out twice.
           </p>
         </div>
       </motion.div>
@@ -72,12 +85,14 @@ export default function ProblemAndPillars() {
               <div className="font-sans text-[13px] tracking-[0.12em] text-amber mb-5">
                 {pillar.number}
               </div>
-              <h3 className="font-serif text-[32px] md:text-[36px] lg:text-[40px] italic font-normal leading-[1.1] tracking-[-0.02em] text-ink mb-6">
+              <h3 className="font-serif text-[26px] md:text-[28px] lg:text-[32px] font-normal leading-[1.1] tracking-[-0.02em] text-ink mb-6">
                 {pillar.name}
               </h3>
-              <p className={`font-sans text-[16px] md:text-[17px] leading-[1.65] font-light${index === 2 ? ' pr-6 lg:pr-8' : ''}`} style={{ color: "#6B6A63" }}>
-                {pillar.body}
-              </p>
+              <div className={`space-y-4 font-sans text-[16px] md:text-[17px] leading-[1.65] font-light${index === 2 ? ' pr-6 lg:pr-8' : ''}`} style={{ color: "#6B6A63" }}>
+                {Array.isArray(pillar.body)
+                  ? pillar.body.map((para, i) => <p key={i}>{para}</p>)
+                  : <p>{pillar.body}</p>}
+              </div>
             </motion.div>
           ))}
         </div>
