@@ -19,13 +19,13 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: 0.15 }}
-            className="font-sans text-[16px] md:text-[19px] leading-[1.65] max-w-[480px] mb-10 md:mb-14 font-light"
+            className="font-sans text-[16px] md:text-[19px] leading-[1.65] max-w-[550px] mb-10 md:mb-14 font-light"
             style={{ color: "#6B6A63" }}
           >
-            Direct partner for in-house marketing and brand teams at B2B
-            organizations — and white-label senior capacity for the agencies
-            that serve them. Take the brief, ask the right questions once,
-            deliver.
+            Direct partner for in-house marketing and brand teams — and
+            white-label senior capacity for the agencies that serve them.
+            <br /><br />
+            <strong className="font-medium text-ink">Take the brief, ask the right questions once, deliver.</strong>
           </motion.p>
 
           <motion.div
@@ -38,14 +38,14 @@ export default function Hero() {
               href="/contact"
               className="font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
             >
-              Let&rsquo;s talk →
+              Start a conversation →
             </a>
             <a
               href="/work"
               className="font-sans text-[14px] text-muted border border-faint px-9 py-4 hover:text-ink hover:border-ink transition-colors"
               style={{ backgroundColor: '#EDECE8' }}
             >
-              See the work →
+              View work →
             </a>
           </motion.div>
         </div>

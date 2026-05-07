@@ -8,7 +8,7 @@ export const viewport: Viewport = { themeColor: "#3A4A52" };
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Project and retainer engagements for in-house marketing teams and agency partners. Design systems and marketing production — one partner covering every format.",
+    "Project and retainer design support for B2B marketing teams and agency partners — from design systems and campaign assets to long-form content and print.",
 };
 
 const FIGMA_ITEMS = [
@@ -34,21 +34,21 @@ const ENGAGEMENTS = [
     name: "Project",
     qualifier: "For teams with a defined, scoped need.",
     description:
-      "A single engagement with clear deliverables and a fixed timeline. Right for a product launch, a campaign asset suite, a one-off content piece, or an initial design system build. Either or both tools, depending on what the work requires.",
+      "A single engagement with clear deliverables and a fixed timeline. Right for a product launch, campaign asset suite, one-off content piece, or initial design system build.\n\nDigital systems, long-form content, print, or all three — depending on what the work requires.\n\nOften used by agencies needing senior support on launch campaigns, pitch work, or client-facing brand systems.",
     detail: null,
   },
   {
     name: "Marketing Partner",
-    qualifier: "For teams with regular, ongoing production needs.",
+    qualifier: "For teams with regular, ongoing design needs.",
     description:
-      "A monthly retainer covering ongoing design production across both Figma and Adobe — digital assets, eBooks, whitepapers, decks, print collateral, and more. Right for in-house teams that need a reliable senior production partner on a consistent basis, without the overhead of managing a contractor week to week.",
+      "A monthly retainer covering ongoing digital, content, and print design — including assets, eBooks, whitepapers, decks, print collateral, and more.\n\nRight for teams that need reliable senior support on a consistent basis without rebuilding context every week.",
     detail: "Retainer · 20–30 hrs/month",
   },
   {
     name: "Design Partner",
-    qualifier: "For teams building or scaling design infrastructure alongside ongoing production.",
+    qualifier: "For teams building or scaling design systems alongside ongoing marketing work.",
     description:
-      "A monthly retainer at system scale — Figma design systems with variables, tokens, and component libraries built and maintained for your team, alongside ongoing Adobe marketing production. Right for teams that need a living design system and regular marketing output maintained together, by the same partner, with full brand consistency across every format.",
+      "A monthly retainer focused on scalable design systems alongside ongoing marketing design.\n\nShared UI patterns, organized component systems, and consistent brand execution maintained across digital, content, and print environments.\n\nRight for teams that need both a living design system and ongoing marketing output managed together by the same senior partner.",
     detail: "Retainer · 30–40 hrs/month",
   },
 ];
@@ -79,13 +79,33 @@ export default function ServicesPage() {
             <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10 max-w-[980px]">
               Senior-level design output. <em className="italic">Works to brief.</em>
             </h1>
-            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[760px]" style={{ color: "#6B6A63" }}>
-              I work with in-house marketing and brand teams — and as white-label
-              capacity for the agencies that serve them. Strict brand standards,
-              compliance requirements, multi-team sign-off: that&rsquo;s not a
-              constraint. Every engagement runs on one premise: take the brief,
-              ask the right questions once, and deliver.
-            </p>
+            <div className="space-y-6 font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[760px]" style={{ color: "#6B6A63" }}>
+              <p>
+                I work directly with in-house marketing and brand teams — and
+                serve as white-label senior capacity for the agencies that
+                partner with them.
+              </p>
+              <p>
+                Strict brand standards, complex approvals, and multi-team review
+                are already built into how I work. The goal is clear
+                communication, thoughtful execution, and work that moves cleanly
+                from brief to final delivery.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10 mt-10 md:mt-14">
+              <a
+                href="/work"
+                className="font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
+              >
+                View selected projects →
+              </a>
+              <a
+                href="mailto:nathan@nnstudio.com"
+                className="font-sans text-[14px] text-muted hover:text-ink transition-colors"
+              >
+                nathan@nnstudio.com
+              </a>
+            </div>
           </FadeUp>
         </div>
         </section>
@@ -102,7 +122,7 @@ export default function ServicesPage() {
 
           <FadeUp className="max-w-[720px] mb-6">
             <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-6 md:mb-8">
-              How we can work together.
+              Engagement options.
             </h2>
             <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
               I work with a small number of retainer clients at a time to maintain the
@@ -127,10 +147,12 @@ export default function ServicesPage() {
                     {qualifier}
                   </p>
                 </div>
-                <div>
-                  <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
-                    {description}
-                  </p>
+                <div className="space-y-5">
+                  {description.split("\n\n").map((para, i) => (
+                    <p key={i} className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
+                      {para}
+                    </p>
+                  ))}
                 </div>
               </div>
               </FadeUp>
@@ -142,14 +164,14 @@ export default function ServicesPage() {
               href="/contact"
               className="font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
             >
-              Let&rsquo;s talk →
+              Start a conversation →
             </a>
             <a
               href="/work"
               className="font-sans text-[14px] text-muted border border-faint px-9 py-4 hover:text-ink hover:border-ink transition-colors"
               style={{ backgroundColor: '#EDECE8' }}
             >
-              See the work →
+              View work →
             </a>
           </div>
 
@@ -165,40 +187,52 @@ export default function ServicesPage() {
         <div className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
 
           <div className="mb-12 md:mb-20">
-            <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10 lg:whitespace-nowrap">
-              One partner. Full brand consistency.
+            <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10">
+              One partner across digital, content, and print.
             </h2>
-            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[640px]" style={{ color: "#6B6A63" }}>
-              Most design work requires both digital and print execution — and most teams
-              split that across two vendors. I cover both, with the same brand standards
-              applied across every format.
+            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[760px]" style={{ color: "#6B6A63" }}>
+              Most marketing teams end up splitting digital systems, long-form
+              content, and print work across multiple vendors. nnstudio keeps
+              those environments connected — applying the same brand standards
+              across campaigns, presentations, long-form content, and print
+              materials.
             </p>
           </div>
 
           <div className="border border-faint relative max-w-[900px] mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2">
 
-              <ul className="space-y-5 px-8 md:px-10 py-8 md:py-10">
-                {FIGMA_ITEMS.map((item) => (
-                  <li key={item} className="flex items-start gap-4">
-                    <DiamondBullet />
-                    <span className="font-sans text-[16px] md:text-[17px] leading-[1.6] text-ink font-light">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              <div className="px-8 md:px-10 py-8 md:py-10">
+                <div className="font-sans text-[11px] tracking-[0.14em] uppercase text-amber mb-6">
+                  Digital systems
+                </div>
+                <ul className="space-y-5">
+                  {FIGMA_ITEMS.map((item) => (
+                    <li key={item} className="flex items-start gap-4">
+                      <DiamondBullet />
+                      <span className="font-sans text-[16px] md:text-[17px] leading-[1.6] text-ink font-light">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-              <ul className="space-y-5 px-8 md:px-10 py-8 md:py-10">
-                {ADOBE_ITEMS.map((item) => (
-                  <li key={item} className="flex items-start gap-4">
-                    <DiamondBullet />
-                    <span className="font-sans text-[16px] md:text-[17px] leading-[1.6] text-ink font-light">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              <div className="px-8 md:px-10 py-8 md:py-10">
+                <div className="font-sans text-[11px] tracking-[0.14em] uppercase text-amber mb-6">
+                  Marketing + editorial
+                </div>
+                <ul className="space-y-5">
+                  {ADOBE_ITEMS.map((item) => (
+                    <li key={item} className="flex items-start gap-4">
+                      <DiamondBullet />
+                      <span className="font-sans text-[16px] md:text-[17px] leading-[1.6] text-ink font-light">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
             </div>
 
@@ -220,13 +254,13 @@ export default function ServicesPage() {
             <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14 max-w-[500px]" style={{ color: "#C8C2BA" }}>
               Most clients know what they need to get done — not necessarily which
               structure makes sense. Reach out and describe the work.
-              We&rsquo;ll find the right fit.
+              I&rsquo;ll find the right fit.
             </p>
             <a
               href="/contact"
               className="inline-block font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
             >
-              Let&rsquo;s talk →
+              Start a conversation →
             </a>
           </div>
         </div>

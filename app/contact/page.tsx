@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Let's Talk",
   description:
-    "Discuss a project, book a call, or schedule a portfolio review. Senior design partner for in-house marketing teams and agency partners.",
+    "Discuss a project, schedule a call, or explore a potential fit. Senior design support for B2B marketing teams and agencies.",
 };
 
 export default function ContactPage() {
@@ -29,13 +29,18 @@ export default function ContactPage() {
               Contact
             </div>
             <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10">
-              Let&rsquo;s talk.
+              Start a conversation.
             </h1>
-            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[540px]" style={{ color: "#6B6A63" }}>
-              Whether you have a defined project or just want to explore whether this is
-              the right fit — reach out. Tell me what you&rsquo;re working on, your timeline,
-              and what you need. I&rsquo;ll follow up within one business day.
-            </p>
+            <div className="space-y-6 font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[540px]" style={{ color: "#6B6A63" }}>
+              <p>
+                Whether you have a defined project or just want to explore the
+                fit, reach out.
+              </p>
+              <p>
+                Tell me what you&rsquo;re working on, your timeline, and what you
+                need. I&rsquo;ll follow up within one business day.
+              </p>
+            </div>
           </div>
         </div>
         </section>
@@ -58,16 +63,16 @@ export default function ContactPage() {
                 Book a call
               </div>
               <p className="font-sans text-[15px] font-light mb-10 md:mb-16" style={{ color: "#6B6A63" }}>
-                Ready to talk through the work directly.
+                Prefer to talk through the work directly?
               </p>
 
               <div className="flex-1 flex flex-col justify-center">
                 <p className="font-serif text-[24px] md:text-[28px] font-normal leading-[1.2] text-ink tracking-[-0.01em] mb-6">
-                  Schedule a 30-minute call.
+                  A focused 30-minute conversation.
                 </p>
                 <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-12" style={{ color: "#6B6A63" }}>
-                  No prep required — just a conversation about what you need and whether
-                  nnstudio is the right fit.
+                  No prep required — just a straightforward conversation about
+                  the work, the timeline, and whether nnstudio is the right fit.
                 </p>
                 <a
                   href="https://calenday.com/nnstudio"

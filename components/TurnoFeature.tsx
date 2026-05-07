@@ -40,8 +40,8 @@ export default function TurnoFeature() {
           >
             <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-16" style={{ color: "#C8C2BA" }}>
               Turno needed one system that worked across three formats — a digital
-              guide, a downloadable eBook, and a print coffee table book — all for
-              the same audience, under the same brand.
+              guide, downloadable eBook, and print coffee table book — without
+              losing consistency across the experience.
             </p>
 
             <div className="grid grid-cols-3 gap-4 md:gap-8 mb-10 md:mb-14 border-t pt-8 md:pt-10" style={{ borderColor: "#3D4D55" }}>
@@ -57,20 +57,12 @@ export default function TurnoFeature() {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8">
-              <a
-                href="/contact"
-                className="font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
-              >
-                Let&rsquo;s talk →
-              </a>
-              <a
-                href="/work"
-                className="font-sans text-[14px] tracking-[0.04em] px-9 py-4 border border-[#3D4D55] text-[#C8C2BA] transition-colors hover:text-[#F4F3EF] hover:border-[#F4F3EF]"
-              >
-                See the work →
-              </a>
-            </div>
+            <a
+              href="/work"
+              className="font-sans text-[14px] tracking-[0.04em] px-9 py-4 border border-[#3D4D55] text-[#C8C2BA] transition-colors hover:text-[#F4F3EF] hover:border-[#F4F3EF]"
+            >
+              View work →
+            </a>
           </motion.div>
 
           {/* Right — image */}

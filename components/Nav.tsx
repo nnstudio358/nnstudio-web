@@ -1,15 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NNStudioLogo from "@/components/NNStudioLogo";
 
 const NAV_LINKS = ["Work", "Services", "About", "Contact"];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className="w-full border-b border-faint">
+    <nav className={`fixed top-0 inset-x-0 z-50 w-full border-b transition-colors duration-300 ${scrolled ? "bg-bg border-faint" : "bg-transparent border-transparent"}`}>
       <div className="max-w-[1440px] mx-auto flex items-center justify-between px-5 md:px-10 lg:px-16 h-[64px] md:h-[80px]">
         {/* Logo */}
         <a href="/" className="flex items-center">
@@ -31,7 +38,7 @@ export default function Nav() {
             href="/contact"
             className="font-sans text-[13px] tracking-[0.04em] text-ink bg-amber px-5 py-2 hover:bg-[#D4A55A] transition-colors lg:mr-2"
           >
-            Let&rsquo;s talk →
+            Contact →
           </a>
         </div>
 
@@ -41,7 +48,7 @@ export default function Nav() {
             href="/contact"
             className="font-sans text-[14px] tracking-[0.04em] text-ink bg-amber px-4 py-3 hover:bg-[#D4A55A] transition-colors"
           >
-            Let&rsquo;s talk →
+            Contact →
           </a>
           <button
             onClick={() => setOpen(!open)}
