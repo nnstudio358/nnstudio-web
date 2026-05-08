@@ -22,18 +22,28 @@ export const metadata: Metadata = {
     template: "%s | nnstudio",
   },
   description:
-    "Senior design partner for in-house marketing and brand teams — and white-label capacity for the agencies that serve them. Design systems, eBooks, whitepapers, decks, and print. One partner, full brand consistency.",
+    "Senior design partner for B2B marketing teams and agency partners across digital, content, and print. Reliable delivery. Brand fluency. Experienced judgment.",
   openGraph: {
     siteName: "nnstudio",
     type: "website",
+    title: "nnstudio — Senior design partner for B2B marketing teams and agencies",
+    description:
+      "Senior design partner for B2B marketing teams and agency partners across digital, content, and print. Reliable delivery. Brand fluency. Experienced judgment.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "nnstudio — Senior design partner for in-house marketing teams",
+        alt: "nnstudio — Senior design partner for B2B marketing teams and agencies",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "nnstudio — Senior design partner for B2B marketing teams and agencies",
+    description:
+      "Senior design partner for B2B marketing teams and agency partners across digital, content, and print. Reliable delivery. Brand fluency. Experienced judgment.",
+    images: ["/og-image.png"],
   },
 };
 

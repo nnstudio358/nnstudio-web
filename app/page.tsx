@@ -4,9 +4,9 @@ export const viewport: Viewport = { themeColor: "#2D3D46" };
 import Nav from "@/components/Nav";
 
 export const metadata: Metadata = {
-  title: "nnstudio — Senior Design Partner for In-House Marketing Teams",
+  title: "nnstudio — Senior Design Partner for B2B Marketing Teams and Agencies",
   description:
-    "Senior design partner for in-house marketing and brand teams at B2B organizations — and white-label capacity for the agencies that serve them. Figma design systems, Adobe marketing production — eBooks, whitepapers, decks, and print. One partner, full brand consistency.",
+    "Senior design partner for B2B marketing teams and agency partners across digital, content, and print. Reliable delivery. Brand fluency. Experienced judgment.",
 };
 import Hero from "@/components/Hero";
 import LogoStrip from "@/components/LogoStrip";
