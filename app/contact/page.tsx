@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 
-export const viewport: Viewport = { themeColor: "#3A4A52" };
+export const viewport: Viewport = { themeColor: "#2D3D46" };
 import Nav from "@/components/Nav";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
@@ -75,7 +75,7 @@ export default function ContactPage() {
                   the work, the timeline, and whether nnstudio is the right fit.
                 </p>
                 <a
-                  href="https://calenday.com/nnstudio"
+                  href="https://calendly.com/nnstudio-nathan/conversation"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="self-start font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"

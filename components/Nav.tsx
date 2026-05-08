@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import NNStudioLogo from "@/components/NNStudioLogo";
 
-const NAV_LINKS = ["Work", "Services", "About", "Contact"];
+const NAV_LINKS = ["Work", "Services", "About"];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
