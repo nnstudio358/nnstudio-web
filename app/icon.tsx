@@ -25,11 +25,11 @@ export default function Icon() {
         <span
           style={{
             fontFamily: 'Playfair Display',
-            fontSize: 22,
-            color: '#C8923A',
+            fontSize: 28,
+            color: '#F4F3EF',
             fontWeight: 400,
             lineHeight: 1,
-            paddingTop: 2,
+            paddingTop: 3,
           }}
         >
           n
