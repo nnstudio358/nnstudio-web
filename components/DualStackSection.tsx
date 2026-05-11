@@ -46,8 +46,7 @@ export default function DualStackSection() {
               Most designers live in one world. <em className="italic">Your brand lives in both.</em>
             </h2>
             <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[600px]" style={{ color: "#6B6A63" }}>
-              Marketing teams need design that works across every format — from collaborative Figma systems to long-form editorial and print production. Most designers force
-              you to split that work across two vendors. I don&rsquo;t.
+              Marketing teams need design that works across every format — from collaborative Figma systems to long-form editorial and print production. That usually means splitting the work across two vendors. I don&rsquo;t.
             </p>
           </div>
           <div className="flex items-center justify-center lg:justify-end">
