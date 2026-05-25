@@ -30,6 +30,7 @@ const FEATURED = [
       { value: "65%", label: "Conversion rate" },
     ],
     image: "/work-turno-browser.png",
+    imageAlt: "Turno — How to Start an Airbnb digital guide displayed in browser",
     imagePosition: "center",
     imageFit: "contain",
     imagePadding: "8px 8px",
@@ -52,6 +53,7 @@ const FEATURED = [
     ],
     metrics: [{ value: "Finnys Award", label: "Best research-based content", logo: "/finnys-logo-accent.png" }],
     image: "/work-outsystems.png",
+    imageAlt: "OutSystems — enterprise application development research report and eBook design",
     imagePosition: "center",
     primaryBg: "#8E1116",
     secondaryImage: "/work-outsystems-infographic.jpg",
@@ -85,6 +87,7 @@ const MORE_WORK = [
     description:
       "Sales enablement and marketing support across multiple Messenger initiatives — including pitch decks, partner materials, and campaign content built for large internal teams and evolving stakeholder review.",
     image: "/work-meta-messenger.png",
+    imageAlt: "Meta Messenger — sales enablement pitch deck and partner content design",
     imagePosition: "center",
   },
   {
@@ -93,6 +96,7 @@ const MORE_WORK = [
     description:
       "Marketing and partner-facing content supporting civic engagement and nonprofit initiatives across the WhatsApp business platform.",
     image: "/work-whatsapp.png",
+    imageAlt: "WhatsApp — civic engagement and nonprofit marketing content design",
     imagePosition: "center",
   },
   {
@@ -101,6 +105,7 @@ const MORE_WORK = [
     description:
       "Integrated campaign work spanning long-form content, digital advertising, and supporting sales materials — all built under strict enterprise brand standards.",
     image: "/work-capital-one.png",
+    imageAlt: "Capital One Trade Credit — integrated eBook, infographic, and digital advertising campaign",
     imagePosition: "center",
     imageBg: "rgba(119, 209, 236, 0.5)",
   },
@@ -110,6 +115,7 @@ const MORE_WORK = [
     description:
       "Ongoing long-form content support across capital markets, wealth management, and investor communications — designed for consistency across multiple enterprise verticals and stakeholder groups.",
     image: "/work-broadridge.jpg",
+    imageAlt: "Broadridge — long-form content design across wealth management and investor communications",
     imagePosition: "top",
   },
   {
@@ -118,6 +124,7 @@ const MORE_WORK = [
     description:
       "Complex regulatory subject matter translated into clear visual content designed for readability, engagement, and enterprise credibility.",
     image: "/work-regnology.png",
+    imageAlt: "Regnology — regulatory compliance infographic and interactive content design",
     imagePosition: "left top",
     imageBg: "#08A74F",
   },
@@ -127,6 +134,7 @@ const MORE_WORK = [
     description:
       "Multi-format campaign and content design across technical subject matter — maintaining consistency across a highly recognizable brand system.",
     image: "/work-datastax.jpg",
+    imageAlt: "DataStax — multi-format content system across eBook, whitepaper, and infographic formats",
     imagePosition: "right",
   },
 ];
@@ -185,7 +193,7 @@ export default function WorkPage() {
           </div>
 
           <div className="divide-y divide-faint">
-            {FEATURED.map(({ client, headline, deliverables, industry, body, metrics, image, imagePosition, imageFit, imagePadding, primaryBg, headlineMaxWidth, bodyMaxWidth, secondaryImage, secondaryImagePosition, secondaryFlex, secondaryBg, video }: { client: string; headline: React.ReactNode; deliverables: string; industry: string; body: string[]; metrics: { value: string; label: string; logo?: string }[]; image?: string; imagePosition?: string; imageFit?: string; imagePadding?: string; primaryBg?: string; headlineMaxWidth?: string; bodyMaxWidth?: string; secondaryImage?: string; secondaryImagePosition?: string; secondaryFlex?: number; secondaryBg?: string; video?: string }) => (
+            {FEATURED.map(({ client, headline, deliverables, industry, body, metrics, image, imageAlt, imagePosition, imageFit, imagePadding, primaryBg, headlineMaxWidth, bodyMaxWidth, secondaryImage, secondaryImagePosition, secondaryFlex, secondaryBg, video }: { client: string; headline: React.ReactNode; deliverables: string; industry: string; body: string[]; metrics: { value: string; label: string; logo?: string }[]; image?: string; imageAlt?: string; imagePosition?: string; imageFit?: string; imagePadding?: string; primaryBg?: string; headlineMaxWidth?: string; bodyMaxWidth?: string; secondaryImage?: string; secondaryImagePosition?: string; secondaryFlex?: number; secondaryBg?: string; video?: string }) => (
               <FadeUp key={client}>
                 <div className="py-12 md:py-20">
 
@@ -225,10 +233,10 @@ export default function WorkPage() {
                       <div className="relative flex-[3] overflow-hidden" style={{ background: primaryBg ?? "#EDECE8" }}>
                         {imagePadding ? (
                           <div className="absolute" style={{ inset: imagePadding }}>
-                            <Image src={image} alt={client} fill style={{ objectFit: "contain", objectPosition: "center" }} />
+                            <Image src={image} alt={imageAlt ?? client} fill style={{ objectFit: "contain", objectPosition: "center" }} />
                           </div>
                         ) : (
-                          <Image src={image} alt={client} fill style={{ objectFit: imageFit === "contain" ? "contain" : "cover", objectPosition: imagePosition ?? "center" }} />
+                          <Image src={image} alt={imageAlt ?? client} fill style={{ objectFit: imageFit === "contain" ? "contain" : "cover", objectPosition: imagePosition ?? "center" }} />
                         )}
                       </div>
                       <div className="relative overflow-hidden" style={{ flex: secondaryFlex ?? 1, background: secondaryBg ?? "#EDECE8" }}>
@@ -237,7 +245,7 @@ export default function WorkPage() {
                     </div>
                   ) : image ? (
                     <div className="relative w-full aspect-[3/2] md:aspect-[16/7] border border-faint overflow-hidden mb-12">
-                      <Image src={image} alt={client} fill className="object-cover" style={{ objectPosition: imagePosition ?? "center" }} />
+                      <Image src={image} alt={imageAlt ?? client} fill className="object-cover" style={{ objectPosition: imagePosition ?? "center" }} />
                     </div>
                   ) : (
                     <div
@@ -300,14 +308,14 @@ export default function WorkPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {MORE_WORK.map(({ client, industry, description, image, imagePosition, imageBg }, index) => (
+            {MORE_WORK.map(({ client, industry, description, image, imageAlt, imagePosition, imageBg }, index) => (
               <FadeUp key={client} delay={index * 0.07} className="h-full">
                 <div className="flex flex-col border border-faint h-full transition-colors duration-500 hover:bg-offwhite">
                   {image ? (
                     <div className="relative w-full aspect-[4/3] border-b border-faint overflow-hidden" style={imageBg ? { background: imageBg } : undefined}>
                       <Image
                         src={image}
-                        alt={client}
+                        alt={imageAlt ?? client}
                         fill
                         className="object-cover"
                         style={{ objectPosition: imagePosition ?? "top" }}
