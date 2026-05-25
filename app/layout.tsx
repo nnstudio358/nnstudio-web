@@ -2,6 +2,33 @@ import type { Metadata } from "next";
 import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://nnstudio.com/#nathan",
+      name: "Nathan Billman",
+      url: "https://nnstudio.com",
+      jobTitle: "Senior Design Partner",
+      email: "nathan@nnstudio.com",
+      worksFor: { "@id": "https://nnstudio.com/#nnstudio" },
+      sameAs: ["https://www.linkedin.com/in/nnstudio/"],
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://nnstudio.com/#nnstudio",
+      name: "nnstudio",
+      url: "https://nnstudio.com",
+      description:
+        "Senior design partner for B2B marketing teams and agency partners across digital, content, and print. Reliable delivery. Brand fluency. Experienced judgment.",
+      email: "nathan@nnstudio.com",
+      founder: { "@id": "https://nnstudio.com/#nathan" },
+      sameAs: ["https://www.linkedin.com/in/nnstudio/"],
+    },
+  ],
+};
+
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
@@ -16,6 +43,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  // After verifying in Google Search Console, paste your code here:
+  // verification: { google: "your-code-here" },
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ??
     (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://nnstudio.com")
@@ -60,7 +89,15 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${dmSans.variable} antialiased`}
     >
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
