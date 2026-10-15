@@ -31,9 +31,6 @@ export default function Hero() {
             >
               I work with in-house B2B marketing teams and agencies that need a
               senior designer to take on substantial work and carry it through.
-              That might mean extending an established brand across a report and
-              the campaign around it, or setting the visual direction for a new
-              site and building it.
             </p>
             <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-medium text-ink">
               Take the brief, ask the right questions, deliver.
