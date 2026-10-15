@@ -24,11 +24,11 @@ export default function ContactPage() {
           {/* Hero */}
           <section className="w-full bg-transparent pt-[64px] md:pt-[80px]">
             <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-6 md:pt-24 md:pb-8">
-              <div className="max-w-[720px]">
+              <div>
                 <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
                   Contact
                 </div>
-                <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10">
+                <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10 md:whitespace-nowrap">
                   What are you working on?
                 </h1>
                 <div className="space-y-6 font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[560px]" style={{ color: "#6B6A63" }}>
@@ -57,7 +57,7 @@ export default function ContactPage() {
       <section className="w-full bg-bg">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-6 pb-16 md:pt-8 md:pb-24">
           <div className="max-w-[640px]">
-            <div className="border border-faint p-6 sm:p-8 md:p-12">
+            <div className="border border-faint bg-offwhite p-6 sm:p-8 md:p-12">
               <ContactForm />
             </div>
 
