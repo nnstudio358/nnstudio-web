@@ -15,7 +15,7 @@ type Engagement = {
   id: string;
   name: string;
   paragraphs: string[];
-  example?: string;
+  example?: { project: string; line: string };
   link?: { href: string; text: string };
 };
 
@@ -24,10 +24,12 @@ const ENGAGEMENTS: Engagement[] = [
     id: "defined-project",
     name: "A defined project",
     paragraphs: [
-      "For work with a clear scope, I handle the design from the brief through final files. That might be a research report with its promotional assets, a landing page or a defined piece of design-system work. We agree on what I’m delivering, the schedule and the fee up front.",
+      "For work with a clear scope, I handle the design from the brief through final files. That might be a research report with its promotional assets, a landing page or a specific piece of design-system work. We agree on what I’m delivering, the schedule and the fee up front.",
     ],
-    example:
-      "Pendulum. I designed the Brand Risk Report, its promotional assets and ad sets for other campaigns.",
+    example: {
+      project: "Pendulum Intelligence",
+      line: "I designed the Brand Risk Report, its promotional assets and ad sets for other campaigns.",
+    },
     link: { href: "/work", text: "View work →" },
   },
   {
@@ -36,8 +38,10 @@ const ENGAGEMENTS: Engagement[] = [
     paragraphs: [
       "If your team has design work coming in each month, I can reserve time for it. We decide together what takes priority as needs change, from campaign work to reports or updates to existing templates. Because I’m working within your brand regularly, there’s less to explain each time.",
     ],
-    example:
-      "Enterprise website design system. I’m reviewing components and maintaining system documentation with a design and development team.",
+    example: {
+      project: "Enterprise website design system",
+      line: "I’m reviewing components and maintaining system documentation with a design and development team.",
+    },
     link: { href: "/work", text: "View work →" },
   },
   {
@@ -81,8 +85,7 @@ export default function ServicesPage() {
               <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[760px]" style={{ color: "#6B6A63" }}>
                 I work with in-house marketing teams and agencies on content design,
                 campaigns and marketing website systems. You can bring me a defined
-                project or work with me on an ongoing basis. We agree on the scope,
-                schedule and fee before I start.
+                project or work with me on an ongoing basis.
               </p>
               <div className="mt-10 md:mt-14">
                 <a
@@ -117,20 +120,20 @@ export default function ServicesPage() {
                     </p>
                   ))}
                   {example && (
-                    <div className="border-l-2 border-amber pl-5 py-1">
-                      <div className="font-sans text-[11px] tracking-[0.14em] uppercase text-amber mb-2">
-                        Example
+                    <div className="border border-faint px-6 md:px-8 py-6 md:py-7">
+                      <div className="font-sans text-[11px] tracking-[0.14em] uppercase text-amber mb-3">
+                        {example.project}
                       </div>
-                      <p className={`${bodyText} text-ink`}>{example}</p>
+                      <p className={`${bodyText} text-ink`}>{example.line}</p>
+                      {link && (
+                        <a
+                          href={link.href}
+                          className="font-sans text-[15px] text-muted hover:text-ink transition-colors inline-block mt-5"
+                        >
+                          {link.text}
+                        </a>
+                      )}
                     </div>
-                  )}
-                  {link && (
-                    <a
-                      href={link.href}
-                      className="font-sans text-[16px] text-muted hover:text-ink transition-colors inline-block pt-1"
-                    >
-                      {link.text}
-                    </a>
                   )}
                 </div>
               </div>
