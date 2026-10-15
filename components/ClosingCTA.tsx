@@ -35,7 +35,7 @@ export default function ClosingCTA() {
           </a>
           <div className="mt-6">
             <a
-              href="/ongoing-design-support"
+              href="/services#ongoing-support"
               className="font-sans text-[16px] text-muted hover:text-ink transition-colors"
             >
               Need ongoing support? See how monthly support works →

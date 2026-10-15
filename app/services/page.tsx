@@ -1,66 +1,63 @@
 import type { Metadata, Viewport } from "next";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import FadeUp from "@/components/FadeUp";
 
 export const viewport: Viewport = { themeColor: "#2D3D46" };
 
+// Copy: ChatGPT final in the Services handoff doc (Oct 15, 2026).
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Project and retainer design support for B2B marketing teams and agency partners — from design systems and campaign assets to long-form content and print.",
+    "I work with in-house marketing teams and agencies on content design, campaigns and marketing website systems.",
 };
 
-const FIGMA_ITEMS = [
-  "Design systems",
-  "Variables and tokens",
-  "Component libraries",
-  "Dev-ready handoff",
-  "Advanced prototyping",
-  "UI/UX for complex product interfaces",
-];
+type Engagement = {
+  id: string;
+  name: string;
+  paragraphs: string[];
+  example?: string;
+  link?: { href: string; text: string };
+};
 
-const ADOBE_ITEMS = [
-  "eBooks and whitepapers",
-  "Research reports",
-  "Sales decks and presentations",
-  "Print collateral — all formats",
-  "Infographics and data visualization",
-  "Digital advertising and social assets",
-];
-
-const ENGAGEMENTS = [
+const ENGAGEMENTS: Engagement[] = [
   {
-    name: "Project",
-    qualifier: "For teams with a defined, scoped need.",
-    description:
-      "A single engagement with clear deliverables and a fixed timeline. Right for a product launch, campaign asset suite, one-off content piece, or initial design system build.\n\nDigital systems, long-form content, print, or all three — depending on what the work requires.\n\nOften used by agencies needing senior support on launch campaigns, pitch work, or client-facing brand systems.",
-    detail: null,
-    link: null,
+    id: "defined-project",
+    name: "A defined project",
+    paragraphs: [
+      "For work with a clear scope, I handle the design from the brief through final files. That might be a research report with its promotional assets, a landing page or a defined piece of design-system work. We agree on what I’m delivering, the schedule and the fee up front.",
+    ],
+    example:
+      "Pendulum. I designed the Brand Risk Report, its promotional assets and ad sets for other campaigns.",
+    link: { href: "/work", text: "View work →" },
   },
   {
-    name: "Marketing Partner",
-    qualifier: "For teams with regular, ongoing design needs.",
-    description:
-      "A monthly retainer covering ongoing digital, content, and print design — including assets, eBooks, whitepapers, decks, print collateral, and more.\n\nRight for teams that need reliable senior support on a consistent basis without rebuilding context every week.",
-    detail: "Retainer · 20–30 hrs/month",
-    link: { href: "/ongoing-design-support", text: "See how ongoing support works →" },
+    id: "ongoing-support",
+    name: "Ongoing support",
+    paragraphs: [
+      "If your team has design work coming in each month, I can reserve time for it. We decide together what takes priority as needs change, from campaign work to reports or updates to existing templates. Because I’m working within your brand regularly, there’s less to explain each time.",
+    ],
+    example:
+      "Enterprise website design system. I’m reviewing components and maintaining system documentation with a design and development team.",
+    link: { href: "/work", text: "View work →" },
   },
   {
-    name: "Design Partner",
-    qualifier: "For teams building or scaling design systems alongside ongoing marketing work.",
-    description:
-      "A monthly retainer focused on scalable design systems alongside ongoing marketing design.\n\nShared UI patterns, organized component systems, and consistent brand execution maintained across digital, content, and print environments.\n\nRight for teams that need both a living design system and ongoing marketing output managed together by the same senior partner.",
-    detail: "Retainer · 30–40 hrs/month",
-    link: { href: "/ongoing-design-support", text: "See how ongoing support works →" },
+    id: "agencies",
+    name: "Working with agencies",
+    paragraphs: [
+      "I work behind the scenes with agencies, under your creative lead and within your client’s brand standards. I can take responsibility for a defined project or provide ongoing capacity when your team needs it. Some of that work is confidential, so I can talk through relevant examples and share what I’m allowed to show.",
+    ],
+  },
+  {
+    id: "shopify",
+    name: "Shopify stores",
+    paragraphs: [
+      "The Launch is a fixed-price service for product founders. I design a custom home page and product page, then build the store in Shopify.",
+    ],
+    // "Explore The Launch →" goes here once the /shopify page is built.
   },
 ];
 
-function DiamondBullet() {
-  return (
-    <span className="mt-[7px] shrink-0 w-[5px] h-[5px] rotate-45 border border-amber inline-block" />
-  );
-}
+const bodyText = "font-sans text-[16px] md:text-[17px] leading-[1.65] font-light";
 
 export default function ServicesPage() {
   return (
@@ -72,90 +69,61 @@ export default function ServicesPage() {
           mixBlendMode: "screen",
         }} />
         <div className="relative z-[1]">
-        {/* Hero */}
-        <section className="w-full bg-transparent border-b border-faint pt-[64px] md:pt-[80px]">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-12 md:pt-24 md:pb-20">
-          <FadeUp>
-            <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
-              Services
-            </div>
-            <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10 max-w-[980px]">
-              Senior-level design output. <em className="italic">Works to brief.</em>
-            </h1>
-            <div className="space-y-6 font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[760px]" style={{ color: "#6B6A63" }}>
-              <p>
-                I work directly with in-house marketing and brand teams — and
-                serve as white-label senior capacity for the agencies that
-                partner with them.
+          {/* Hero */}
+          <section className="w-full bg-transparent border-b border-faint pt-[64px] md:pt-[80px]">
+            <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-12 md:pt-24 md:pb-20">
+              <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
+                Services
+              </div>
+              <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[72px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10 max-w-[980px]">
+                Senior design for marketing teams and agencies.
+              </h1>
+              <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[760px]" style={{ color: "#6B6A63" }}>
+                I work with in-house marketing teams and agencies on content design,
+                campaigns and marketing website systems. You can bring me a defined
+                project or work with me on an ongoing basis. We agree on the scope,
+                schedule and fee before I start.
               </p>
-              <p>
-                Strict brand standards, complex approvals, and multi-team review
-                are already built into how I work. The goal is clear
-                communication, thoughtful execution, and work that moves cleanly
-                from brief to final delivery.
-              </p>
+              <div className="mt-10 md:mt-14">
+                <a
+                  href="/contact"
+                  className="inline-block font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
+                >
+                  Start a conversation →
+                </a>
+              </div>
             </div>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10 mt-10 md:mt-14">
-              <a
-                href="/work"
-                className="font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
-              >
-                View selected projects →
-              </a>
-              <a
-                href="mailto:nathan@nnstudio.com"
-                className="font-sans text-[14px] text-muted hover:text-ink transition-colors"
-              >
-                nathan@nnstudio.com
-              </a>
-            </div>
-          </FadeUp>
-        </div>
-        </section>
+          </section>
         </div>
       </div>
 
-      {/* Engagements */}
-      <section className="w-full bg-bg border-b border-faint relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'radial-gradient(ellipse at 50% 100%, rgba(253,252,248,0.8) 0%, transparent 55%)',
-          mixBlendMode: 'screen',
-        }} />
-        <div className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
-
-          <FadeUp className="max-w-[720px] mb-6">
-            <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-6 md:mb-8">
-              Engagement options.
-            </h2>
-            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
-              I work with a small number of retainer clients at a time to maintain the
-              quality and responsiveness each engagement requires.
-            </p>
-          </FadeUp>
-
-          <div className="mt-12 md:mt-20 divide-y divide-faint border-t border-faint">
-            {ENGAGEMENTS.map(({ name, qualifier, description, detail, link }, index) => (
-              <FadeUp key={name} delay={index * 0.1}>
-              <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 md:gap-24 py-12 md:py-16">
-                <div>
-                  {detail && (
-                    <div className="font-sans text-[12px] tracking-[0.14em] uppercase text-amber mb-3">
-                      {detail}
-                    </div>
-                  )}
-                  <h3 className="font-serif text-[32px] md:text-[36px] lg:text-[40px] font-normal text-ink tracking-[-0.02em] mb-4">
-                    {name}
-                  </h3>
-                  <p className="font-sans text-[15px] leading-[1.65] font-light" style={{ color: "#8A8A82" }}>
-                    {qualifier}
-                  </p>
-                </div>
+      {/* Ways to work together */}
+      <section className="w-full bg-bg border-b border-faint">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-6 md:py-10">
+          <div className="divide-y divide-faint">
+            {ENGAGEMENTS.map(({ id, name, paragraphs, example, link }) => (
+              <div
+                key={id}
+                id={id}
+                className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-6 md:gap-24 py-12 md:py-16 scroll-mt-24"
+              >
+                <h2 className="font-serif text-[30px] md:text-[36px] lg:text-[40px] font-normal leading-[1.15] text-ink tracking-[-0.02em]">
+                  {name}
+                </h2>
                 <div className="space-y-5">
-                  {description.split("\n\n").map((para, i) => (
-                    <p key={i} className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
+                  {paragraphs.map((para) => (
+                    <p key={para} className={bodyText} style={{ color: "#6B6A63" }}>
                       {para}
                     </p>
                   ))}
+                  {example && (
+                    <div className="border-l-2 border-amber pl-5 py-1">
+                      <div className="font-sans text-[11px] tracking-[0.14em] uppercase text-amber mb-2">
+                        Example
+                      </div>
+                      <p className={`${bodyText} text-ink`}>{example}</p>
+                    </div>
+                  )}
                   {link && (
                     <a
                       href={link.href}
@@ -166,106 +134,25 @@ export default function ServicesPage() {
                   )}
                 </div>
               </div>
-              </FadeUp>
             ))}
           </div>
-
-          <div className="mt-12 md:mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10">
-            <a
-              href="/contact"
-              className="font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
-            >
-              Start a conversation →
-            </a>
-            <a
-              href="/work"
-              className="font-sans text-[14px] text-muted border border-faint px-9 py-4 hover:text-ink hover:border-ink transition-colors"
-              style={{ backgroundColor: '#EDECE8' }}
-            >
-              View work →
-            </a>
-          </div>
-
         </div>
       </section>
 
-      {/* One partner section */}
-      <section className="w-full bg-bg border-b border-faint relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'radial-gradient(ellipse at 50% 0%, rgba(253,252,248,0.8) 0%, transparent 55%)',
-          mixBlendMode: 'screen',
-        }} />
-        <div className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
-
-          <div className="mb-12 md:mb-20">
-            <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10">
-              One partner across digital, content, and print.
-            </h2>
-            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[760px]" style={{ color: "#6B6A63" }}>
-              Most marketing teams end up splitting digital systems, long-form
-              content, and print work across multiple vendors. nnstudio keeps
-              those environments connected — applying the same brand standards
-              across campaigns, presentations, long-form content, and print
-              materials.
-            </p>
-          </div>
-
-          <div className="border border-faint relative max-w-[900px] mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2">
-
-              <div className="px-8 md:px-10 py-8 md:py-10">
-                <div className="font-sans text-[11px] tracking-[0.14em] uppercase text-amber mb-6">
-                  Digital systems
-                </div>
-                <ul className="space-y-5">
-                  {FIGMA_ITEMS.map((item) => (
-                    <li key={item} className="flex items-start gap-4">
-                      <DiamondBullet />
-                      <span className="font-sans text-[16px] md:text-[17px] leading-[1.6] text-ink font-light">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="px-8 md:px-10 py-8 md:py-10">
-                <div className="font-sans text-[11px] tracking-[0.14em] uppercase text-amber mb-6">
-                  Marketing + editorial
-                </div>
-                <ul className="space-y-5">
-                  {ADOBE_ITEMS.map((item) => (
-                    <li key={item} className="flex items-start gap-4">
-                      <DiamondBullet />
-                      <span className="font-sans text-[16px] md:text-[17px] leading-[1.6] text-ink font-light">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* Closing CTA — dark */}
-      <section className="w-full" style={{ backgroundColor: '#2D3D46' }}>
+      {/* Contact — dark */}
+      <section className="w-full" style={{ backgroundColor: "#2D3D46" }}>
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
           <div className="max-w-[700px]">
             <h2
               className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-6 md:mb-8"
               style={{ color: "#F4F3EF" }}
             >
-              Not sure which engagement fits? <em className="italic">Let&rsquo;s figure it out.</em>
+              Tell me about the work.
             </h2>
-            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14 max-w-[500px]" style={{ color: "#C8C2BA" }}>
-              Most clients know what they need to get done — not necessarily which
-              structure makes sense. Reach out and describe the work.
-              I&rsquo;ll find the right fit.
+            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14 max-w-[560px]" style={{ color: "#C8C2BA" }}>
+              Tell me what you&rsquo;re working on, the timing and anything you already
+              have, like a brief or a link. I&rsquo;ll let you know whether it&rsquo;s a fit
+              and how I&rsquo;d suggest working together.
             </p>
             <a
               href="/contact"
