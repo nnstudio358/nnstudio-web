@@ -1,51 +1,63 @@
 "use client";
 import { motion } from "framer-motion";
 
+// Copy: ChatGPT final in the Home handoff doc (Oct 15, 2026).
+// Kept short so the start of Selected work shows at a typical desktop viewport.
+const ease = [0.25, 0.1, 0.25, 1] as const;
+
 export default function Hero() {
   return (
     <section className="w-full bg-transparent pt-[64px] md:pt-[80px]">
       <div className="max-w-[1440px] mx-auto">
-        <div className="px-5 md:px-10 lg:px-16 pt-16 pb-20 md:pt-24 md:pb-32 max-w-[860px]">
+        <div className="px-5 md:px-10 lg:px-16 pt-14 pb-14 md:pt-20 md:pb-16 max-w-[900px]">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="font-serif text-[40px] md:text-[56px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10"
+            transition={{ duration: 0.7, ease }}
+            className="font-serif text-[40px] md:text-[56px] lg:text-[68px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-7 md:mb-8"
           >
             Senior design partner.
           </motion.h1>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: 0.15 }}
-            className="font-sans text-[16px] md:text-[19px] leading-[1.65] max-w-[550px] mb-10 md:mb-14 font-light"
-            style={{ color: "#6B6A63" }}
+            transition={{ duration: 0.6, ease, delay: 0.15 }}
+            className="max-w-[640px] mb-9 md:mb-11"
           >
-            Direct partner for in-house marketing and brand teams — and
-            white-label senior capacity for the agencies that serve them.
-            <br /><br />
-            <strong className="font-medium text-ink">Take the brief, ask the right questions once, deliver.</strong>
-          </motion.p>
+            <p
+              className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light mb-5"
+              style={{ color: "#6B6A63" }}
+            >
+              I work with in-house B2B marketing teams and agencies that need a
+              senior designer to take on substantial work and carry it through.
+              That might mean extending an established brand across a report and
+              the campaign around it, or setting the visual direction for a new
+              site and building it.
+            </p>
+            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-medium text-ink">
+              Take the brief, ask the right questions, deliver.
+            </p>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10"
+            transition={{ duration: 0.6, ease, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6"
           >
             <a
-              href="/contact"
+              href="/work"
               className="font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
             >
-              Start a conversation →
+              View work →
             </a>
             <a
-              href="/work"
+              href="/contact"
               className="font-sans text-[14px] text-muted border border-faint px-9 py-4 hover:text-ink hover:border-ink transition-colors"
-              style={{ backgroundColor: '#EDECE8' }}
+              style={{ backgroundColor: "#EDECE8" }}
             >
-              View work →
+              Start a conversation →
             </a>
           </motion.div>
         </div>

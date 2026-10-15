@@ -197,7 +197,8 @@ export default function WorkPage() {
           <div className="divide-y divide-faint">
             {FEATURED.map(({ client, headline, deliverables, industry, body, metrics, image, imageAlt, imagePosition, imageFit, imagePadding, primaryBg, headlineMaxWidth, bodyMaxWidth, secondaryImage, secondaryImagePosition, secondaryFlex, secondaryBg, video, caseStudyLink }: { client: string; headline: React.ReactNode; deliverables: string; industry: string; body: string[]; metrics: { value: string; label: string; logo?: string }[]; image?: string; imageAlt?: string; imagePosition?: string; imageFit?: string; imagePadding?: string; primaryBg?: string; headlineMaxWidth?: string; bodyMaxWidth?: string; secondaryImage?: string; secondaryImagePosition?: string; secondaryFlex?: number; secondaryBg?: string; video?: string; caseStudyLink?: string }) => (
               <FadeUp key={client}>
-                <div className="py-12 md:py-20">
+                {/* Anchor for Home's Selected work link. Pendulum, enterprise and Maison anchors come with the Work rebuild. */}
+                <div id={client === "Turno" ? "turno" : undefined} className="py-12 md:py-20 scroll-mt-24">
 
                   {/* Client + industry */}
                   <div className="mb-6">

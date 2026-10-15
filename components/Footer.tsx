@@ -27,7 +27,7 @@ export default function Footer({ dark = false }: { dark?: boolean }) {
           {/* Row 2 — Tagline + links */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6">
             <span className="font-sans text-[13px] text-muted font-light">
-              Senior design partner for in-house marketing teams
+              Senior design partner for B2B marketing teams and agencies
             </span>
             <div className="flex flex-wrap items-center gap-6 md:gap-8">
               <a
@@ -84,7 +84,7 @@ export default function Footer({ dark = false }: { dark?: boolean }) {
         {/* Row 2 — Tagline + links */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-6">
           <span className="font-sans text-[13px] text-muted font-light">
-            Senior design partner for in-house marketing teams
+            Senior design partner for B2B marketing teams and agencies
           </span>
           <div className="flex flex-wrap items-center gap-6 md:gap-8">
             <a
