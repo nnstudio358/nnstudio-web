@@ -10,8 +10,7 @@ import EnterpriseIllustration from "@/components/EnterpriseIllustration";
 
 type Preview =
   | { kind: "image"; src: string; mobileSrc?: string; alt: string; fit?: "cover" | "contain"; bg?: string }
-  | { kind: "enterprise" }
-  | { kind: "pending"; label: string };
+  | { kind: "enterprise" };
 
 type Project = {
   id: string;
@@ -28,8 +27,12 @@ const PROJECTS: Project[] = [
     name: "Pendulum",
     description: "I designed the Brand Risk Report, its promotional assets and ad sets for other campaigns.",
     href: "/work#pendulum",
-    // Waiting on a cover or chart spread from the final report PDF.
-    preview: { kind: "pending", label: "Brand Risk Report" },
+    // Cover and page 4 from the final report PDF (no pipeline figure).
+    preview: {
+      kind: "image",
+      src: "/home/pendulum-brand-risk-report.jpg",
+      alt: "Pendulum Brand Risk Report cover and an interior page with data charts",
+    },
   },
   {
     id: "enterprise-system",
@@ -70,15 +73,6 @@ const PROJECTS: Project[] = [
 function PreviewArt({ preview, mobile = false, eager = false }: { preview: Preview; mobile?: boolean; eager?: boolean }) {
   if (preview.kind === "enterprise") {
     return <EnterpriseIllustration className="absolute inset-0 w-full h-full" />;
-  }
-  if (preview.kind === "pending") {
-    return (
-      <div className="absolute inset-0 flex items-center justify-center" style={{ background: "#2D3D46" }}>
-        <span className="font-sans text-[12px] tracking-[0.18em] uppercase" style={{ color: "#C8C2BA" }}>
-          {preview.label}
-        </span>
-      </div>
-    );
   }
   const src = mobile && preview.mobileSrc ? preview.mobileSrc : preview.src;
   const contain = preview.fit === "contain";
