@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     "Senior B2B design work across campaigns, content systems, digital products, and long-form marketing — built for enterprise teams, regulated industries, and agency partners.",
 };
 import Image from "next/image";
+import Link from "next/link";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FadeUp from "@/components/FadeUp";
@@ -21,7 +22,7 @@ const FEATURED = [
     industry: "Hospitality / Short-term rental",
     deliverables: "UI design · eBook · Print",
     body: [
-      "A single content system designed to work across three formats — a digital guide, a downloadable eBook, and a print coffee table book — all for the same audience, under the same brand.",
+      "A single content system designed to work across three formats — a digital guide, a downloadable eBook, and a 70,000-word hardcover book — all for the same audience, under the same brand.",
       "The challenge was keeping the experience consistent across digital, downloadable, and print formats without losing clarity or creating disconnected brand experiences.",
     ],
     metrics: [
@@ -40,6 +41,7 @@ const FEATURED = [
     secondaryImagePosition: "center",
     secondaryFlex: 2,
     secondaryBg: "#1B7E72",
+    caseStudyLink: "/work/turno",
   },
   {
     client: "OutSystems",
@@ -193,7 +195,7 @@ export default function WorkPage() {
           </div>
 
           <div className="divide-y divide-faint">
-            {FEATURED.map(({ client, headline, deliverables, industry, body, metrics, image, imageAlt, imagePosition, imageFit, imagePadding, primaryBg, headlineMaxWidth, bodyMaxWidth, secondaryImage, secondaryImagePosition, secondaryFlex, secondaryBg, video }: { client: string; headline: React.ReactNode; deliverables: string; industry: string; body: string[]; metrics: { value: string; label: string; logo?: string }[]; image?: string; imageAlt?: string; imagePosition?: string; imageFit?: string; imagePadding?: string; primaryBg?: string; headlineMaxWidth?: string; bodyMaxWidth?: string; secondaryImage?: string; secondaryImagePosition?: string; secondaryFlex?: number; secondaryBg?: string; video?: string }) => (
+            {FEATURED.map(({ client, headline, deliverables, industry, body, metrics, image, imageAlt, imagePosition, imageFit, imagePadding, primaryBg, headlineMaxWidth, bodyMaxWidth, secondaryImage, secondaryImagePosition, secondaryFlex, secondaryBg, video, caseStudyLink }: { client: string; headline: React.ReactNode; deliverables: string; industry: string; body: string[]; metrics: { value: string; label: string; logo?: string }[]; image?: string; imageAlt?: string; imagePosition?: string; imageFit?: string; imagePadding?: string; primaryBg?: string; headlineMaxWidth?: string; bodyMaxWidth?: string; secondaryImage?: string; secondaryImagePosition?: string; secondaryFlex?: number; secondaryBg?: string; video?: string; caseStudyLink?: string }) => (
               <FadeUp key={client}>
                 <div className="py-12 md:py-20">
 
@@ -292,6 +294,18 @@ export default function WorkPage() {
                     </div>
 
                   </div>
+
+                  {caseStudyLink && (
+                    <div className="mt-8">
+                      <Link
+                        href={caseStudyLink}
+                        className="inline-block font-sans text-[14px] tracking-[0.04em] border border-faint text-muted px-9 py-4 hover:text-ink hover:border-ink transition-colors"
+                        style={{ backgroundColor: "#EDECE8" }}
+                      >
+                        View case study →
+                      </Link>
+                    </div>
+                  )}
 
                 </div>
               </FadeUp>

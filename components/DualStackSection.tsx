@@ -45,7 +45,7 @@ export default function DualStackSection() {
             <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10">
               Most designers live in one world. <em className="italic">Your brand lives in both.</em>
             </h2>
-            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[600px]" style={{ color: "#6B6A63" }}>
+            <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[660px]" style={{ color: "#6B6A63" }}>
               Marketing teams need design that works across every format — from collaborative Figma systems to long-form editorial and print production. That usually means splitting the work across two vendors. I don&rsquo;t.
             </p>
           </div>

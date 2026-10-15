@@ -36,6 +36,7 @@ const ENGAGEMENTS = [
     description:
       "A single engagement with clear deliverables and a fixed timeline. Right for a product launch, campaign asset suite, one-off content piece, or initial design system build.\n\nDigital systems, long-form content, print, or all three — depending on what the work requires.\n\nOften used by agencies needing senior support on launch campaigns, pitch work, or client-facing brand systems.",
     detail: null,
+    link: null,
   },
   {
     name: "Marketing Partner",
@@ -43,6 +44,7 @@ const ENGAGEMENTS = [
     description:
       "A monthly retainer covering ongoing digital, content, and print design — including assets, eBooks, whitepapers, decks, print collateral, and more.\n\nRight for teams that need reliable senior support on a consistent basis without rebuilding context every week.",
     detail: "Retainer · 20–30 hrs/month",
+    link: { href: "/ongoing-design-support", text: "See how ongoing support works →" },
   },
   {
     name: "Design Partner",
@@ -50,6 +52,7 @@ const ENGAGEMENTS = [
     description:
       "A monthly retainer focused on scalable design systems alongside ongoing marketing design.\n\nShared UI patterns, organized component systems, and consistent brand execution maintained across digital, content, and print environments.\n\nRight for teams that need both a living design system and ongoing marketing output managed together by the same senior partner.",
     detail: "Retainer · 30–40 hrs/month",
+    link: { href: "/ongoing-design-support", text: "See how ongoing support works →" },
   },
 ];
 
@@ -131,7 +134,7 @@ export default function ServicesPage() {
           </FadeUp>
 
           <div className="mt-12 md:mt-20 divide-y divide-faint border-t border-faint">
-            {ENGAGEMENTS.map(({ name, qualifier, description, detail }, index) => (
+            {ENGAGEMENTS.map(({ name, qualifier, description, detail, link }, index) => (
               <FadeUp key={name} delay={index * 0.1}>
               <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-8 md:gap-24 py-12 md:py-16">
                 <div>
@@ -153,6 +156,14 @@ export default function ServicesPage() {
                       {para}
                     </p>
                   ))}
+                  {link && (
+                    <a
+                      href={link.href}
+                      className="font-sans text-[16px] text-muted hover:text-ink transition-colors inline-block pt-1"
+                    >
+                      {link.text}
+                    </a>
+                  )}
                 </div>
               </div>
               </FadeUp>

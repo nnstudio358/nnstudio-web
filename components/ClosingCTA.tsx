@@ -18,12 +18,12 @@ export default function ClosingCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="relative z-[1] max-w-[600px]"
+          className="relative z-[1] max-w-[760px]"
         >
           <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10">
-            Have a project or campaign coming up?
+            Have design work coming up?
           </h2>
-          <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light mb-10 md:mb-14" style={{ color: "#6B6A63" }}>
+          <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light mb-10 md:mb-14 max-w-[600px]" style={{ color: "#6B6A63" }}>
             I work with marketing teams and agencies that need experienced design
             support across digital, content, and print.
           </p>
@@ -33,6 +33,14 @@ export default function ClosingCTA() {
           >
             Start a conversation →
           </a>
+          <div className="mt-6">
+            <a
+              href="/ongoing-design-support"
+              className="font-sans text-[16px] text-muted hover:text-ink transition-colors"
+            >
+              Need ongoing support? See how monthly support works →
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
