@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 
 export function Artwork({ name, alt }: { name: string; alt: string }) {
   const dialog = useRef<HTMLDialogElement>(null);
-  return <><button className="p-artwork" type="button" onClick={() => dialog.current?.showModal()} aria-label={`Enlarge: ${alt}`}><img src={`/pendulum/${name}.webp`} alt={alt} loading="lazy" /><span className="p-enlarge" aria-hidden="true">↗</span></button><dialog ref={dialog} className="p-lightbox" onClick={e => {if(e.target === dialog.current) dialog.current.close();}}><button className="p-lightbox-close" onClick={() => dialog.current?.close()} autoFocus aria-label="Close enlarged image">Close ×</button><img src={`/pendulum/${name}.webp`} alt={alt}/></dialog></>;
+  return <><button className="p-artwork" type="button" onClick={() => dialog.current?.showModal()} aria-label={`Enlarge: ${alt}`}><img src={`/pendulum/${name}.webp`} alt={alt} loading="lazy" /><span className="p-enlarge" aria-hidden="true">↗</span></button><dialog ref={dialog} className="p-lightbox" aria-label={alt} onClick={e => {if(e.target === dialog.current) dialog.current.close();}}><button className="p-lightbox-close" onClick={() => dialog.current?.close()} autoFocus aria-label="Close enlarged image">Close ×</button><img src={`/pendulum/${name}.webp`} alt={alt}/></dialog></>;
 }
 const spreads = [[2,3],[4,5],[8,12],[16,17]];
 const labels = ['The opening pages','Findings and data','Different information, different layouts','The action plan'];
