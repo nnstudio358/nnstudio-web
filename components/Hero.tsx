@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 
-// Copy: ChatGPT final in the Home handoff doc (Oct 15, 2026).
+// Copy: ChatGPT final in the Home handoff doc (Oct 25, 2026).
 // Kept short so the start of Selected work shows at a typical desktop viewport.
 const ease = [0.25, 0.1, 0.25, 1] as const;
 
@@ -29,8 +29,8 @@ export default function Hero() {
               className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light mb-5"
               style={{ color: "#6B6A63" }}
             >
-              I work with in-house B2B marketing teams and agencies that need a
-              senior designer to take on substantial work and carry it through.
+              When your team needs an experienced designer to take on a substantial
+              project or ongoing work, I can step in and carry it through.
             </p>
             <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-medium text-ink">
               Take the brief, ask the right questions, deliver.

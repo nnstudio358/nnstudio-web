@@ -6,10 +6,10 @@ import Footer from "@/components/Footer";
 
 export const viewport: Viewport = { themeColor: "#2D3D46" };
 
-// Copy: ChatGPT final in the Home handoff doc (Oct 15, 2026).
+// Copy: ChatGPT final in the Home handoff doc (Oct 25, 2026).
 const title = "nnstudio — Senior design partner for B2B marketing teams and agencies";
 const description =
-  "Nathan Billman is an independent senior designer working with B2B marketing teams and agencies across digital, content and print.";
+  "Nathan Billman provides senior design support for B2B marketing teams and agencies across digital, content and print.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -63,11 +63,11 @@ export default function Home() {
             </h2>
             <div>
               <p className={bodyText} style={{ color: "#6B6A63" }}>
-                Some teams bring me a defined project, like a research report and
-                the assets that promote it. Others reserve time with me each month,
-                and we decide together what it goes toward. Agencies bring me in
-                either way, working under their creative lead and inside their
-                client&rsquo;s brand.
+                Have a defined project that needs an experienced designer, or more
+                work than your team can handle each month? I can take on a project
+                from brief to delivery or reserve time for work we prioritize
+                together. Agencies can bring me in under their creative lead and
+                within their client&rsquo;s brand.
               </p>
               <a
                 href="/services"
@@ -87,10 +87,9 @@ export default function Home() {
             className="font-sans text-[16px] md:text-[18px] leading-[1.65] font-light max-w-[760px] pb-12 md:pb-16 mb-12 md:mb-16 border-b"
             style={{ color: "#C8C2BA", borderColor: "#3D4D55" }}
           >
-            I&rsquo;ve been a designer for more than 20 years, and for about the last
-            decade most of my work has been B2B marketing in healthcare, fintech and
-            technology. Clients include Google Cloud, Meta, WhatsApp, Capital One
-            and Penske.
+            I bring more than 20 years of design experience, including about a
+            decade focused on B2B marketing in healthcare, fintech and technology.
+            Clients include Google Cloud, Meta, WhatsApp, Capital One and Penske.
           </p>
           <div className="max-w-[700px]">
             <h2
@@ -103,7 +102,7 @@ export default function Home() {
               className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-12 max-w-[560px]"
               style={{ color: "#C8C2BA" }}
             >
-              Send me a note about the work and when you need it.
+              Send me a note about the project and when you need it.
             </p>
             <a
               href="/contact"
