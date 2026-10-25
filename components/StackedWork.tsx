@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
 import type { Project } from "@/components/SelectedWork";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 // Desktop (lg and up, motion allowed): Selected work as pinned cards that stack
 // as you scroll, Clay-style. Each card pins below the nav; as the next card
@@ -61,7 +62,6 @@ function Card({
   const dim = useTransform(progress, [start, end], [0, depth * 0.06]);
 
   const imageLeft = i % 2 === 0;
-  const textOnly = !p.visual;
   const contain = p.visual?.fit === "contain";
 
   return (
@@ -72,47 +72,38 @@ function Card({
       <motion.a
         href={p.href}
         style={{ scale, transformOrigin: "50% 0%" }}
-        className={`group relative block overflow-hidden border border-faint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber ${
-          textOnly ? "h-[min(360px,40svh)]" : "h-[min(680px,calc(100svh-180px))]"
-        }`}
+        className={`group relative block overflow-hidden border border-faint focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber h-[min(680px,calc(100svh-180px))]`}
       >
         <div className="absolute inset-0" style={{ backgroundColor: "#F4F3EF" }} />
         <div
-          className={`relative h-full grid ${
-            textOnly ? "grid-cols-[2fr_1fr]" : imageLeft ? "grid-cols-[2fr_1fr]" : "grid-cols-[1fr_2fr]"
-          }`}
+          className={`relative h-full grid ${imageLeft ? "grid-cols-[2fr_1fr]" : "grid-cols-[1fr_2fr]"}`}
         >
-          {textOnly ? (
-            <>
-              <div className="p-10 xl:p-12 max-w-[640px]">
-                <Caption p={p} i={i} n={n} />
-              </div>
-              <div />
-            </>
-          ) : (
-            <>
+          <>
               <div
                 className={`relative overflow-hidden ${imageLeft ? "order-1" : "order-2"}`}
-                style={{ background: p.visual!.bg ?? "#E8E6E1" }}
+                style={{ background: p.visual?.bg ?? "#E8E6E1" }}
               >
+                {p.visual ? (
                 <div
                   className="absolute transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                   style={{ inset: contain ? "8%" : 0 }}
                 >
                   <Image
-                    src={p.visual!.src}
-                    alt={p.visual!.alt}
+                    src={p.visual.src}
+                    alt={p.visual.alt}
                     fill
                     sizes="66vw"
                     style={{ objectFit: contain ? "contain" : "cover", objectPosition: "center" }}
                   />
                 </div>
+                ) : (
+                  <ImagePlaceholder />
+                )}
               </div>
               <div className={`p-10 xl:p-12 ${imageLeft ? "order-2" : "order-1"}`}>
                 <Caption p={p} i={i} n={n} />
               </div>
-            </>
-          )}
+          </>
         </div>
         {/* Dims the card as later cards stack over it */}
         <motion.div

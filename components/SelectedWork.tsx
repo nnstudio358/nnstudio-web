@@ -1,11 +1,13 @@
 import Image from "next/image";
 import StackedWork from "@/components/StackedWork";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 // Copy: ChatGPT final in the Home handoff doc (Oct 25, 2026).
 // Layout A from the O-59 proposal (approved Oct 25): every project is visible
 // with its image first. Pendulum and Maison Levande take the large tiles in the
 // first row; Turno and the enterprise entry sit smaller in the second. The
-// enterprise entry stays text-only until its illustrations are art-directed (O-13).
+// enterprise entry uses the same card with an image placeholder until its
+// illustrations are art-directed (O-13; Nathan, Oct 25).
 // Desktop with motion allowed: the same four as pinned stacking cards (StackedWork).
 // Phones, tablets and reduced motion: the grid below.
 
@@ -151,28 +153,25 @@ const linkFocus =
 function ImageTile({ p, size }: { p: Project; size: "lg" | "sm" }) {
   return (
     <a href={p.href} className={linkFocus}>
-      <Art
-        visual={p.visual!}
-        size={size}
-        aspect={size === "lg" ? "aspect-[4/3]" : "aspect-[4/3] md:aspect-[16/9]"}
-        sizes="(min-width: 768px) 50vw, 100vw"
-      />
+      {p.visual ? (
+        <Art
+          visual={p.visual}
+          size={size}
+          aspect={size === "lg" ? "aspect-[4/3]" : "aspect-[4/3] md:aspect-[16/9]"}
+          sizes="(min-width: 768px) 50vw, 100vw"
+        />
+      ) : (
+        <div
+          className={`relative w-full overflow-hidden border border-faint ${
+            size === "lg" ? "aspect-[4/3]" : "aspect-[4/3] md:aspect-[16/9]"
+          }`}
+        >
+          <ImagePlaceholder />
+        </div>
+      )}
       <div className="mt-5 md:mt-6">
         <Caption p={p} size={size} />
       </div>
-    </a>
-  );
-}
-
-// Text-only tile: a quiet panel instead of a placeholder image.
-function TextTile({ p }: { p: Project }) {
-  return (
-    <a
-      href={p.href}
-      className={`${linkFocus} md:aspect-[16/9] border border-faint p-6 md:p-8 lg:p-10 flex flex-col justify-end transition-colors hover:border-rule`}
-      style={{ backgroundColor: "#E8E6E1" }}
-    >
-      <Caption p={p} size="sm" />
     </a>
   );
 }
@@ -200,7 +199,7 @@ export default function SelectedWork() {
             <ImageTile p={TURNO} size="sm" />
           </li>
           <li>
-            <TextTile p={ENTERPRISE} />
+            <ImageTile p={ENTERPRISE} size="sm" />
           </li>
         </ul>
 
