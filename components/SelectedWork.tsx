@@ -1,14 +1,17 @@
 import Image from "next/image";
+import StackedWork from "@/components/StackedWork";
 
 // Copy: ChatGPT final in the Home handoff doc (Oct 25, 2026).
 // Layout A from the O-59 proposal (approved Oct 25): every project is visible
 // with its image first. Pendulum and Maison Levande take the large tiles in the
 // first row; Turno and the enterprise entry sit smaller in the second. The
 // enterprise entry stays text-only until its illustrations are art-directed (O-13).
+// Desktop with motion allowed: the same four as pinned stacking cards (StackedWork).
+// Phones, tablets and reduced motion: the grid below.
 
-type Visual = { src: string; mobileSrc?: string; alt: string; fit?: "cover" | "contain"; bg?: string };
+export type Visual = { src: string; mobileSrc?: string; alt: string; fit?: "cover" | "contain"; bg?: string };
 
-type Project = {
+export type Project = {
   id: string;
   name: string;
   description: string;
@@ -182,7 +185,11 @@ export default function SelectedWork() {
           Selected work
         </h2>
 
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-12 md:gap-y-14">
+        <div className="hidden lg:motion-safe:block">
+          <StackedWork projects={[PENDULUM, MAISON, TURNO, ENTERPRISE]} />
+        </div>
+
+        <ul className="lg:motion-safe:hidden grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-12 md:gap-y-14">
           <li>
             <ImageTile p={PENDULUM} size="lg" />
           </li>
