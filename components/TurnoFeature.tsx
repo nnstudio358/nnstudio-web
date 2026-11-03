@@ -6,7 +6,7 @@ import CountUp from "@/components/CountUp";
 const METRICS = [
   { value: "8,000+", label: "Unique views" },
   { value: "800+",   label: "eBook downloads" },
-  { value: "65%",    label: "Conversion rate" },
+  { value: "65%",    label: "of new sign-ups booked a cleaner" },
 ];
 
 export default function TurnoFeature() {
@@ -25,7 +25,7 @@ export default function TurnoFeature() {
           </div>
 
           <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[52px] font-normal leading-[1.1] tracking-[-0.02em] mb-10 md:mb-16 max-w-[750px]" style={{ color: "#F4F3EF" }}>
-            A content system that converted 65% of visitors into new signups.
+            One guide, designed as a hardcover book, an eBook and a content hub.
           </h2>
         </motion.div>
 
@@ -40,7 +40,7 @@ export default function TurnoFeature() {
           >
             <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-16" style={{ color: "#C8C2BA" }}>
               Turno needed one system that worked across three formats — a digital
-              guide, downloadable eBook, and print coffee table book — without
+              guide, downloadable eBook, and 130-page hardcover book — without
               losing consistency across the experience.
             </p>
 
@@ -74,7 +74,7 @@ export default function TurnoFeature() {
           >
             <Image
               src="/turno-dualstack.png"
-              alt="Turno — How to Start an Airbnb: coffee table book and digital guide"
+              alt="Turno — How to Start an Airbnb: hardcover book and digital guide"
               width={1920}
               height={1080}
               style={{ width: "100%", height: "auto" }}

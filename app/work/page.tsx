@@ -17,17 +17,17 @@ import CountUp from "@/components/CountUp";
 const FEATURED = [
   {
     client: "Turno",
-    headline: <>A content system that converted 65% of visitors into new signups.</>,
+    headline: <>One guide, designed as a hardcover book, an eBook and a content hub.</>,
     industry: "Hospitality / Short-term rental",
     deliverables: "UI design · eBook · Print",
     body: [
-      "A single content system designed to work across three formats — a digital guide, a downloadable eBook, and a print coffee table book — all for the same audience, under the same brand.",
+      "A single content system designed to work across three formats — a digital guide, a downloadable eBook, and a 130-page hardcover book — all for the same audience, under the same brand.",
       "The challenge was keeping the experience consistent across digital, downloadable, and print formats without losing clarity or creating disconnected brand experiences.",
     ],
     metrics: [
       { value: "8,000+", label: "Unique views" },
       { value: "800+", label: "eBook downloads" },
-      { value: "65%", label: "Conversion rate" },
+      { value: "65%", label: "of new sign-ups booked a cleaner" },
     ],
     image: "/work-turno-browser.png",
     imageAlt: "Turno — How to Start an Airbnb digital guide displayed in browser",
