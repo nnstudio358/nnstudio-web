@@ -4,19 +4,20 @@ import Footer from "@/components/Footer";
 
 export const viewport: Viewport = { themeColor: "#2D3D46" };
 
-// Copy: ChatGPT final in the Services handoff doc (Oct 15, 2026).
+// Copy: ChatGPT final in the Services handoff doc (Copy Chief rerun Nov 3, 2026,
+// with the Nov 5 copy-review fix to the Pendulum example). The final has no meta
+// description, so this one is taken from its hero body.
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "I work with in-house marketing teams and agencies on content design, campaigns and marketing website systems.",
+    "Design support for specific projects or regular work alongside your team, from marketing campaigns and reports to websites and design systems.",
 };
 
 type Engagement = {
   id: string;
   name: string;
   paragraphs: string[];
-  example?: { project: string; line: string };
-  link?: { href: string; text: string };
+  example?: { project: string; line: string; href: string };
 };
 
 const ENGAGEMENTS: Engagement[] = [
@@ -24,40 +25,46 @@ const ENGAGEMENTS: Engagement[] = [
     id: "defined-project",
     name: "A defined project",
     paragraphs: [
-      "For work with a clear scope, I handle the design from the brief through final files. That might be a research report with its promotional assets, a landing page or a specific piece of design-system work. We agree on what I’m delivering, the schedule and the fee up front.",
+      "Have a project coming up that needs dedicated design attention? It could be a research report with supporting campaign materials, a landing page, or a website that needs a new visual direction. I can work from an established brand and brief, or help figure out the design direction when that hasn’t been settled yet.",
+      "We’ll agree on the scope, schedule and fee before starting. You’ll work directly with me as the project develops, with opportunities to review the work and discuss decisions along the way. I’ll make recommendations when I see a better approach and handle the design through to the finished deliverables.",
     ],
     example: {
       project: "Pendulum Intelligence",
-      line: "I designed the Brand Risk Report, its promotional assets and ad sets for other campaigns.",
+      line: "Pendulum started with a single project, the Brand Risk Report, which led to a three-month retainer covering paid social campaigns, webinars and other marketing work.",
+      href: "/work#pendulum",
     },
-    link: { href: "/work", text: "View work →" },
   },
   {
     id: "ongoing-support",
     name: "Ongoing support",
     paragraphs: [
-      "If your team has design work coming in each month, I can reserve time for it. We decide together what takes priority as needs change, from campaign work to reports or updates to existing templates. Because I’m working within your brand regularly, there’s less to explain each time.",
+      "If your team has design work coming in regularly, it can help to have someone who already understands your projects and can pick up the next assignment without starting from scratch.",
+      "We can reserve time each month and decide together what needs attention. That might be a report and its promotional materials one month, followed by campaign assets or updates to existing designs the next. Priorities can change as your marketing plans develop.",
+      "The benefit of working together over time is that I get to know your team, your brand and how you like to work. There’s less to explain each time, and we can spend more time on the design itself. You’ll have someone familiar with the work who can make recommendations and carry projects forward without needing direction on every detail.",
     ],
     example: {
       project: "Enterprise website design system",
-      line: "I’m reviewing components and maintaining system documentation with a design and development team.",
+      line: "An ongoing engagement working alongside the client’s design and development teams to improve and expand their website design system.",
+      href: "/work#enterprise-system",
     },
-    link: { href: "/work", text: "View work →" },
   },
   {
     id: "agencies",
     name: "Working with agencies",
     paragraphs: [
-      "I work behind the scenes with agencies, under your creative lead and within your client’s brand standards. I can take responsibility for a defined project or provide ongoing capacity when your team needs it. Some of that work is confidential, so I can talk through relevant examples and share what I’m allowed to show.",
+      "When you bring a freelance designer into an agency project, you need to know they can work with your team and meet the standards your clients expect. You shouldn’t have to spend more time explaining and reviewing the work than you would doing it yourself.",
+      "I’ve worked with agencies throughout my career, taking on individual projects and ongoing assignments under their creative direction. I can work from an established concept or help develop the direction when that’s part of the assignment.",
+      "You can bring me into creative discussions and client reviews when needed, or hand over a defined piece of work for me to manage. I’ll ask questions when something needs clarification, explain my design decisions and raise concerns early if something could affect the schedule. The goal is to keep the work moving and avoid unnecessary rounds of backtracking.",
+      "Some agency projects are confidential, but I’m happy to discuss relevant experience and share examples I’m allowed to show.",
     ],
   },
   {
     id: "shopify",
     name: "Shopify stores",
     paragraphs: [
-      "The Launch is a fixed-price service for product founders. I design a custom home page and product page, then build the store in Shopify.",
+      "The Launch is a fixed-price service for product founders preparing to launch a store. I develop the visual direction, design a custom home page and product page, and build the store in Shopify so you can manage it after handoff.",
     ],
-    // "Explore The Launch →" goes here once the /shopify page is built.
+    // The final's "Explore The Launch →" link goes here once the /shopify page is built (later release).
   },
 ];
 
@@ -80,12 +87,12 @@ export default function ServicesPage() {
                 Services
               </div>
               <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[72px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10 max-w-[980px]">
-                Senior design for marketing teams and agencies.
+                Design for your projects and ongoing needs.
               </h1>
               <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[760px]" style={{ color: "#6B6A63" }}>
-                I work with in-house marketing teams and agencies on content design,
-                campaigns and marketing website systems. You can bring me a defined
-                project or work with me on an ongoing basis.
+                Whether you need someone to handle a specific project or work
+                alongside your team regularly, I can help with everything from
+                marketing campaigns and reports to websites and design systems.
               </p>
               <div className="mt-10 md:mt-14">
                 <a
@@ -104,7 +111,7 @@ export default function ServicesPage() {
       <section className="w-full bg-bg border-b border-faint">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-6 md:py-10">
           <div className="divide-y divide-faint">
-            {ENGAGEMENTS.map(({ id, name, paragraphs, example, link }) => (
+            {ENGAGEMENTS.map(({ id, name, paragraphs, example }) => (
               <div
                 key={id}
                 id={id}
@@ -125,14 +132,12 @@ export default function ServicesPage() {
                         {example.project}
                       </div>
                       <p className={`${bodyText} text-ink`}>{example.line}</p>
-                      {link && (
-                        <a
-                          href={link.href}
-                          className="font-sans text-[15px] text-muted hover:text-ink transition-colors inline-block mt-5"
-                        >
-                          {link.text}
-                        </a>
-                      )}
+                      <a
+                        href={example.href}
+                        className="font-sans text-[15px] text-muted hover:text-ink transition-colors inline-block mt-5"
+                      >
+                        View work →
+                      </a>
                     </div>
                   )}
                 </div>
@@ -153,9 +158,9 @@ export default function ServicesPage() {
               Tell me about the work.
             </h2>
             <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14 max-w-[560px]" style={{ color: "#C8C2BA" }}>
-              Tell me what you&rsquo;re working on, the timing and anything you already
-              have, like a brief or a link. I&rsquo;ll let you know whether it&rsquo;s a fit
-              and how I&rsquo;d suggest working together.
+              If you have a project in mind or think ongoing support might be a
+              good fit, happy to chat about what you need and how we could work
+              together.
             </p>
             <a
               href="/contact"

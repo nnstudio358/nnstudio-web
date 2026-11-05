@@ -1,146 +1,186 @@
 import type { Metadata, Viewport } from "next";
-import React from "react";
+import Image from "next/image";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 export const viewport: Viewport = { themeColor: "#2D3D46" };
 
+// Copy: ChatGPT final in the Work handoff doc (Copy Chief rerun Nov 5, 2026, from
+// outline v3 and the Nov 5 copy review). Release 1 has no case-study links (Nathan, Nov 4).
+// Images: existing finished-work files where they match the approved lineup; the rest
+// show a placeholder until Nathan picks from the image ideas (O-76).
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Senior B2B design work across campaigns, content systems, digital products, and long-form marketing — built for enterprise teams, regulated industries, and agency partners.",
+    "Selected work by Nathan Billman at nnstudio, from B2B reports and campaigns to interactive content, website design systems and Shopify stores.",
 };
-import Image from "next/image";
-import Link from "next/link";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import FadeUp from "@/components/FadeUp";
-import CountUp from "@/components/CountUp";
 
-const FEATURED = [
+type Img = { src: string; alt: string; fit?: "cover" | "contain"; bg?: string; position?: string };
+
+type Feature = {
+  id: string;
+  name: string;
+  scope: string;
+  headline?: string;
+  body: string[];
+  result?: { label: string; text: string };
+  status?: string;
+  caption?: string;
+  images: Img[];
+};
+
+const FEATURES: Feature[] = [
   {
-    client: "Turno",
-    headline: <>A content system that converted 65% of visitors into new signups.</>,
-    industry: "Hospitality / Short-term rental",
-    deliverables: "UI design · eBook · Print",
+    id: "pendulum",
+    name: "Pendulum Intelligence",
+    scope: "Research report and ongoing marketing design",
     body: [
-      "A single content system designed to work across three formats — a digital guide, a downloadable eBook, and a 70,000-word hardcover book — all for the same audience, under the same brand.",
-      "The challenge was keeping the experience consistent across digital, downloadable, and print formats without losing clarity or creating disconnected brand experiences.",
+      "A 20-page Brand Risk Report and the campaign promoting it, followed by a three-month retainer with Pendulum’s marketing team. I designed the report around the research, giving each chart a treatment suited to its information rather than forcing different findings into the same format.",
+      "The ongoing work covered paid social, guides and worksheets. I usually brought one recommended direction for each ad brief, and the team asked me to develop a LinkedIn Ad Style Guide as a reference for the work.",
     ],
-    metrics: [
-      { value: "8,000+", label: "Unique views" },
-      { value: "800+", label: "eBook downloads" },
-      { value: "65%", label: "Conversion rate" },
+    result: {
+      label: "Reported campaign results",
+      text: "Approximately 280 report downloads and at least 150 marketing-qualified leads, reported by Georgina Ford for the campaign promoting the report.",
+    },
+    images: [
+      { src: "/work/pendulum/report-cover.jpg", alt: "Pendulum Brand Risk Report cover", fit: "contain", bg: "#1E1436" },
+      { src: "/work/pendulum/report-spread-scenario.jpg", alt: "Brand Risk Report spread with data charts" },
     ],
-    image: "/work-turno-browser.png",
-    imageAlt: "Turno — How to Start an Airbnb digital guide displayed in browser",
-    imagePosition: "center",
-    imageFit: "contain",
-    imagePadding: "8px 8px",
-    primaryBg: "#146259",
-    headlineMaxWidth: "640px",
-    secondaryImage: "/work-turno-book.png",
-    secondaryImagePosition: "center",
-    secondaryFlex: 2,
-    secondaryBg: "#1B7E72",
-    caseStudyLink: "/work/turno",
   },
   {
-    client: "OutSystems",
-    headline: "Turning 1,200 survey responses into award-winning thought leadership.",
-    industry: "Enterprise Software / Low-code development",
-    deliverables: "Research report · eBook · Infographic",
+    id: "maison-levande",
+    name: "Maison Levande",
+    scope: "Visual direction, storefront design and Shopify build",
     body: [
-      "A research-backed content system designed to position OutSystems as an authoritative voice on application development trends across long-form and campaign formats.",
-      "The project translated more than 1,200 survey responses into an eBook and infographic system structured for both lead generation and readability — turning dense research into clear, usable content rather than pages of raw data.",
-      "The work moved through OutSystems' full content and brand review process with a single structured brief upfront, delivering campaign-ready assets from the first round.",
+      "The Leon is Maison Levande’s first tote. This Shopify store for Deux Digital introduces it to distributors and future customers. I developed the site’s color and typography direction and designed the pages around the founder’s brand strategy, logo and photography.",
+      "The finished store uses custom Shopify sections I designed and built for the site, with content the client can manage after handoff.",
     ],
-    metrics: [{ value: "Finnys Award", label: "Best research-based content", logo: "/finnys-logo-accent.png" }],
-    image: "/work-outsystems.png",
-    imageAlt: "OutSystems — enterprise application development research report and eBook design",
-    imagePosition: "center",
-    primaryBg: "#8E1116",
-    secondaryImage: "/work-outsystems-infographic.jpg",
-    secondaryImagePosition: "50% 30%",
+    status: "Complete · Launch pending",
+    images: [{ src: "/home/maison-levande.jpg", alt: "Maison Levande store home page for The Leon tote" }],
   },
   {
-    client: "SSC Intralinks",
-    headline: <>An award-winning interactive built for enterprise review and engagement.</>,
-    industry: "Fintech / Investor communications",
-    deliverables: "Interactive · Assessment",
+    id: "turno",
+    name: "Turno",
+    scope: "Content hub, downloadable eBook and print book",
+    headline: "Taking a printed guide further.",
     body: [
-      "An interactive assessment designed to help financial professionals evaluate their investor portal experience against modern platform expectations — while guiding users toward the Intralinks product naturally through the experience itself.",
-      "The challenge was balancing engagement, clarity, and enterprise review requirements within a highly regulated brand environment. The interactive needed to feel genuinely useful first — not like a thinly veiled product pitch.",
-      "The result was an interactive experience that felt useful first, supported product interest naturally, and held up through enterprise review without adding cleanup work for internal teams.",
+      "Turno’s brief was a printed guide for new Airbnb hosts to use at a trade show. The content had value beyond the event, so at kickoff I proposed an eBook and a website content hub alongside the book, giving hosts more ways to find and use it.",
+      "I designed all three formats, including the 130-page hardcover book, and brought in the printer. The hub combined existing CMS components with new sections in the designs Turno’s developer built.",
     ],
-    metrics: [
-      { value: "Finnys Award", label: "Best interactive content" },
-      { value: "775", label: "Visitors" },
-      { value: "928", label: "clicks in 1,331 views" },
+    result: {
+      label: "Reported results",
+      text: "8,000+ unique views · 800+ eBook downloads · About 65% of new sign-ups went on to book a cleaner through Turno’s marketplace.",
+    },
+    caption: "The content hub, eBook pages and print edition.",
+    images: [
+      { src: "/work-turno-book.png", alt: "Turno’s How to Start an Airbnb guide in print", fit: "contain", bg: "#146259" },
+      { src: "/work-turno-browser.png", alt: "Turno’s guide as a content hub on the website", fit: "contain", bg: "#1B7E72" },
     ],
-    headlineMaxWidth: "750px",
-    bodyMaxWidth: "585px",
+  },
+  {
+    id: "enterprise-system",
+    name: "Enterprise website design system",
+    scope: "Component design, Figma and code alignment, and documentation · Ongoing",
+    headline: "Keeping a website’s design system useful as it grows.",
+    body: [
+      "An enterprise website design system needs to reflect the site people are building with it. I’m working with the company’s design and development teams to build and refine components, keeping the Figma library consistent with what’s built and expanding what it can do.",
+      "Where Figma can’t do what code can, I work with development on how to represent the component in the library. The work also includes documentation and the beginnings of AI skills that work with the components and system.",
+    ],
+    caption: "Illustrative visuals recreated with sample content and neutral styling.",
+    images: [],
+  },
+];
+
+type Lead = { id: string; name: string; scope: string; body: string; image?: Img };
+
+const LEADS: Lead[] = [
+  {
+    id: "bettercloud",
+    name: "BetterCloud",
+    scope: "Research report and landing page",
+    body: "A 44-page research report on SaaS operations, and the landing page that promoted it. I designed the report’s layout and app-tile system, carrying the cover’s tile cluster into the landing page as a pictogram so the research reads as one piece across both.",
+  },
+  {
+    id: "mambu",
+    name: "Mambu + Google Cloud",
+    scope: "Financial-services guides",
+    body: "An AI checklist and a value-proposition guide for financial-services readers bring two kinds of content into one visual language. I designed both pieces, refining and selectively applying Mambu’s brand elements to connect the publications without making their layouts identical.",
+  },
+  {
+    id: "axway",
+    name: "Axway",
+    scope: "Healthcare interoperability eBook",
+    body: "Healthcare interoperability is the subject of this eBook for API management company Axway. I designed the page layouts and collaged people and device screens onto the cover’s pixel-block graphics, connecting the people using healthcare technology with the systems behind it.",
+  },
+  {
+    id: "bottomline",
+    name: "Bottomline",
+    scope: "B2B payments campaign",
+    body: "A payments campaign built around AP transformation as a sports playbook. I developed that concept for the Payments Transformation Playbook infographic and carried the campaign artwork into the AP Opportunities guidebook, composing the scenes from licensed illustration.",
+  },
+];
+
+type More = { id: string; name: string; body: string; image?: Img; video?: string };
+
+const MORE: More[] = [
+  {
+    id: "capital-one",
+    name: "Capital One",
+    body: "The Hidden Costs eBook and infographic explain the costs of managing credit in-house. I carried an illustrated business owner kept awake by those costs across both pieces, reworking licensed stock artwork into one campaign concept.",
+  },
+  {
+    id: "crothall",
+    name: "Crothall Healthcare",
+    body: "A case-study series presents a hospital services company’s work across its service lines. I used color coding and a “By the numbers” rail to make each story’s subject and results easy to find.",
+  },
+  {
+    id: "ssc-intralinks",
+    name: "SSC Intralinks",
+    body: "I led the design of an interactive investor-portal assessment through Content4Demand, working directly with the client, and built it in Ceros. It won a Demand Gen Report Killer Content Award in 2022 and recorded 775 visitors and 1,331 page views over five weeks.",
     video: "/work-intralinks.mp4",
   },
-];
-
-const MORE_WORK = [
   {
-    client: "Meta Messenger",
-    industry: "Technology / Sales enablement",
-    description:
-      "Sales enablement and marketing support across multiple Messenger initiatives — including pitch decks, partner materials, and campaign content built for large internal teams and evolving stakeholder review.",
-    image: "/work-meta-messenger.png",
-    imageAlt: "Meta Messenger — sales enablement pitch deck and partner content design",
-    imagePosition: "center",
+    id: "udg-mops",
+    name: "Unreal Digital Group",
+    body: "“Follow the Roadmap Toward MOPs Maturity” is a six-screen interactive for the agency’s own marketing. I developed the road-sign navigation concept and designed all six screens around it.",
   },
   {
-    client: "WhatsApp",
-    industry: "Technology / Communications",
-    description:
-      "Marketing and partner-facing content supporting civic engagement and nonprofit initiatives across the WhatsApp business platform.",
-    image: "/work-whatsapp.png",
-    imageAlt: "WhatsApp — civic engagement and nonprofit marketing content design",
-    imagePosition: "center",
+    id: "regnology",
+    name: "Regnology",
+    body: "An interactive hub with Google Cloud organizes regulatory-reporting content around challenges, opportunities and solutions. I designed the layout around gradient connector shapes that link those sections.",
+    image: { src: "/work-regnology.png", alt: "Regnology regulatory-reporting hub screens", position: "top" },
   },
   {
-    client: "Capital One Trade Credit",
-    industry: "Fintech / Commercial banking",
-    description:
-      "Integrated campaign work spanning long-form content, digital advertising, and supporting sales materials — all built under strict enterprise brand standards.",
-    image: "/work-capital-one.png",
-    imageAlt: "Capital One Trade Credit — integrated eBook, infographic, and digital advertising campaign",
-    imagePosition: "center",
-    imageBg: "rgba(119, 209, 236, 0.5)",
-  },
-  {
-    client: "Broadridge",
-    industry: "Fintech / Investor communications",
-    description:
-      "Ongoing long-form content support across capital markets, wealth management, and investor communications — designed for consistency across multiple enterprise verticals and stakeholder groups.",
-    image: "/work-broadridge.jpg",
-    imageAlt: "Broadridge — long-form content design across wealth management and investor communications",
-    imagePosition: "top",
-  },
-  {
-    client: "Regnology",
-    industry: "RegTech / Regulatory compliance",
-    description:
-      "Complex regulatory subject matter translated into clear visual content designed for readability, engagement, and enterprise credibility.",
-    image: "/work-regnology.png",
-    imageAlt: "Regnology — regulatory compliance infographic and interactive content design",
-    imagePosition: "left top",
-    imageBg: "#08A74F",
-  },
-  {
-    client: "DataStax",
-    industry: "Data / Technology",
-    description:
-      "Multi-format campaign and content design across technical subject matter — maintaining consistency across a highly recognizable brand system.",
-    image: "/work-datastax.jpg",
-    imageAlt: "DataStax — multi-format content system across eBook, whitepaper, and infographic formats",
-    imagePosition: "right",
+    id: "datastax",
+    name: "DataStax",
+    body: "White papers and eBooks share an illustrated space theme across this content series. I composed the space scenes and created a layout pattern for the graphics using DataStax’s brand assets.",
+    image: { src: "/work-datastax.jpg", alt: "DataStax eBook page with an illustrated space scene", position: "top" },
   },
 ];
 
+const bodyText = "font-sans text-[16px] md:text-[17px] leading-[1.65] font-light";
+const label = "font-sans text-[12px] tracking-[0.18em] uppercase";
+
+function Frame({ img, aspect, sizes }: { img?: Img; aspect: string; sizes: string }) {
+  return (
+    <div className={`relative w-full ${aspect} overflow-hidden border border-faint`} style={{ background: img?.bg ?? "#E8E6E1" }}>
+      {img ? (
+        <div className="absolute" style={{ inset: img.fit === "contain" ? "6%" : 0 }}>
+          <Image
+            src={img.src}
+            alt={img.alt}
+            fill
+            sizes={sizes}
+            style={{ objectFit: img.fit ?? "cover", objectPosition: img.position ?? "center" }}
+          />
+        </div>
+      ) : (
+        <ImagePlaceholder />
+      )}
+    </div>
+  );
+}
 
 export default function WorkPage() {
   return (
@@ -152,244 +192,142 @@ export default function WorkPage() {
           mixBlendMode: "screen",
         }} />
         <div className="relative z-[1]">
-        {/* Page intro */}
-        <section className="w-full bg-transparent border-b border-faint pt-[64px] md:pt-[80px]">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-12 md:pt-24 md:pb-20">
-          <FadeUp>
-            <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-6">
-              Work
-            </div>
-            <h1 className="font-serif text-[36px] md:text-[52px] lg:text-[76px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-6 md:mb-8">
-              Work built for complex<br className="hidden lg:block" /> marketing environments.
-            </h1>
-            <div className="max-w-[600px]">
-              <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-8 md:mb-10" style={{ color: "#6B6A63" }}>
-                Featured case studies include full context and outcomes. For
-                confidential client work, schedule a portfolio review to see
-                additional projects across healthcare, fintech, and agency
-                partnerships.
+          <section className="w-full bg-transparent border-b border-faint pt-[64px] md:pt-[80px]">
+            <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 pt-16 pb-12 md:pt-24 md:pb-20">
+              <div className={`${label} text-amber mb-6`}>Work</div>
+              <h1 className="font-serif text-[40px] md:text-[56px] lg:text-[72px] font-normal leading-[1.08] text-ink tracking-[-0.02em] mb-8 md:mb-10">
+                Selected work
+              </h1>
+              <p className="font-sans text-[16px] md:text-[19px] leading-[1.65] font-light max-w-[760px]" style={{ color: "#6B6A63" }}>
+                I work with marketing teams and agencies on projects that need a clear
+                design direction and someone to carry it through. The work below ranges
+                from research-led campaigns to websites, with much of it for software,
+                fintech and healthcare companies.
               </p>
-              <a
-                href="/contact"
-                className="inline-block font-sans text-[14px] tracking-[0.04em] border border-faint text-muted px-9 py-4 hover:text-ink hover:border-ink transition-colors"
-                style={{ backgroundColor: '#EDECE8' }}
-              >
-                Schedule portfolio review →
-              </a>
             </div>
-          </FadeUp>
-        </div>
-        </section>
+          </section>
         </div>
       </div>
 
-      {/* Featured work */}
-      <section className="w-full bg-bg relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: 'radial-gradient(ellipse at 50% 50%, rgba(253,252,248,0.7) 0%, transparent 60%)',
-          mixBlendMode: 'screen',
-        }} />
-        <div className="relative z-[1] max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-12 md:py-20">
-          <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-8">
-            Featured case studies
-          </div>
-
+      {/* Featured projects */}
+      <section className="w-full bg-bg">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16">
           <div className="divide-y divide-faint">
-            {FEATURED.map(({ client, headline, deliverables, industry, body, metrics, image, imageAlt, imagePosition, imageFit, imagePadding, primaryBg, headlineMaxWidth, bodyMaxWidth, secondaryImage, secondaryImagePosition, secondaryFlex, secondaryBg, video, caseStudyLink }: { client: string; headline: React.ReactNode; deliverables: string; industry: string; body: string[]; metrics: { value: string; label: string; logo?: string }[]; image?: string; imageAlt?: string; imagePosition?: string; imageFit?: string; imagePadding?: string; primaryBg?: string; headlineMaxWidth?: string; bodyMaxWidth?: string; secondaryImage?: string; secondaryImagePosition?: string; secondaryFlex?: number; secondaryBg?: string; video?: string; caseStudyLink?: string }) => (
-              <FadeUp key={client}>
-                {/* Anchor for Home's Selected work link. Pendulum, enterprise and Maison anchors come with the Work rebuild. */}
-                <div id={client === "Turno" ? "turno" : undefined} className="py-12 md:py-20 scroll-mt-24">
+            {FEATURES.map((f) => (
+              <article key={f.id} id={f.id} className="py-14 md:py-20 scroll-mt-24">
+                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 md:gap-8 mb-6">
+                  <div className={`${label} text-ink`}>{f.name}</div>
+                  <div className={label} style={{ color: "#8A8A82" }}>{f.scope}</div>
+                </div>
+                <h2 className="font-serif text-[30px] md:text-[40px] lg:text-[48px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10 max-w-[900px]">
+                  {f.headline ?? f.name}
+                </h2>
 
-                  {/* Client + industry */}
-                  <div className="mb-6">
-                    <div className="font-sans text-[12px] tracking-[0.18em] uppercase" style={{ color: "#8A8A82" }}>
-                      {client}
-                    </div>
-                    <div className="font-sans text-[12px] tracking-[0.18em] uppercase" style={{ color: "#8A8A82" }}>
-                      {industry}
-                    </div>
+                {f.images.length > 1 ? (
+                  <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-3 md:h-[420px] lg:h-[540px]">
+                    <Frame img={f.images[0]} aspect="aspect-[4/3] md:aspect-auto md:h-full" sizes="(min-width: 768px) 40vw, 100vw" />
+                    <Frame img={f.images[1]} aspect="aspect-[4/3] md:aspect-auto md:h-full" sizes="(min-width: 768px) 60vw, 100vw" />
                   </div>
+                ) : (
+                  <Frame img={f.images[0]} aspect="aspect-[4/3] md:aspect-[16/8]" sizes="100vw" />
+                )}
+                {f.caption && (
+                  <p className="font-sans text-[13px] text-muted mt-3">{f.caption}</p>
+                )}
 
-                  {/* Headline */}
-                  <h2 className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] text-ink tracking-[-0.02em] mb-8 md:mb-10" style={{ maxWidth: headlineMaxWidth ?? "820px" }}>
-                    {headline}
-                  </h2>
-
-                  {/* Body copy */}
-                  <div className="space-y-5 mb-16" style={{ maxWidth: bodyMaxWidth ?? '560px' }}>
-                    {body.map((para, i) => (
-                      <p key={i} className="font-sans text-[17px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>
-                        {para}
-                      </p>
+                <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8 md:gap-16 mt-10 md:mt-12">
+                  <div className="space-y-5">
+                    {f.body.map((p) => (
+                      <p key={p} className={bodyText} style={{ color: "#6B6A63" }}>{p}</p>
                     ))}
                   </div>
-
-                  {/* Media area */}
-                  {video ? (
-                    <div className="w-full border border-faint overflow-hidden mb-12">
-                      <video autoPlay muted loop playsInline className="w-full h-auto block">
-                        <source src={video} type="video/mp4" />
-                      </video>
-                    </div>
-                  ) : image && secondaryImage ? (
-                    <div className="w-full aspect-[3/2] md:aspect-[16/7] border border-faint overflow-hidden mb-12 flex gap-px" style={{ background: "var(--color-faint)" }}>
-                      <div className="relative flex-[3] overflow-hidden" style={{ background: primaryBg ?? "#EDECE8" }}>
-                        {imagePadding ? (
-                          <div className="absolute" style={{ inset: imagePadding }}>
-                            <Image src={image} alt={imageAlt ?? client} fill style={{ objectFit: "contain", objectPosition: "center" }} />
-                          </div>
-                        ) : (
-                          <Image src={image} alt={imageAlt ?? client} fill style={{ objectFit: imageFit === "contain" ? "contain" : "cover", objectPosition: imagePosition ?? "center" }} />
-                        )}
-                      </div>
-                      <div className="relative overflow-hidden" style={{ flex: secondaryFlex ?? 1, background: secondaryBg ?? "#EDECE8" }}>
-                        <Image src={secondaryImage} alt="" fill className="object-cover" style={{ objectPosition: secondaryImagePosition ?? "top" }} />
-                      </div>
-                    </div>
-                  ) : image ? (
-                    <div className="relative w-full aspect-[3/2] md:aspect-[16/7] border border-faint overflow-hidden mb-12">
-                      <Image src={image} alt={imageAlt ?? client} fill className="object-cover" style={{ objectPosition: imagePosition ?? "center" }} />
-                    </div>
-                  ) : (
-                    <div
-                      className="w-full aspect-[3/2] md:aspect-[16/7] border border-faint flex items-center justify-center mb-12"
-                      style={{ background: "#E8E6E1" }}
-                    >
-                      <span className="font-sans text-[13px] text-muted tracking-[0.04em]">
-                        {client} — images coming
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Outcome */}
-                  <div className="max-w-[1000px] mx-auto">
-                    <div className="mb-6">
-                      <div className="font-sans text-[11px] tracking-[0.18em] uppercase text-muted mb-1">
-                        The outcome
-                      </div>
-                      <div className="font-sans text-[11px] tracking-[0.14em] uppercase text-muted">
-                        {deliverables}
-                      </div>
-                    </div>
-
-                    <div className="border border-faint flex flex-col sm:flex-row">
-                      {metrics.map(({ value, label, logo }: { value: string; label: string; logo?: string }) => (
-                        <div key={label} className="flex-1 px-6 py-8 md:px-12 md:py-10 text-center">
-                          {logo ? (
-                            <div className="flex items-center justify-center gap-3">
-                              <Image src={logo} alt="" width={40} height={34} style={{ height: 34, width: "auto" }} />
-                              <div className="font-serif text-[36px] font-normal leading-[1.1] tracking-[-0.02em] text-amber">
-                                <CountUp value={value} />
-                              </div>
-                            </div>
-                          ) : (
-                            <div className="font-serif text-[36px] font-normal tracking-[-0.02em] text-amber">
-                              <CountUp value={value} />
-                            </div>
-                          )}
-                          <div className="font-sans text-[17px] font-light mt-2 text-ink">
-                            {label}
-                          </div>
+                  {(f.result || f.status) && (
+                    <div className="md:border-l md:border-faint md:pl-10 space-y-6">
+                      {f.result && (
+                        <div>
+                          <div className={`${label} text-amber mb-3`}>{f.result.label}</div>
+                          <p className="font-serif text-[20px] md:text-[22px] leading-[1.35] text-ink">{f.result.text}</p>
                         </div>
-                      ))}
-                    </div>
-
-                  </div>
-
-                  {caseStudyLink && (
-                    <div className="mt-8">
-                      <Link
-                        href={caseStudyLink}
-                        className="inline-block font-sans text-[14px] tracking-[0.04em] border border-faint text-muted px-9 py-4 hover:text-ink hover:border-ink transition-colors"
-                        style={{ backgroundColor: "#EDECE8" }}
-                      >
-                        View case study →
-                      </Link>
+                      )}
+                      {f.status && (
+                        <div className="font-sans text-[11px] tracking-[0.14em] uppercase text-muted">{f.status}</div>
+                      )}
                     </div>
                   )}
-
                 </div>
-              </FadeUp>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* More work grid */}
+      {/* Agency work */}
       <section className="w-full bg-bg border-t border-faint">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-12 md:py-20">
-          <div className="font-sans text-[12px] tracking-[0.18em] uppercase text-amber mb-10 md:mb-16">
-            Additional work
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {MORE_WORK.map(({ client, industry, description, image, imageAlt, imagePosition, imageBg }, index) => (
-              <FadeUp key={client} delay={index * 0.07} className="h-full">
-                <div className="flex flex-col border border-faint h-full transition-colors duration-500 hover:bg-offwhite">
-                  {image ? (
-                    <div className="relative w-full aspect-[4/3] border-b border-faint overflow-hidden" style={imageBg ? { background: imageBg } : undefined}>
-                      <Image
-                        src={image}
-                        alt={imageAlt ?? client}
-                        fill
-                        className="object-cover"
-                        style={{ objectPosition: imagePosition ?? "top" }}
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      className="w-full aspect-[4/3] border-b border-faint flex items-center justify-center"
-                      style={{ background: "#E8E6E1" }}
-                    >
-                      <span className="font-sans text-[12px] text-muted tracking-[0.04em]">
-                        {client}
-                      </span>
-                    </div>
-                  )}
-
-                  <div className="p-10 flex flex-col flex-1">
-                    <div className="font-sans text-[12px] tracking-[0.18em] uppercase mb-6" style={{ color: "#8A8A82" }}>
-                      {industry}
-                    </div>
-                    <h3 className="font-serif text-[22px] font-normal text-ink tracking-[-0.01em] mb-5">
-                      {client}
-                    </h3>
-                    <p className="font-sans text-[15px] leading-[1.65] font-light flex-1" style={{ color: "#6B6A63" }}>
-                      {description}
-                    </p>
-                  </div>
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-14 md:py-20">
+          <p className="font-serif text-[22px] md:text-[26px] leading-[1.35] text-ink max-w-[760px] mb-12 md:mb-16">
+            The next four projects were completed through Unreal Digital Group, along
+            with the Capital One, Regnology and DataStax pieces below.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-14">
+            {LEADS.map((l) => (
+              <article key={l.id} id={l.id} className="scroll-mt-24">
+                <Frame img={l.image} aspect="aspect-[4/3]" sizes="(min-width: 768px) 50vw, 100vw" />
+                <div className="flex items-baseline justify-between gap-6 mt-5 md:mt-6">
+                  <h3 className="font-serif text-[24px] md:text-[28px] font-normal leading-[1.15] text-ink tracking-[-0.01em]">{l.name}</h3>
+                  <span className={`${label} text-right shrink-0 max-w-[50%]`} style={{ color: "#8A8A82", fontSize: 11 }}>{l.scope}</span>
                 </div>
-              </FadeUp>
+                <p className={`${bodyText} mt-3`} style={{ color: "#6B6A63" }}>{l.body}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Gated CTA — dark */}
-      <section className="w-full" style={{ backgroundColor: '#2D3D46' }}>
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-32">
-          <FadeUp>
-            <div className="max-w-[740px]">
-              <h2
-                className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-6 md:mb-8"
-                style={{ color: "#F4F3EF" }}
-              >
-                There&rsquo;s more to see.
-              </h2>
-              <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-14" style={{ color: "#C8C2BA" }}>
-                Much of the work is client-confidential — including projects delivered
-                as white-label senior capacity for agencies. The full range,
-                including regulated healthcare, additional fintech, and direct
-                agency work, is available in a live portfolio review.
-              </p>
-              <a
-                href="/contact"
-                className="inline-block font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
-              >
-                Schedule portfolio review →
-              </a>
-            </div>
-          </FadeUp>
+      {/* Additional work */}
+      <section className="w-full bg-bg border-t border-faint">
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-14 md:py-20">
+          <div className={`${label} text-amber mb-10 md:mb-12`}>Additional work</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+            {MORE.map((m) => (
+              <article key={m.id} id={m.id} className="scroll-mt-24">
+                {m.video ? (
+                  <div className="relative w-full aspect-[4/3] overflow-hidden border border-faint bg-[#E8E6E1]">
+                    <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover motion-reduce:hidden">
+                      <source src={m.video} type="video/mp4" />
+                    </video>
+                  </div>
+                ) : (
+                  <Frame img={m.image} aspect="aspect-[4/3]" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
+                )}
+                <h3 className="font-serif text-[22px] font-normal text-ink tracking-[-0.01em] mt-5 mb-3">{m.name}</h3>
+                <p className="font-sans text-[15px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>{m.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact — dark */}
+      <section className="w-full" style={{ backgroundColor: "#2D3D46" }}>
+        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-28">
+          <div className="max-w-[700px]">
+            <h2
+              className="font-serif text-[28px] md:text-[36px] lg:text-[44px] font-normal leading-[1.1] tracking-[-0.02em] mb-6 md:mb-8"
+              style={{ color: "#F4F3EF" }}
+            >
+              Looking for a relevant example?
+            </h2>
+            <p className="font-sans text-[16px] md:text-[17px] leading-[1.65] font-light mb-10 md:mb-12 max-w-[560px]" style={{ color: "#C8C2BA" }}>
+              Some engagements are confidential. Let me know what you&rsquo;re working on,
+              and I can say which additional examples I&rsquo;m able to share.
+            </p>
+            <a
+              href="/contact"
+              className="inline-block font-sans text-[14px] tracking-[0.04em] bg-amber text-ink px-9 py-4 hover:bg-[#D4A55A] transition-colors"
+            >
+              Start a conversation →
+            </a>
+          </div>
         </div>
       </section>
 

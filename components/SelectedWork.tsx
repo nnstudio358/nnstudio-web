@@ -2,7 +2,7 @@ import Image from "next/image";
 import StackedWork from "@/components/StackedWork";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
 
-// Copy: ChatGPT final in the Home handoff doc (Oct 25, 2026).
+// Copy: ChatGPT final in the Home handoff doc (Copy Chief rerun Nov 3, 2026, with the Nov 5 copy-review fixes).
 // Layout A from the O-59 proposal (approved Oct 25): every project is visible
 // with its image first. Pendulum and Maison Levande take the large tiles in the
 // first row; Turno and the enterprise entry sit smaller in the second. The
@@ -26,7 +26,7 @@ const PENDULUM: Project = {
   id: "pendulum",
   name: "Pendulum",
   description:
-    "A research report, its promotional assets and ad sets for other campaigns, all designed within Pendulum’s established brand.",
+    "Pendulum brought me in for its Brand Risk Report, and the report led to a three-month retainer with the marketing team covering paid social, webinars and other marketing projects.",
   href: "/work#pendulum",
   // Cover and page 4 from the final report PDF (no pipeline figure).
   visual: {
@@ -39,7 +39,7 @@ const MAISON: Project = {
   id: "maison-levande",
   name: "Maison Levande",
   description:
-    "A Shopify storefront carried from color and typography direction through page design and build, working from the founder’s brand strategy.",
+    "Maison Levande’s founder had a brand strategy, logo and photography ready for a new product launch. I translated that direction into the storefront’s visual design, then built a custom Shopify theme specifically for the brand.",
   status: "Complete · Launch pending",
   href: "/work#maison-levande",
   visual: {
@@ -53,7 +53,7 @@ const TURNO: Project = {
   id: "turno",
   name: "Turno",
   description:
-    "A guide for new Airbnb hosts designed as a website content hub, downloadable eBook and hardcover print book.",
+    "Turno originally brought me in to design a printed guide for Airbnb hosts. Seeing the potential in the content, I proposed expanding it into a downloadable eBook and website, then designed all three formats.",
   href: "/work#turno",
   visual: {
     src: "/work-turno-book.png",
@@ -67,7 +67,7 @@ const ENTERPRISE: Project = {
   id: "enterprise-system",
   name: "Enterprise website design system",
   description:
-    "Component reviews and system documentation developed in collaboration with an enterprise design and development team.",
+    "I’m working with the company’s design and development teams to keep their website design system consistent with what’s built, and to expand what it can do.",
   status: "Ongoing · Illustrative visuals",
   href: "/work#enterprise-system",
 };

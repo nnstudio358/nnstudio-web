@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
         destination: "/services#ongoing-support",
         permanent: true,
       },
+      // Case studies move to phase 2 (Nathan, Nov 4). Until they're rebuilt, send
+      // their URLs to the matching Work entry. Temporary, so the pages can return.
+      { source: "/work/turno", destination: "/work#turno", permanent: false },
+      { source: "/work/pendulum", destination: "/work#pendulum", permanent: false },
     ];
   },
 };
