@@ -18,6 +18,7 @@ type Engagement = {
   name: string;
   paragraphs: string[];
   example?: { project: string; line: string; href: string };
+  note?: { text: string; link: string; href: string };
 };
 
 const ENGAGEMENTS: Engagement[] = [
@@ -64,7 +65,13 @@ const ENGAGEMENTS: Engagement[] = [
     paragraphs: [
       "The Launch is a fixed-price service for product founders preparing to launch a store. I develop the visual direction, design a custom home page and product page, and build the store in Shopify so you can manage it after handoff.",
     ],
-    // The final's "Explore The Launch →" link goes here once the /shopify page is built (later release).
+    // The Launch isn't live yet (Nathan, Nov 6): say so and invite founders to get in touch.
+    // The final's "Explore The Launch →" link replaces this note once the /shopify page is built.
+    note: {
+      text: "The Launch is coming soon. If you’re planning a store now,",
+      link: "get in touch →",
+      href: "/contact",
+    },
   },
 ];
 
@@ -111,7 +118,7 @@ export default function ServicesPage() {
       <section className="w-full bg-bg border-b border-faint">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-6 md:py-10">
           <div className="divide-y divide-faint">
-            {ENGAGEMENTS.map(({ id, name, paragraphs, example }) => (
+            {ENGAGEMENTS.map(({ id, name, paragraphs, example, note }) => (
               <div
                 key={id}
                 id={id}
@@ -126,6 +133,14 @@ export default function ServicesPage() {
                       {para}
                     </p>
                   ))}
+                  {note && (
+                    <p className={`${bodyText} text-ink`}>
+                      {note.text}{" "}
+                      <a href={note.href} className="underline underline-offset-4 decoration-faint hover:decoration-ink transition-colors">
+                        {note.link}
+                      </a>
+                    </p>
+                  )}
                   {example && (
                     <div className="border border-faint px-6 md:px-8 py-6 md:py-7">
                       <div className="font-sans text-[11px] tracking-[0.14em] uppercase text-amber mb-3">

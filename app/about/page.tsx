@@ -7,7 +7,7 @@ export const viewport: Viewport = { themeColor: "#2D3D46" };
 
 // Copy: ChatGPT final in the About handoff doc (Copy Chief rerun Nov 3, 2026).
 // The second section's headline was renamed Nov 3 (Nathan) so it doesn't repeat the hero.
-// Portrait: small, beside the Contact block only (Nathan, Oct 15).
+// Portrait: small, beside the Contact block only (Nathan, Oct 15); on the right, balancing the CTA (Nathan, Nov 6).
 export const metadata: Metadata = {
   title: "About",
   description:
@@ -108,8 +108,8 @@ export default function AboutPage() {
       {/* Contact — dark, with the small portrait */}
       <section className="w-full" style={{ backgroundColor: "#2D3D46" }}>
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-16 md:py-24 lg:py-28">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-8 md:gap-12">
-            <div className="w-[120px] md:w-[148px] aspect-square overflow-hidden shrink-0">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8 md:gap-12">
+            <div className="w-[120px] md:w-[148px] aspect-square overflow-hidden shrink-0 sm:order-2">
               <Image
                 src="/nathan-billman.jpg"
                 alt="Nathan Billman"

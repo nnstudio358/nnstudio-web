@@ -6,8 +6,9 @@ import ImagePlaceholder from "@/components/ImagePlaceholder";
 
 export const viewport: Viewport = { themeColor: "#2D3D46" };
 
-// Copy: ChatGPT final in the Work handoff doc (Copy Chief rerun Nov 5, 2026, from
-// outline v3 and the Nov 5 copy review). Release 1 has no case-study links (Nathan, Nov 4).
+// Copy: ChatGPT final in the Work handoff doc (Copy Chief rerun Nov 5, 2026), revised live
+// with Nathan Nov 6: new headlines, Pendulum rewrite, grouped by type of work. The Copy
+// Chief reviews the built page afterward. Release 1 has no case-study links (Nathan, Nov 4).
 // Images: existing finished-work files where they match the approved lineup; the rest
 // show a placeholder until Nathan picks from the image ideas (O-76).
 export const metadata: Metadata = {
@@ -34,14 +35,15 @@ const FEATURES: Feature[] = [
   {
     id: "pendulum",
     name: "Pendulum Intelligence",
-    scope: "Research report and ongoing marketing design",
+    scope: "Research report and campaign design on retainer",
+    headline: "A flagship research report that turned into a retainer.",
     body: [
-      "A 20-page Brand Risk Report and the campaign promoting it, followed by a three-month retainer with Pendulum’s marketing team. I designed the report around the research, giving each chart a treatment suited to its information rather than forcing different findings into the same format.",
-      "The ongoing work covered paid social, guides and worksheets. I usually brought one recommended direction for each ad brief, and the team asked me to develop a LinkedIn Ad Style Guide as a reference for the work.",
+      "Pendulum’s marketing team brought me in to design its 20-page Brand Risk Report and the campaign promoting it. I shaped each chart around its findings instead of forcing the research into one format, so every result gets the treatment it needs.",
+      "That work led to a three-month retainer alongside the team, designing paid social, webinar promotion, guides and worksheets. For each ad brief I usually brought one recommended direction rather than a spread of options, and the team asked me to create a LinkedIn Ad Style Guide to keep the work consistent.",
     ],
     result: {
-      label: "Reported campaign results",
-      text: "Approximately 280 report downloads and at least 150 marketing-qualified leads, reported by Georgina Ford for the campaign promoting the report.",
+      label: "Report campaign results",
+      text: "About 280 report downloads and 150+ marketing-qualified leads.",
     },
     images: [
       { src: "/work/pendulum/report-cover.jpg", alt: "Pendulum Brand Risk Report cover", fit: "contain", bg: "#1E1436" },
@@ -52,6 +54,7 @@ const FEATURES: Feature[] = [
     id: "maison-levande",
     name: "Maison Levande",
     scope: "Visual direction, storefront design and Shopify build",
+    headline: "A custom-designed Shopify store for a product launch.",
     body: [
       "The Leon is Maison Levande’s first tote. This Shopify store for Deux Digital introduces it to distributors and future customers. I developed the site’s color and typography direction and designed the pages around the founder’s brand strategy, logo and photography.",
       "The finished store uses custom Shopify sections I designed and built for the site, with content the client can manage after handoff.",
@@ -63,7 +66,7 @@ const FEATURES: Feature[] = [
     id: "turno",
     name: "Turno",
     scope: "Content hub, downloadable eBook and print book",
-    headline: "Taking a printed guide further.",
+    headline: "A trade-show book, expanded into an eBook and content hub.",
     body: [
       "Turno’s brief was a printed guide for new Airbnb hosts to use at a trade show. The content had value beyond the event, so at kickoff I proposed an eBook and a website content hub alongside the book, giving hosts more ways to find and use it.",
       "I designed all three formats, including the 130-page hardcover book, and brought in the printer. The hub combined existing CMS components with new sections in the designs Turno’s developer built.",
@@ -82,7 +85,7 @@ const FEATURES: Feature[] = [
     id: "enterprise-system",
     name: "Enterprise website design system",
     scope: "Component design, Figma and code alignment, and documentation · Ongoing",
-    headline: "Keeping a website’s design system useful as it grows.",
+    headline: "Ongoing design system work that keeps Figma and code aligned.",
     body: [
       "An enterprise website design system needs to reflect the site people are building with it. I’m working with the company’s design and development teams to build and refine components, keeping the Figma library consistent with what’s built and expanding what it can do.",
       "Where Figma can’t do what code can, I work with development on how to represent the component in the library. The work also includes documentation and the beginnings of AI skills that work with the components and system.",
@@ -92,70 +95,107 @@ const FEATURES: Feature[] = [
   },
 ];
 
-type Lead = { id: string; name: string; scope: string; body: string; image?: Img };
+type Tile = { id: string; name: string; scope: string; body: string; credit: string; image?: Img; video?: string };
+type Group = { id: string; label: string; subhead: string; tiles: Tile[] };
 
-const LEADS: Lead[] = [
-  {
-    id: "bettercloud",
-    name: "BetterCloud",
-    scope: "Research report and landing page",
-    body: "A 44-page research report on SaaS operations, and the landing page that promoted it. I designed the report’s layout and app-tile system, carrying the cover’s tile cluster into the landing page as a pictogram so the research reads as one piece across both.",
-  },
-  {
-    id: "mambu",
-    name: "Mambu + Google Cloud",
-    scope: "Financial-services guides",
-    body: "An AI checklist and a value-proposition guide for financial-services readers bring two kinds of content into one visual language. I designed both pieces, refining and selectively applying Mambu’s brand elements to connect the publications without making their layouts identical.",
-  },
-  {
-    id: "axway",
-    name: "Axway",
-    scope: "Healthcare interoperability eBook",
-    body: "Healthcare interoperability is the subject of this eBook for API management company Axway. I designed the page layouts and collaged people and device screens onto the cover’s pixel-block graphics, connecting the people using healthcare technology with the systems behind it.",
-  },
-  {
-    id: "bottomline",
-    name: "Bottomline",
-    scope: "B2B payments campaign",
-    body: "A payments campaign built around AP transformation as a sports playbook. I developed that concept for the Payments Transformation Playbook infographic and carried the campaign artwork into the AP Opportunities guidebook, composing the scenes from licensed illustration.",
-  },
-];
+const UDG = "Through Unreal Digital Group";
 
-type More = { id: string; name: string; body: string; image?: Img; video?: string };
-
-const MORE: More[] = [
+// Grouped by type of work (Nathan, Nov 6). Engagement is a credit line on each tile;
+// the Services page covers how to work together.
+const GROUPS: Group[] = [
   {
-    id: "capital-one",
-    name: "Capital One",
-    body: "The Hidden Costs eBook and infographic explain the costs of managing credit in-house. I carried an illustrated business owner kept awake by those costs across both pieces, reworking licensed stock artwork into one campaign concept.",
+    id: "reports",
+    label: "Reports and guides",
+    subhead: "Long-form content, designed well from cover to last page.",
+    tiles: [
+      {
+        id: "bettercloud",
+        name: "BetterCloud",
+        scope: "Research report and landing page",
+        body: "A 44-page research report on SaaS operations, and the landing page that promoted it. I designed the report’s layout and app-tile system, carrying the cover’s tile cluster into the landing page as a pictogram so the research reads as one piece across both.",
+        credit: UDG,
+      },
+      {
+        id: "axway",
+        name: "Axway",
+        scope: "Healthcare interoperability eBook",
+        body: "Healthcare interoperability is the subject of this eBook for API management company Axway. I designed the page layouts and collaged people and device screens onto the cover’s pixel-block graphics, connecting the people using healthcare technology with the systems behind it.",
+        credit: UDG,
+      },
+      {
+        id: "mambu",
+        name: "Mambu + Google Cloud",
+        scope: "Financial-services guides",
+        body: "An AI checklist and a value-proposition guide for financial-services readers bring two kinds of content into one visual language. I designed both pieces, refining and selectively applying Mambu’s brand elements to connect the publications without making their layouts identical.",
+        credit: UDG,
+      },
+      {
+        id: "datastax",
+        name: "DataStax",
+        scope: "White paper and eBook series",
+        body: "White papers and eBooks share an illustrated space theme across this content series. I composed the space scenes and created a layout pattern for the graphics using DataStax’s brand assets.",
+        credit: UDG,
+        image: { src: "/work-datastax.jpg", alt: "DataStax eBook page with an illustrated space scene", position: "top" },
+      },
+      {
+        id: "crothall",
+        name: "Crothall Healthcare",
+        scope: "Case-study series",
+        body: "A case-study series presents a hospital services company’s work across its service lines. I used color coding and a “By the numbers” rail to make each story’s subject and results easy to find.",
+        credit: "Direct client",
+      },
+    ],
   },
   {
-    id: "crothall",
-    name: "Crothall Healthcare",
-    body: "A case-study series presents a hospital services company’s work across its service lines. I used color coding and a “By the numbers” rail to make each story’s subject and results easy to find.",
+    id: "campaigns",
+    label: "Campaigns",
+    subhead: "One strong creative concept, carried across every touchpoint.",
+    tiles: [
+      {
+        id: "bottomline",
+        name: "Bottomline",
+        scope: "B2B payments campaign",
+        body: "A payments campaign built around AP transformation as a sports playbook. I developed that concept for the Payments Transformation Playbook infographic and carried the campaign artwork into the AP Opportunities guidebook, composing the scenes from licensed illustration.",
+        credit: UDG,
+      },
+      {
+        id: "capital-one",
+        name: "Capital One",
+        scope: "eBook and infographic",
+        body: "The Hidden Costs eBook and infographic explain the costs of managing credit in-house. I carried an illustrated business owner kept awake by those costs across both pieces, reworking licensed stock artwork into one campaign concept.",
+        credit: UDG,
+      },
+    ],
   },
   {
-    id: "ssc-intralinks",
-    name: "SSC Intralinks",
-    body: "I led the design of an interactive investor-portal assessment through Content4Demand, working directly with the client, and built it in Ceros. It won a Demand Gen Report Killer Content Award in 2022 and recorded 775 visitors and 1,331 page views over five weeks.",
-    video: "/work-intralinks.mp4",
-  },
-  {
-    id: "udg-mops",
-    name: "Unreal Digital Group",
-    body: "“Follow the Roadmap Toward MOPs Maturity” is a six-screen interactive for the agency’s own marketing. I developed the road-sign navigation concept and designed all six screens around it.",
-  },
-  {
-    id: "regnology",
-    name: "Regnology",
-    body: "An interactive hub with Google Cloud organizes regulatory-reporting content around challenges, opportunities and solutions. I designed the layout around gradient connector shapes that link those sections.",
-    image: { src: "/work-regnology.png", alt: "Regnology regulatory-reporting hub screens", position: "top" },
-  },
-  {
-    id: "datastax",
-    name: "DataStax",
-    body: "White papers and eBooks share an illustrated space theme across this content series. I composed the space scenes and created a layout pattern for the graphics using DataStax’s brand assets.",
-    image: { src: "/work-datastax.jpg", alt: "DataStax eBook page with an illustrated space scene", position: "top" },
+    id: "interactive",
+    label: "Interactive",
+    subhead: "Interactive content readers explore, not just scroll past.",
+    tiles: [
+      {
+        id: "ssc-intralinks",
+        name: "SSC Intralinks",
+        scope: "Interactive assessment",
+        body: "I led the design of an interactive investor-portal assessment, working directly with the client, and built it in Ceros. It won a Demand Gen Report Killer Content Award in 2022 and recorded 775 visitors and 1,331 page views over five weeks.",
+        credit: "Through Content4Demand",
+        video: "/work-intralinks.mp4",
+      },
+      {
+        id: "regnology",
+        name: "Regnology",
+        scope: "Interactive content hub",
+        body: "An interactive hub with Google Cloud organizes regulatory-reporting content around challenges, opportunities and solutions. I designed the layout around gradient connector shapes that link those sections.",
+        credit: UDG,
+        image: { src: "/work-regnology.png", alt: "Regnology regulatory-reporting hub screens", position: "top" },
+      },
+      {
+        id: "udg-mops",
+        name: "Unreal Digital Group",
+        scope: "Six-screen interactive",
+        body: "“Follow the Roadmap Toward MOPs Maturity” is an interactive for the agency’s own marketing. I developed the road-sign navigation concept and designed all six screens around it.",
+        credit: "For the agency’s own marketing",
+      },
+    ],
   },
 ];
 
@@ -178,6 +218,15 @@ function Frame({ img, aspect, sizes }: { img?: Img; aspect: string; sizes: strin
       ) : (
         <ImagePlaceholder />
       )}
+    </div>
+  );
+}
+
+function GroupHeader({ label: text, subhead }: { label: string; subhead: string }) {
+  return (
+    <div className="mb-10 md:mb-14 max-w-[760px]">
+      <div className={`${label} text-amber mb-4`}>{text}</div>
+      <p className="font-serif text-[26px] md:text-[32px] leading-[1.2] text-ink tracking-[-0.01em]">{subhead}</p>
     </div>
   );
 }
@@ -212,6 +261,9 @@ export default function WorkPage() {
       {/* Featured projects */}
       <section className="w-full bg-bg">
         <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16">
+          <div className="pt-14 md:pt-20">
+            <GroupHeader label="Featured projects" subhead="Longer engagements, from the first brief to the finished work." />
+          </div>
           <div className="divide-y divide-faint">
             {FEATURES.map((f) => (
               <article key={f.id} id={f.id} className="py-14 md:py-20 scroll-mt-24">
@@ -261,51 +313,33 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Agency work */}
-      <section className="w-full bg-bg border-t border-faint">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-14 md:py-20">
-          <p className="font-serif text-[22px] md:text-[26px] leading-[1.35] text-ink max-w-[760px] mb-12 md:mb-16">
-            The next four projects were completed through Unreal Digital Group, along
-            with the Capital One, Regnology and DataStax pieces below.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-14">
-            {LEADS.map((l) => (
-              <article key={l.id} id={l.id} className="scroll-mt-24">
-                <Frame img={l.image} aspect="aspect-[4/3]" sizes="(min-width: 768px) 50vw, 100vw" />
-                <div className="flex items-baseline justify-between gap-6 mt-5 md:mt-6">
-                  <h3 className="font-serif text-[24px] md:text-[28px] font-normal leading-[1.15] text-ink tracking-[-0.01em]">{l.name}</h3>
-                  <span className={`${label} text-right shrink-0 max-w-[50%]`} style={{ color: "#8A8A82", fontSize: 11 }}>{l.scope}</span>
-                </div>
-                <p className={`${bodyText} mt-3`} style={{ color: "#6B6A63" }}>{l.body}</p>
-              </article>
-            ))}
+      {/* More work, grouped by type */}
+      {GROUPS.map((g) => (
+        <section key={g.id} id={g.id} className="w-full bg-bg border-t border-faint scroll-mt-24">
+          <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-14 md:py-20">
+            <GroupHeader label={g.label} subhead={g.subhead} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+              {g.tiles.map((t) => (
+                <article key={t.id} id={t.id} className="scroll-mt-24 flex flex-col">
+                  {t.video ? (
+                    <div className="relative w-full aspect-[4/3] overflow-hidden border border-faint bg-[#E8E6E1]">
+                      <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover motion-reduce:hidden">
+                        <source src={t.video} type="video/mp4" />
+                      </video>
+                    </div>
+                  ) : (
+                    <Frame img={t.image} aspect="aspect-[4/3]" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
+                  )}
+                  <div className={`${label} mt-5`} style={{ color: "#8A8A82", fontSize: 11 }}>{t.scope}</div>
+                  <h3 className="font-serif text-[22px] md:text-[24px] font-normal text-ink tracking-[-0.01em] mt-2 mb-3">{t.name}</h3>
+                  <p className="font-sans text-[15px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>{t.body}</p>
+                  <div className="font-sans text-[13px] text-muted mt-4">{t.credit}</div>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Additional work */}
-      <section className="w-full bg-bg border-t border-faint">
-        <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 py-14 md:py-20">
-          <div className={`${label} text-amber mb-10 md:mb-12`}>Additional work</div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-            {MORE.map((m) => (
-              <article key={m.id} id={m.id} className="scroll-mt-24">
-                {m.video ? (
-                  <div className="relative w-full aspect-[4/3] overflow-hidden border border-faint bg-[#E8E6E1]">
-                    <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover motion-reduce:hidden">
-                      <source src={m.video} type="video/mp4" />
-                    </video>
-                  </div>
-                ) : (
-                  <Frame img={m.image} aspect="aspect-[4/3]" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
-                )}
-                <h3 className="font-serif text-[22px] font-normal text-ink tracking-[-0.01em] mt-5 mb-3">{m.name}</h3>
-                <p className="font-sans text-[15px] leading-[1.65] font-light" style={{ color: "#6B6A63" }}>{m.body}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      ))}
 
       {/* Contact — dark */}
       <section className="w-full" style={{ backgroundColor: "#2D3D46" }}>
