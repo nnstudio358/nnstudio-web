@@ -1,9 +1,10 @@
 @import "tailwindcss";
+@import "./site.css";
 
 @theme inline {
   /* Fonts */
-  --font-serif: var(--font-playfair);
-  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-zilla);
+  --font-sans: var(--font-schibsted);
 
   /* Colors */
   --color-bg:       #EDECE8;
