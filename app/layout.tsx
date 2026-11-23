@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Zilla_Slab, Schibsted_Grotesk } from "next/font/google";
+import { Besley, Schibsted_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const jsonLd = {
@@ -29,11 +29,10 @@ const jsonLd = {
   ],
 };
 
-// Zilla Slab is for large headlines only; Schibsted Grotesk sets everything else.
-const zilla = Zilla_Slab({
-  variable: "--font-zilla",
+// Besley (a Clarendon) sets the H1 and section H2s; Schibsted Grotesk sets everything else.
+const besley = Besley({
+  variable: "--font-besley",
   subsets: ["latin"],
-  weight: ["500", "600"],
   display: "swap",
 });
 
@@ -88,7 +87,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${zilla.variable} ${schibsted.variable} antialiased`}
+      className={`${besley.variable} ${schibsted.variable} antialiased`}
     >
       <body>
         <script

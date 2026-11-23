@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import NNStudioLogo from "@/components/NNStudioLogo";
+import { primaryButtonSmall } from "@/components/gallery/buttons";
 
 const LINKS = [
   { href: "/work", label: "Work" },
@@ -42,7 +43,7 @@ export default function Nav() {
           </ul>
           <Link
             href="/contact"
-            className="font-grotesk rounded-[3px] border border-paper/55 px-4 py-2 text-[15px] font-medium text-paper transition-colors hover:border-paper hover:bg-paper hover:text-bronze"
+            className={primaryButtonSmall}
           >
             Contact
           </Link>

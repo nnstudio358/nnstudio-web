@@ -1,26 +1,23 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Fonts: Zilla Slab for large headlines only, Schibsted Grotesk for the rest */
-  --font-slab: var(--font-zilla);
+  /* Fonts: Besley for the H1 and section H2s, Schibsted Grotesk for everything else */
+  --font-display: var(--font-besley);
   --font-grotesk: var(--font-schibsted);
   /* Older routes still use these two names; they now resolve to the new faces */
-  --font-serif: var(--font-zilla);
+  --font-serif: var(--font-besley);
   --font-sans: var(--font-schibsted);
 
-  /* Rooms (Direction B). Walls, then the text that sits on each wall. */
-  --color-bronze: #54504A;        /* main rooms (Urbane Bronze) */
+  /* Two walls (Direction B). Light pieces hang on bronze, dark pieces on stone. */
+  --color-bronze: #54504A;        /* Urbane Bronze */
   --color-bronze-deep: #48443F;   /* placeholder panels on bronze */
-  --color-stone: #DDE2E1;         /* reading rooms */
-  --color-stone-deep: #CDD4D3;    /* hover and panels on stone */
-  --color-night: #2F3A40;         /* the close and footer */
-  --color-paper: #F2F0EB;         /* text on bronze and night */
+  --color-stone: #DDE2E1;         /* pale stone */
+  --color-stone-deep: #CDD4D3;    /* placeholder panels on stone */
+  --color-paper: #F2F0EB;         /* text on bronze, and the primary button */
   --color-paper-dim: #D3CCC0;     /* secondary text on bronze (5.0:1) */
-  --color-mist: #B9C3C6;          /* secondary text on night (6.5:1) */
+  --color-field-line: #B8B1A6;    /* form field borders on bronze (3.8:1) */
   --color-graphite: #1E2427;      /* text on stone */
   --color-graphite-dim: #4A5357;  /* secondary text on stone (6.0:1) */
-  --color-aqua: #9FE5D2;          /* primary action and focus on dark walls, nothing else */
-  --color-on-aqua: #1B2724;
 
   /* Legacy tokens kept so routes outside this round still render */
   --color-bg:       #EDECE8;
@@ -38,57 +35,36 @@ html, body {
   color: #3A4A52;
 }
 
-/* Wall colours. Each sets its own focus colour so the ring always reads. */
+/* The two walls. Each sets its own focus and rule colour. */
 .wall-bronze {
   background-color: var(--color-bronze);
   color: var(--color-paper);
-  --focus: var(--color-aqua);
-  --rule: rgb(242 240 235 / 0.2);
-}
-.wall-night {
-  background-color: var(--color-night);
-  color: var(--color-paper);
-  --focus: var(--color-aqua);
-  --rule: rgb(242 240 235 / 0.16);
+  --focus: var(--color-paper);
+  --rule: rgb(242 240 235 / 0.24);
 }
 .wall-stone {
   background-color: var(--color-stone);
   color: var(--color-graphite);
   --focus: var(--color-graphite);
-  --rule: rgb(30 36 39 / 0.18);
+  --rule: rgb(30 36 39 / 0.2);
 }
 
-:is(.wall-bronze, .wall-night, .wall-stone) :is(p, li, blockquote) {
+:is(.wall-bronze, .wall-stone) :is(p, li, blockquote) {
   text-wrap: pretty;
 }
 
-.wall-bronze :focus-visible,
-.wall-night :focus-visible,
-.wall-stone :focus-visible {
+:is(.wall-bronze, .wall-stone) :focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 3px;
 }
 
-.wall-bronze ::selection,
-.wall-night ::selection {
-  background: var(--color-aqua);
-  color: var(--color-on-aqua);
+.wall-bronze ::selection {
+  background: var(--color-paper);
+  color: var(--color-bronze);
 }
 .wall-stone ::selection {
   background: var(--color-graphite);
   color: var(--color-stone);
-}
-
-/* A hung piece: a printed or screen work resting just off the wall */
-.hung {
-  box-shadow:
-    0 1px 2px rgb(20 18 15 / 0.28),
-    0 14px 32px -10px rgb(20 18 15 / 0.5);
-}
-.wall-stone .hung {
-  box-shadow:
-    0 1px 2px rgb(30 36 39 / 0.16),
-    0 14px 30px -12px rgb(30 36 39 / 0.38);
 }
 
 /* Text links inside running copy */
@@ -96,11 +72,42 @@ html, body {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.22em;
-  text-decoration-color: currentColor;
-  transition: text-decoration-color 160ms ease-out, text-decoration-thickness 160ms ease-out;
+  transition: text-decoration-thickness 160ms ease-out;
 }
 .text-link:hover {
   text-decoration-thickness: 2px;
+}
+
+/* A work piece: the name link covers the whole piece, so one link opens the case study.
+   Hover lifts the images a little and underlines the name. */
+.piece {
+  position: relative;
+}
+.piece-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.piece-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 160ms ease-out;
+}
+.piece:hover .piece-link,
+.piece-link:focus-visible {
+  text-decoration-color: currentColor;
+}
+.piece .lift {
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.piece:hover .lift {
+  transform: translateY(-4px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .piece .lift { transition: none; }
+  .piece:hover .lift { transform: none; }
 }
 
 /* Legacy textures used by routes outside this round */

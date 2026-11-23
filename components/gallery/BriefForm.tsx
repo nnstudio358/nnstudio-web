@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { primaryButtonLarge } from "@/components/gallery/buttons";
 
 type FormState = { status: "idle" | "success" | "error" };
 
@@ -24,7 +25,7 @@ async function submit(_prev: FormState, formData: FormData): Promise<FormState> 
 
 const label = "font-grotesk mb-2 block text-[15px] font-medium text-paper";
 const field =
-  "font-grotesk w-full rounded-[3px] border border-paper/35 bg-paper/[0.06] px-4 py-3 text-[17px] text-paper placeholder:text-mist transition-colors hover:border-paper/60 focus:border-aqua focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-aqua";
+  "font-grotesk w-full rounded-[3px] border border-field-line bg-transparent px-4 py-3 text-[17px] text-paper placeholder:text-paper-dim transition-colors hover:border-paper focus:border-paper";
 
 export default function BriefForm({
   id,
@@ -41,7 +42,7 @@ export default function BriefForm({
     return (
       <div role="status" className="font-grotesk">
         <p className="text-[24px] font-semibold leading-tight text-paper">Message received.</p>
-        <p className="mt-3 text-[17px] leading-[1.6] text-mist">
+        <p className="mt-3 text-[17px] leading-[1.6] text-paper-dim">
           Thanks. I&rsquo;ll reply within one business day.
         </p>
       </div>
@@ -90,7 +91,7 @@ export default function BriefForm({
         <button
           type="submit"
           disabled={pending}
-          className="font-grotesk rounded-[3px] bg-aqua px-8 py-4 text-[16px] font-semibold text-on-aqua transition-[background-color,transform] duration-150 ease-out hover:bg-[#B7EEDF] active:translate-y-px disabled:cursor-wait disabled:opacity-60"
+          className={`${primaryButtonLarge} disabled:cursor-wait disabled:opacity-60`}
         >
           {pending ? "Sending…" : "Send it"}
         </button>
