@@ -81,6 +81,19 @@ html, body {
 .site-a .on-dark :focus-visible {
   outline-color: var(--color-paper);
 }
+/* Image links can sit on dark plates: a paper ring inside a carbon one reads
+   on any ground. */
+.site-a a.zoom:focus-visible {
+  outline: 3px solid var(--color-carbon);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--color-paper);
+}
+
+/* The redesigned pages own the canvas colour too (overscroll, rubber-band). */
+html:has(.site-a),
+html:has(.site-a) body {
+  background: #F4F2EE;
+}
 
 .site-a .frame {
   width: 100%;
@@ -99,8 +112,8 @@ html, body {
 .site-a .t-display {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.75rem, 6.6vw + 0.6rem, 6.5rem);
-  line-height: 0.98;
+  font-size: clamp(2.75rem, 5vw + 1rem, 5.5rem);
+  line-height: 1;
   letter-spacing: -0.022em;
   text-wrap: balance;
 }
@@ -150,6 +163,17 @@ html, body {
   transition: text-decoration-thickness 160ms ease-out;
 }
 .site-a .link:hover { text-decoration-thickness: 2px; }
+
+/* Service row names: a hairline underline at rest, ink on hover. */
+.site-a .row-name {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--color-hairline);
+  text-underline-offset: 0.2em;
+  transition: text-decoration-color 160ms ease-out;
+}
+.site-a a:hover .row-name,
+.site-a a:focus-visible .row-name { text-decoration-color: var(--color-carbon); }
 
 /* Solid ink button, square. */
 .site-a .btn {

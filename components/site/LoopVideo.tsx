@@ -10,11 +10,14 @@ export default function LoopVideo({
   poster,
   label,
   className = "",
+  position = "object-center",
 }: {
   src: string;
   poster: string;
   label: string;
   className?: string;
+  /** Which part of the frame to keep when the slot crops it. */
+  position?: string;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
   const userPaused = useRef(false);
@@ -68,12 +71,12 @@ export default function LoopVideo({
         playsInline
         preload="metadata"
         aria-label={label}
-        className="absolute inset-0 h-full w-full object-cover"
+        className={`absolute inset-0 h-full w-full object-cover ${position}`}
       />
       <button
         type="button"
         onClick={toggle}
-        className="absolute right-2 bottom-2 md:right-4 md:bottom-4 min-h-[2.25rem] px-3 bg-carbon/80 text-paper text-[0.875rem] font-[520] backdrop-blur-[2px] hover:bg-carbon focus-visible:!outline-paper"
+        className="absolute right-2 bottom-2 md:right-4 md:bottom-4 min-h-[2.25rem] px-3 bg-carbon text-paper text-[0.875rem] font-[520] hover:bg-[#3a3936]"
       >
         {playing ? "Pause" : "Play"}
         <span className="sr-only"> the screen recording</span>

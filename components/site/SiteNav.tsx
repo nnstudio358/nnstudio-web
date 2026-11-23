@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { useId, useState } from "react";
+import NNStudioLogo from "@/components/NNStudioLogo";
 
-// Direction A nav: text wordmark, three links and a Contact button.
+// Direction A nav: Nathan's wordmark, three links and a Contact button.
 // On phones the links fold into a disclosure; Contact stays visible.
 
 const LINKS = [
@@ -19,8 +20,8 @@ export default function SiteNav({ current }: { current?: "work" | "services" | "
   return (
     <header className="frame">
       <nav aria-label="Main" className="flex items-center justify-between h-[76px] md:h-[96px]">
-        <Link href="/" className="text-[1.375rem] font-[650] tracking-[-0.03em] leading-none py-2">
-          nnstudio
+        <Link href="/" className="py-3 -my-1" aria-label="nnstudio home">
+          <NNStudioLogo height={22} color="#1C1C1A" />
         </Link>
 
         <div className="flex items-center gap-2 md:gap-9">
