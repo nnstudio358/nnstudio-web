@@ -1,11 +1,28 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Fonts */
-  --font-serif: var(--font-playfair);
-  --font-sans: var(--font-dm-sans);
+  /* Fonts: Zilla Slab for large headlines only, Schibsted Grotesk for the rest */
+  --font-slab: var(--font-zilla);
+  --font-grotesk: var(--font-schibsted);
+  /* Older routes still use these two names; they now resolve to the new faces */
+  --font-serif: var(--font-zilla);
+  --font-sans: var(--font-schibsted);
 
-  /* Colors */
+  /* Rooms (Direction B). Walls, then the text that sits on each wall. */
+  --color-bronze: #54504A;        /* main rooms (Urbane Bronze) */
+  --color-bronze-deep: #48443F;   /* placeholder panels on bronze */
+  --color-stone: #DDE2E1;         /* reading rooms */
+  --color-stone-deep: #CDD4D3;    /* hover and panels on stone */
+  --color-night: #2F3A40;         /* the close and footer */
+  --color-paper: #F2F0EB;         /* text on bronze and night */
+  --color-paper-dim: #D3CCC0;     /* secondary text on bronze (5.0:1) */
+  --color-mist: #B9C3C6;          /* secondary text on night (6.5:1) */
+  --color-graphite: #1E2427;      /* text on stone */
+  --color-graphite-dim: #4A5357;  /* secondary text on stone (6.0:1) */
+  --color-aqua: #9FE5D2;          /* primary action and focus on dark walls, nothing else */
+  --color-on-aqua: #1B2724;
+
+  /* Legacy tokens kept so routes outside this round still render */
   --color-bg:       #EDECE8;
   --color-ink:      #3A4A52;
   --color-muted:    #8A8A82;
@@ -21,6 +38,72 @@ html, body {
   color: #3A4A52;
 }
 
+/* Wall colours. Each sets its own focus colour so the ring always reads. */
+.wall-bronze {
+  background-color: var(--color-bronze);
+  color: var(--color-paper);
+  --focus: var(--color-aqua);
+  --rule: rgb(242 240 235 / 0.2);
+}
+.wall-night {
+  background-color: var(--color-night);
+  color: var(--color-paper);
+  --focus: var(--color-aqua);
+  --rule: rgb(242 240 235 / 0.16);
+}
+.wall-stone {
+  background-color: var(--color-stone);
+  color: var(--color-graphite);
+  --focus: var(--color-graphite);
+  --rule: rgb(30 36 39 / 0.18);
+}
+
+:is(.wall-bronze, .wall-night, .wall-stone) :is(p, li, blockquote) {
+  text-wrap: pretty;
+}
+
+.wall-bronze :focus-visible,
+.wall-night :focus-visible,
+.wall-stone :focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.wall-bronze ::selection,
+.wall-night ::selection {
+  background: var(--color-aqua);
+  color: var(--color-on-aqua);
+}
+.wall-stone ::selection {
+  background: var(--color-graphite);
+  color: var(--color-stone);
+}
+
+/* A hung piece: a printed or screen work resting just off the wall */
+.hung {
+  box-shadow:
+    0 1px 2px rgb(20 18 15 / 0.28),
+    0 14px 32px -10px rgb(20 18 15 / 0.5);
+}
+.wall-stone .hung {
+  box-shadow:
+    0 1px 2px rgb(30 36 39 / 0.16),
+    0 14px 30px -12px rgb(30 36 39 / 0.38);
+}
+
+/* Text links inside running copy */
+.text-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-color: currentColor;
+  transition: text-decoration-color 160ms ease-out, text-decoration-thickness 160ms ease-out;
+}
+.text-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Legacy textures used by routes outside this round */
 .bg-bg {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23232520' fill-opacity='0.13' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 }

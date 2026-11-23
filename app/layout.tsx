@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans } from "next/font/google";
+import { Zilla_Slab, Schibsted_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const jsonLd = {
@@ -29,17 +29,18 @@ const jsonLd = {
   ],
 };
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+// Zilla Slab is for large headlines only; Schibsted Grotesk sets everything else.
+const zilla = Zilla_Slab({
+  variable: "--font-zilla",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  style: ["normal", "italic"],
+  weight: ["500", "600"],
+  display: "swap",
 });
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const schibsted = Schibsted_Grotesk({
+  variable: "--font-schibsted",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -87,7 +88,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${dmSans.variable} antialiased`}
+      className={`${zilla.variable} ${schibsted.variable} antialiased`}
     >
       <body>
         <script

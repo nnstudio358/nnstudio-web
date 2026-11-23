@@ -1,82 +1,83 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import NNStudioLogo from "@/components/NNStudioLogo";
 
-const NAV_LINKS = ["Work", "Services", "About"];
+const LINKS = [
+  { href: "/work", label: "Work" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const pathname = usePathname() ?? "/";
+  const isCurrent = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <nav className={`fixed top-0 inset-x-0 z-50 w-full border-b transition-colors duration-300 ${scrolled ? "bg-bg border-faint" : "bg-transparent border-transparent"}`}>
-      <div className="max-w-[1440px] mx-auto flex items-center justify-between px-5 md:px-10 lg:px-16 h-[64px] md:h-[80px]">
-        {/* Logo */}
-        <a href="/" className="flex items-center">
-          <NNStudioLogo height={20} />
-        </a>
+    <header className="wall-bronze relative z-20">
+      <nav
+        aria-label="Main"
+        className="mx-auto flex h-16 max-w-[1440px] items-center justify-between px-5 md:h-[76px] md:px-10 lg:px-16"
+      >
+        <Link href="/" aria-label="nnstudio, home" className="-m-2 flex items-center p-2">
+          <NNStudioLogo height={19} color="#F2F0EB" />
+        </Link>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-10">
-          {NAV_LINKS.map((item) => (
-            <a
-              key={item}
-              href={`/${item.toLowerCase()}`}
-              className="font-sans text-[13px] tracking-[0.04em] text-muted hover:text-ink transition-colors"
-            >
-              {item}
-            </a>
-          ))}
-          <a
+        <div className="flex items-center gap-2 md:gap-9">
+          <ul className="hidden items-center gap-9 md:flex">
+            {LINKS.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  aria-current={isCurrent(l.href) ? "page" : undefined}
+                  className="font-grotesk text-[15px] font-medium text-paper-dim decoration-1 underline-offset-[6px] transition-colors hover:text-paper aria-[current=page]:text-paper aria-[current=page]:underline"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link
             href="/contact"
-            className="font-sans text-[13px] tracking-[0.04em] text-ink bg-amber px-5 py-2 hover:bg-[#D4A55A] transition-colors lg:mr-2"
+            className="font-grotesk rounded-[3px] border border-paper/55 px-4 py-2 text-[15px] font-medium text-paper transition-colors hover:border-paper hover:bg-paper hover:text-bronze"
           >
-            Contact →
-          </a>
-        </div>
-
-        {/* Mobile: CTA + hamburger */}
-        <div className="flex md:hidden items-center gap-4">
-          <a
-            href="/contact"
-            className="font-sans text-[14px] tracking-[0.04em] text-ink bg-amber px-4 py-3 hover:bg-[#D4A55A] transition-colors"
-          >
-            Contact →
-          </a>
+            Contact
+          </Link>
           <button
-            onClick={() => setOpen(!open)}
-            className="flex flex-col gap-[5px] items-center justify-center w-11 h-11 -mr-2"
-            aria-label="Toggle menu"
+            type="button"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            onClick={() => setOpen((v) => !v)}
+            className="font-grotesk -mr-2 px-3 py-2 text-[15px] font-medium text-paper md:hidden"
           >
-            <span className={`block w-5 h-[1.5px] bg-ink transition-all duration-200 origin-center ${open ? "rotate-45 translate-y-[6.5px]" : ""}`} />
-            <span className={`block w-5 h-[1.5px] bg-ink transition-all duration-200 ${open ? "opacity-0" : ""}`} />
-            <span className={`block w-5 h-[1.5px] bg-ink transition-all duration-200 origin-center ${open ? "-rotate-45 -translate-y-[6.5px]" : ""}`} />
+            {open ? "Close" : "Menu"}
           </button>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile dropdown */}
-      {open && (
-        <div className="md:hidden border-t border-faint bg-bg">
-          {NAV_LINKS.map((item) => (
-            <a
-              key={item}
-              href={`/${item.toLowerCase()}`}
-              onClick={() => setOpen(false)}
-              className="block px-5 py-4 font-sans text-[15px] text-ink border-b border-faint hover:bg-[#E8E6E0] transition-colors"
-            >
-              {item}
-            </a>
+      <div
+        id="mobile-menu"
+        hidden={!open}
+        className="border-t border-[var(--rule)] px-5 pb-6 pt-2 md:hidden"
+      >
+        <ul>
+          {LINKS.map((l) => (
+            <li key={l.href} className="border-b border-[var(--rule)]">
+              <Link
+                href={l.href}
+                aria-current={isCurrent(l.href) ? "page" : undefined}
+                onClick={() => setOpen(false)}
+                className="font-grotesk block py-4 text-[20px] font-medium text-paper"
+              >
+                {l.label}
+              </Link>
+            </li>
           ))}
-        </div>
-      )}
-    </nav>
+        </ul>
+      </div>
+    </header>
   );
 }
