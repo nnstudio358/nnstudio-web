@@ -2,13 +2,13 @@
 
 import { useActionState } from 'react'
 
-type FormState = {
+export type FormState = {
   status: 'idle' | 'success' | 'error'
 }
 
-const initialState: FormState = { status: 'idle' }
+export const initialState: FormState = { status: 'idle' }
 
-async function submitToFormspree(prevState: FormState, formData: FormData): Promise<FormState> {
+export async function submitToFormspree(prevState: FormState, formData: FormData): Promise<FormState> {
   try {
     const res = await fetch('https://formspree.io/f/mjgjnqnw', {
       method: 'POST',

@@ -1,9 +1,21 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Fonts */
-  --font-serif: var(--font-playfair);
-  --font-sans: var(--font-dm-sans);
+  /* Fonts (Nov 23, 2026): Zilla Slab for large headlines only,
+     Schibsted Grotesk for everything else. */
+  --font-display: var(--font-zilla), Georgia, serif;
+  --font-serif: var(--font-zilla), Georgia, serif;
+  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+
+  /* Redesign palette (Direction A): warm grey paper, near-black ink, no accent.
+     The client work supplies the colour. */
+  --color-paper:    #F4F2EE;
+  --color-paper-2:  #EAE7E1;
+  --color-carbon:   #1C1C1A;
+  --color-graphite: #5F5C57;
+  --color-hairline: #D1CCC4;
+  --color-ash:      #B8B5AD;
+  --color-night-rule: #3A3935;
 
   /* Colors */
   --color-bg:       #EDECE8;
@@ -29,4 +41,191 @@ html, body {
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23232520' fill-opacity='0.13' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"),
     radial-gradient(ellipse at 90% -5%, #FDFCF8 0%, #F4F3EF 28%, transparent 58%);
+}
+
+
+/* ---------------------------------------------------------------
+   Direction A (redesign): shared page frame, type and browser surfaces.
+   Scoped to .site-a so the older routes keep their current styling.
+   --------------------------------------------------------------- */
+
+.site-a {
+  --margin: clamp(1.25rem, 10vw - 1.75rem, 7.25rem);
+  --gutter: clamp(1rem, 2.2vw, 2rem);
+  /* How far a full-bleed element must reach past the frame on each side. */
+  --bleed: calc(var(--margin) + max(0px, (100vw - 1440px) / 2));
+  background: var(--color-paper);
+  color: var(--color-carbon);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  overflow-x: clip;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+
+.site-a ::selection {
+  background: var(--color-carbon);
+  color: var(--color-paper);
+}
+.site-a .on-dark ::selection,
+.site-a .on-dark::selection {
+  background: var(--color-paper);
+  color: var(--color-carbon);
+}
+
+.site-a :focus-visible {
+  outline: 2px solid var(--color-carbon);
+  outline-offset: 3px;
+}
+.site-a .on-dark :focus-visible {
+  outline-color: var(--color-paper);
+}
+
+.site-a .frame {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: var(--margin);
+}
+
+.site-a .grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+}
+
+/* Large headlines: Zilla Slab, one weight. */
+.site-a .t-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.75rem, 6.6vw + 0.6rem, 6.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+}
+.site-a .t-h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.25rem, 4vw + 0.5rem, 4.25rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+/* Everything else: Schibsted Grotesk. */
+.site-a .t-lead {
+  font-size: clamp(1.125rem, 0.5vw + 1rem, 1.375rem);
+  line-height: 1.5;
+  letter-spacing: -0.004em;
+  text-wrap: pretty;
+}
+.site-a .t-sub {
+  font-weight: 560;
+  font-size: clamp(1.375rem, 1.1vw + 1rem, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.site-a .t-item {
+  font-weight: 600;
+  font-size: 1.1875rem;
+  line-height: 1.3;
+  letter-spacing: -0.008em;
+  text-wrap: balance;
+}
+.site-a p { text-wrap: pretty; }
+.site-a .t-small {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+.site-a .muted { color: var(--color-graphite); }
+.site-a .on-dark .muted { color: var(--color-ash); }
+
+/* Text links: underline drawn from the font, thickens on hover. */
+.site-a .link {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: text-decoration-thickness 160ms ease-out;
+}
+.site-a .link:hover { text-decoration-thickness: 2px; }
+
+/* Solid ink button, square. */
+.site-a .btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3.125rem;
+  padding: 0.8rem 1.6rem;
+  background: var(--color-carbon);
+  color: var(--color-paper);
+  font-weight: 560;
+  font-size: 1.0625rem;
+  line-height: 1.2;
+  transition: background-color 160ms ease-out;
+}
+.site-a .btn:hover { background: #3a3936; }
+.site-a .on-dark .btn { background: var(--color-paper); color: var(--color-carbon); }
+.site-a .on-dark .btn:hover { background: #ffffff; }
+.site-a .btn:disabled { opacity: 0.55; cursor: progress; }
+
+/* Captions run in: the project name in ink, the line after it muted. */
+.site-a .caption {
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  max-width: 40em;
+  text-wrap: pretty;
+}
+.site-a .caption b { font-weight: 620; color: var(--color-carbon); }
+.site-a .caption span { color: var(--color-graphite); }
+
+/* Work images: a slow settle on hover, never on reduced motion. */
+.site-a .zoom img,
+.site-a .zoom video {
+  transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .site-a a.zoom:hover img,
+  .site-a a.zoom:hover video { transform: scale(1.025); }
+}
+.site-a a.zoom:hover .caption b,
+.site-a a.zoom:focus-visible .caption b {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+/* Full-bleed: reach from the frame to both viewport edges. */
+.site-a .bleed {
+  margin-inline: calc(var(--bleed) * -1);
+}
+.site-a .bleed-right {
+  margin-right: calc(var(--bleed) * -1);
+}
+
+/* Form fields on the dark close: ruled, no boxes. */
+.site-a .field {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-ash);
+  border-radius: 0;
+  padding: 0.75rem 0;
+  color: var(--color-paper);
+  font: inherit;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  caret-color: var(--color-paper);
+  transition: border-color 160ms ease-out;
+}
+.site-a .field::placeholder { color: #9a978f; }
+.site-a .field:hover { border-bottom-color: #d9d6cf; }
+.site-a .field:focus { outline: none; border-bottom-color: var(--color-paper); box-shadow: 0 1px 0 0 var(--color-paper); }
+.site-a .field:focus-visible { outline: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .site-a *, .site-a *::before, .site-a *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
