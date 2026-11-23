@@ -1,0 +1,218 @@
+{
+ "copy": 320,
+ "copySmall": 200,
+ "speed": 3.2,
+ "items": [
+  {
+   "project": "pendulum",
+   "src": "/work/scenes/pendulum-scene-1000.png",
+   "width": 1000,
+   "height": 676,
+   "at": [
+    2,
+    12,
+    60
+   ],
+   "small": [
+    0,
+    16,
+    28
+   ],
+   "z": 2
+  },
+  {
+   "project": "pendulum",
+   "src": "/work/pendulum/promo-ad-report.jpg",
+   "width": 800,
+   "height": 800,
+   "at": [
+    46,
+    40,
+    17
+   ],
+   "small": [
+    18,
+    32,
+    22
+   ],
+   "lift": true,
+   "front": true,
+   "z": 4
+  },
+  {
+   "project": "turno",
+   "panel": "#b9d8d0",
+   "panelH": 46,
+   "panelHSmall": 30,
+   "width": 0,
+   "height": 0,
+   "at": [
+    66,
+    12,
+    50
+   ],
+   "small": [
+    38,
+    10,
+    28
+   ],
+   "z": 1
+  },
+  {
+   "project": "turno",
+   "src": "/work-turno-browser.png",
+   "width": 1025,
+   "height": 801,
+   "at": [
+    70,
+    18,
+    42
+   ],
+   "small": [
+    40,
+    16,
+    28
+   ],
+   "z": 2
+  },
+  {
+   "project": "turno",
+   "src": "/work-turno-tablet.png",
+   "width": 1920,
+   "height": 1440,
+   "at": [
+    98,
+    42,
+    28
+   ],
+   "small": [
+    58,
+    32,
+    22
+   ],
+   "front": true,
+   "z": 4
+  },
+  {
+   "project": "maison",
+   "src": "/work/scenes/maison-levande-scene-880.png",
+   "width": 880,
+   "height": 595,
+   "at": [
+    128,
+    8,
+    60
+   ],
+   "small": [
+    80,
+    16,
+    28
+   ],
+   "z": 2
+  },
+  {
+   "project": "maison",
+   "src": "/home/maison-levande.jpg",
+   "width": 1600,
+   "height": 1200,
+   "crop": {
+    "ar": 3.0,
+    "x": 0.27,
+    "y": 0.79,
+    "w": 0.46
+   },
+   "at": [
+    148,
+    46,
+    36
+   ],
+   "small": [
+    98,
+    32,
+    22
+   ],
+   "lift": true,
+   "front": true,
+   "z": 4
+  },
+  {
+   "project": "intralinks",
+   "src": "/work/intralinks-poster.jpg",
+   "width": 1728,
+   "height": 850,
+   "at": [
+    192,
+    12,
+    60
+   ],
+   "small": [
+    120,
+    16,
+    28
+   ],
+   "lift": true,
+   "z": 1
+  },
+  {
+   "project": "intralinks",
+   "src": "/work/intralinks-question.jpg",
+   "width": 1728,
+   "height": 850,
+   "at": [
+    212,
+    38,
+    40
+   ],
+   "small": [
+    138,
+    28,
+    22
+   ],
+   "lift": true,
+   "front": true,
+   "z": 4
+  },
+  {
+   "project": "enterprise",
+   "src": "/work/scenes/enterprise-monitor-scene-1000.png",
+   "width": 1000,
+   "height": 676,
+   "at": [
+    256,
+    8,
+    60
+   ],
+   "small": [
+    160,
+    10,
+    28
+   ],
+   "z": 2
+  },
+  {
+   "project": "enterprise",
+   "src": "/work/scenes/enterprise-monitor-scene-1000.png",
+   "width": 1000,
+   "height": 676,
+   "crop": {
+    "ar": 1.25,
+    "x": 0.355,
+    "y": 0.25,
+    "w": 0.29
+   },
+   "at": [
+    286,
+    34,
+    22
+   ],
+   "small": [
+    178,
+    26,
+    20
+   ],
+   "lift": true,
+   "front": true,
+   "z": 4
+  }
+ ]
+}

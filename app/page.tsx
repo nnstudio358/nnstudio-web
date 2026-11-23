@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import SiteNav from "@/components/site/SiteNav";
 import SiteFooter from "@/components/site/SiteFooter";
@@ -14,21 +15,26 @@ export const metadata: Metadata = {
     "nnstudio is an independent design studio for B2B marketing teams and the agencies behind them.",
 };
 
+// Each service carries a small fragment of matching work. None of these
+// fragments appears in the reel or the projects above.
 const SERVICES = [
   {
     name: "Brand and campaigns",
     desc: "eBooks, ads, social and the campaign artwork that ties them together.",
     href: "/services",
+    frag: { src: "/work/pendulum/campaign-bofu-3.jpg", w: 800, h: 800 },
   },
   {
     name: "Reports and presentations",
     desc: "Research and annual reports, pitch decks, print pieces and interactives.",
     href: "/services/reports-and-presentations",
+    frag: { src: "/work/pendulum/guide-worksheet-cover.jpg", w: 900, h: 1165 },
   },
   {
     name: "Websites",
     desc: "Marketing sites, landing pages and Shopify stores.",
     href: "/services",
+    frag: { src: "/work/intralinks-result.jpg", w: 1728, h: 850 },
   },
 ];
 
@@ -39,7 +45,7 @@ export default function Home() {
 
       <main>
         <ReelStage
-          label="A slow pan across recent work: the Pendulum Intelligence research report and its ads, Turno's host guide as a hardcover book and web hub, the Maison Levande Shopify store, the SSC Intralinks assessment and an enterprise design system screen."
+          label="A slow pan across recent work: the Pendulum Intelligence research report and its ads, Turno's host guide web hub, the Maison Levande store, the SSC Intralinks assessment and an enterprise design system screen."
           overlay={
             <h1 className="t-statement reel__message">
               nnstudio is an independent design studio for B2B marketing teams and the agencies behind
@@ -76,53 +82,65 @@ export default function Home() {
             Selected work
           </h2>
 
-          {/* Pendulum: the report scene, a detail of a spread bleeding off the
-              left edge, and one of the campaign ads laid over both. */}
+          {/* Pendulum: the action-plan page of the report bleeding off the
+              left, the cover laid over its edge, two carousel slides fanned
+              at the right. None of these pieces is in the reel. */}
           <article className="project" aria-label="Pendulum Intelligence">
-            <Canvas ar={1.62} sar={0.78}>
-              <Layer at={{ x: 0, y: 30, w: 46 }} small={{ x: 0, y: 47, w: 62 }} z={2}>
+            <Canvas ar={1.62} sar={0.9}>
+              <Layer at={{ x: 0, y: 4, w: 38 }} small={{ x: 0, y: 2, w: 58 }} z={1}>
                 <Crop
                   src="/work/pendulum/report-spread-roadmap.jpg"
-                  alt="Detail of a Pendulum report spread: the section opener, Brand Reputation Monitoring Action Plan, set over a photograph with interface-style callouts."
+                  alt="A page from the Pendulum report: the section opener, Brand Reputation Monitoring Action Plan, over a photograph, with the four-phase roadmap below."
                   width={1800}
                   height={1165}
-                  ar={1.2}
-                  region={{ x: 0, y: 0, w: 0.44 }}
-                  sizes="(max-width: 767px) 560px, (max-width: 1700px) 105vw, 1800px"
+                  ar={0.858}
+                  region={{ x: 0, y: 0, w: 0.5 }}
+                  sizes="(max-width: 767px) 460px, (max-width: 1700px) 76vw, 1300px"
                 />
               </Layer>
-              <Layer at={{ x: 34, y: 0, w: 60 }} small={{ x: -2, y: 0, w: 104 }} z={1}>
+              <Layer at={{ x: 33, y: 16, w: 22 }} small={{ x: 46, y: 24, w: 34 }} z={2}>
                 <Fit
-                  src="/work/scenes/pendulum-scene-1000.png"
-                  alt="The Pendulum Intelligence Brand Risk Report open on a violet ground, with its cover behind and a phone showing the campaign."
+                  src="/work/pendulum/report-cover.jpg"
+                  alt="The report cover: Why is Your Current Risk Monitoring Failing Your Boardroom?"
                   width={1000}
-                  height={676}
-                  sizes="(max-width: 767px) 410px, (max-width: 1700px) 60vw, 1000px"
+                  height={1294}
+                  sizes="(max-width: 767px) 140px, 22vw"
+                  lift
                 />
               </Layer>
-              <Layer at={{ x: 40, y: 66, w: 16 }} small={{ x: 54, y: 70, w: 40 }} z={3}>
+              <Layer at={{ x: 61, y: 0, w: 22 }} small={{ x: 56, y: 62, w: 40 }} z={2}>
                 <Fit
-                  src="/work/pendulum/promo-ad-report.jpg"
-                  alt="A square LinkedIn ad promoting the report: Reputation unravels in 15 seconds."
+                  src="/work/pendulum/carousel-1.jpg"
+                  alt="A LinkedIn carousel slide: We have your 12-month roadmap to managing crises before they go viral."
                   width={800}
                   height={800}
-                  sizes="(max-width: 767px) 170px, 300px"
+                  sizes="(max-width: 767px) 160px, 22vw"
+                  lift
+                />
+              </Layer>
+              <Layer at={{ x: 75, y: 25, w: 18 }} z={3}>
+                <Fit
+                  src="/work/pendulum/carousel-4.jpg"
+                  alt="A later slide in the same carousel: Phase 3, Automate."
+                  width={800}
+                  height={800}
+                  sizes="18vw"
                   lift
                 />
               </Layer>
             </Canvas>
-              <Note at={{ x: 64, y: 74, w: 24 }} title="Pendulum Intelligence">
-                A research report and the campaign around it brought in at least 150 marketing-qualified
-                leads, and a three-month retainer.
-              </Note>
+            <Note at={{ x: 61, y: 66, w: 26 }} title="Pendulum Intelligence">
+              A research report and the campaign around it brought in at least 150 marketing-qualified leads,
+              and a three-month retainer.
+            </Note>
           </article>
 
           {/* Turno: the hardcover breaking out of a mint panel that bleeds off
-              the right edge, the web hub on a tablet above it. */}
+              the right edge, the web hub on a laptop above it. */}
           <article className="project" aria-label="Turno">
             <Canvas ar={1.5} sar={0.85}>
               <Layer at={{ x: 47, y: 8, w: 53 }} small={{ x: 30, y: 4, w: 70 }} z={1}>
-                <Panel color="#b9d8d0" ar={1.243} />
+                <Panel color="#b9d8d0" ar={1.074} />
               </Layer>
               <Layer at={{ x: 24, y: 20, w: 60 }} small={{ x: -6, y: 28, w: 100 }} z={3}>
                 <Fit
@@ -133,58 +151,51 @@ export default function Home() {
                   sizes="(max-width: 767px) 390px, (max-width: 1700px) 60vw, 1020px"
                 />
               </Layer>
-              <Layer at={{ x: 66, y: -2, w: 31 }} small={{ x: 50, y: -2, w: 54 }} z={2}>
+              <Layer at={{ x: 63, y: 1, w: 34 }} small={{ x: 44, y: 0, w: 58 }} z={2}>
                 <Fit
-                  src="/work-turno-tablet.png"
-                  alt="The Turno guide's web hub on a tablet."
-                  width={1920}
-                  height={1440}
-                  sizes="(max-width: 767px) 210px, 31vw"
+                  src="/work-turno-laptop.png"
+                  alt="The guide's web hub on a laptop."
+                  width={1008}
+                  height={606}
+                  sizes="(max-width: 767px) 230px, 34vw"
                 />
               </Layer>
             </Canvas>
-              <Note at={{ x: 8.5, y: 26, w: 15 }} title="Turno">
-                Turno asked for a printed guide for new hosts. I suggested an eBook and a web hub too, and
-                together they&rsquo;ve reached more than 8,000 unique views.
-              </Note>
+            <Note at={{ x: 8.5, y: 24, w: 15 }} title="Turno">
+              Turno asked for a printed guide for new hosts. I suggested an eBook and a web hub too, and
+              together they&rsquo;ve reached more than 8,000 unique views.
+            </Note>
           </article>
 
-          {/* Maison Levande: a bold crop of the store's hero type bleeding off
-              the left, the tote and tablet scene laid over its edge. */}
-          <article className="project" aria-label="Maison Levande">
-            <Canvas ar={1.6} sar={0.8}>
-              <Layer at={{ x: 0, y: 22, w: 42 }} small={{ x: 0, y: 36, w: 64 }} z={1}>
+          {/* Maison Levande: tucked up into the bottom of Turno's mint panel,
+              the store's desktop hero cropped to whole words, sliding under the
+              corner of the book. */}
+          <article className="project project--tuck" aria-label="Maison Levande">
+            <Canvas ar={2.35} sar={1.6}>
+              {/* z 2: above Turno's panel (1), under the corner of its book (3). */}
+              <Layer at={{ x: 38, y: 0, w: 52 }} small={{ x: 0, y: 4, w: 100 }} z={2}>
                 <Crop
                   src="/home/maison-levande.jpg"
-                  alt="Detail of the Maison Levande store's hero: the words Prime Mover set large over the red tote."
+                  alt="The Maison Levande store's hero: Prime Mover, set large over the red tote."
                   width={1600}
                   height={1200}
-                  ar={0.86}
-                  region={{ x: 0.2, y: 0.2, w: 0.56 }}
-                  sizes="(max-width: 767px) 480px, (max-width: 1700px) 81vw, 1400px"
-                />
-              </Layer>
-              <Layer at={{ x: 30, y: 2, w: 52 }} small={{ x: 14, y: 0, w: 92 }} z={2}>
-                <Fit
-                  src="/work/scenes/maison-levande-scene-880.png"
-                  alt="The Leon, a red structured tote, beside a tablet showing the Maison Levande store."
-                  width={880}
-                  height={595}
-                  sizes="(max-width: 767px) 360px, (max-width: 1700px) 52vw, 880px"
+                  ar={2.31}
+                  region={{ x: 0.1, y: 0.28, w: 0.83 }}
+                  sizes="(max-width: 767px) 470px, (max-width: 1700px) 62vw, 1080px"
                 />
               </Layer>
             </Canvas>
-              <Note at={{ x: 64, y: 70, w: 25 }} title="Maison Levande">
-                A Shopify store introducing The Leon, the brand&rsquo;s first tote. I set the color and type
-                direction, designed the pages and built the store with sections the founder can manage.
-              </Note>
+            <Note at={{ x: 8.5, y: 46, w: 24 }} title="Maison Levande">
+              A Shopify store introducing The Leon, the brand&rsquo;s first tote. I set the color and type
+              direction, designed the pages and built the store with sections the founder can manage.
+            </Note>
           </article>
 
           {/* SSC Intralinks: the assessment itself, playing, as a wide band
-              running off the right edge. */}
+              running off the right edge. "See all work" closes its note. */}
           <article className="project" aria-label="SSC Intralinks">
             <Canvas ar={2.3} sar={2.033}>
-              <Layer at={{ x: 32, y: 4, w: 68 }} small={{ x: 0, y: 0, w: 100 }}>
+              <Layer at={{ x: 34, y: 4, w: 66 }} small={{ x: 0, y: 0, w: 100 }}>
                 <LoopVideo
                   src="/work-intralinks.mp4"
                   poster="/work/intralinks-poster.jpg"
@@ -194,62 +205,67 @@ export default function Home() {
                 />
               </Layer>
             </Canvas>
-              <Note at={{ x: 8.5, y: 50, w: 19 }} title="SSC Intralinks">
+            <div className="note" style={{ "--x": 8.5, "--y": 30, "--w": 21 } as CSSProperties}>
+              <h3 className="note__title">SSC Intralinks</h3>
+              <p className="note__text">
                 An interactive investor-portal assessment that won a Demand Gen Report Killer Content Award
                 in 2022.
-              </Note>
+              </p>
+              <Link href="/work" className="link note__more">
+                See all work
+              </Link>
+            </div>
           </article>
-
-          <div className="work__more frame">
-            <Link href="/work" className="link t-body">
-              See all work
-            </Link>
-          </div>
         </section>
 
-        <section className="routes frame grid" aria-labelledby="routes-title">
+        <section className="routes frame" aria-labelledby="routes-title">
           <div className="routes__head">
             <h2 id="routes-title" className="t-headline">
               What I can help with
             </h2>
-            <p className="t-body quiet mt-5 measure">Most teams come to me with one of four kinds of project.</p>
+            <p className="t-body quiet">Most teams come to me with one of four kinds of project.</p>
           </div>
           <ul className="routes__list">
             {SERVICES.map((s) => (
               <li key={s.name}>
                 <Link href={s.href} className="route">
+                  <span className="route__frag" aria-hidden="true">
+                    <Fit src={s.frag.src} alt="" width={s.frag.w} height={s.frag.h} sizes="160px" lift />
+                  </span>
                   <span className="route__name">{s.name}</span>
                   <span className="route__desc">{s.desc}</span>
                 </Link>
               </li>
             ))}
-            <li>
-              <Link href="/services" className="route route--apart">
-                <span className="route__name">Design systems</span>
-                <span className="route__desc">
-                  For design and development teams: Figma libraries that match what&rsquo;s built and are
-                  documented so your team can use them.
-                </span>
-              </Link>
-            </li>
           </ul>
+          <div className="route-apart">
+            <Link href="/services">
+              <span className="route-apart__name">Design systems</span>
+              <span className="route-apart__desc">
+                For design and development teams: Figma libraries that match what&rsquo;s built and are
+                documented so your team can use them.
+              </span>
+            </Link>
+          </div>
         </section>
 
         {/* Client quote: none yet. Leave this space empty until one is cleared. */}
 
-        <section className="close frame grid" aria-labelledby="close-title">
+        <section className="close frame" aria-labelledby="close-title">
           <h2 id="close-title" className="t-display close__head">
             Have something coming up?
           </h2>
-          <p className="t-lead quiet close__body">
-            Tell me what it is and when you need it. A few lines is plenty, and I&rsquo;ll come back with how
-            I&rsquo;d approach it.
-          </p>
-          <div className="close__form">
-            <CloseForm
-              messageLabel="What's coming up"
-              placeholder="A report due in March, a campaign for a product launch, a site that needs a refresh…"
-            />
+          <div className="close__row">
+            <p className="t-body quiet close__body measure">
+              Tell me what it is and when you need it. A few lines is plenty, and I&rsquo;ll come back with how
+              I&rsquo;d approach it.
+            </p>
+            <div className="close__form">
+              <CloseForm
+                messageLabel="What’s coming up"
+                placeholder="A report due in March, a campaign for a product launch, a site that needs a refresh…"
+              />
+            </div>
           </div>
         </section>
       </main>

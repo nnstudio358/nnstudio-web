@@ -84,17 +84,17 @@ html:has(.site) {
   letter-spacing: -0.018em;
 }
 
-/* The two big moments: the message, and the close. */
+/* The close and the service headline: large, second to the message. */
 .t-display {
-  font-size: clamp(2.375rem, 5.5vw, 5.5rem);
-  line-height: 1.04;
+  font-size: clamp(2.25rem, 4.6vw, 4.5rem);
+  line-height: 1.05;
 }
 
-/* The message: large, but second to the work above it. */
+/* The message: the page's biggest type, set over the moving work. */
 .t-statement {
-  font-size: clamp(2rem, 4.1vw, 4.25rem);
-  line-height: 1.08;
-  letter-spacing: -0.015em;
+  font-size: clamp(2.5rem, 5.5vw, 5.375rem);
+  line-height: 1.03;
+  letter-spacing: -0.022em;
 }
 
 .t-headline {
@@ -295,6 +295,8 @@ html:has(.site) {
 .reel {
   --stage: clamp(560px, 100svh, 1100px);
   --u: calc(var(--stage) / 100);
+  --c: var(--copy);
+  --d: var(--dur);
   position: relative;
   height: var(--stage);
   overflow: hidden;
@@ -304,8 +306,12 @@ html:has(.site) {
 
 @media (max-width: 767px) {
   .reel {
-    --stage: clamp(560px, 92svh, 900px);
-    --u: calc(var(--stage) / 112);
+    --stage: clamp(600px, 100svh, 900px);
+    --u: calc(var(--stage) / 100);
+  }
+  .reel__track {
+    --c: var(--copy-s);
+    --d: var(--dur-s);
   }
 }
 
@@ -319,8 +325,8 @@ html:has(.site) {
   top: 0;
   left: 0;
   height: 100%;
-  width: calc(var(--copy) * 2 * var(--u));
-  animation: reel-pan var(--dur) linear infinite;
+  width: calc(var(--c, var(--copy)) * 2 * var(--u));
+  animation: reel-pan var(--d, var(--dur)) linear infinite;
   will-change: transform;
 }
 
@@ -329,30 +335,26 @@ html:has(.site) {
   top: 0;
   left: 0;
   height: 100%;
-  width: calc(var(--copy) * var(--u));
+  width: calc(var(--c, var(--copy)) * var(--u));
 }
 
 .reel__copy + .reel__copy {
-  left: calc(var(--copy) * var(--u));
+  left: calc(var(--c, var(--copy)) * var(--u));
 }
 
 @keyframes reel-pan {
+  to {
+    transform: translate3d(calc(var(--c, var(--copy)) * var(--u) * -1), 0, 0);
+  }
+}
+
+/* Fragments in front drift a little against their own project. */
+@keyframes reel-drift {
   from {
-    transform: translate3d(calc(var(--start, 0) * var(--u) * -1), 0, 0);
+    transform: translate3d(calc(var(--u) * -2.5), calc(var(--u) * 0.8), 0);
   }
   to {
-    transform: translate3d(calc((var(--copy) + var(--start, 0)) * var(--u) * -1), 0, 0);
-  }
-}
-
-.reel[data-playing="false"] .reel__track {
-  animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reel__track {
-    animation: none;
-    transform: translate3d(calc(var(--start, 0) * var(--u) * -1), 0, 0);
+    transform: translate3d(calc(var(--u) * 2.5), calc(var(--u) * -0.8), 0);
   }
 }
 
@@ -363,21 +365,54 @@ html:has(.site) {
   width: calc(var(--w) * var(--u));
 }
 
-/* Shade: a little at the top for the nav, more at the foot for the message. */
+.reel__panel {
+  height: calc(var(--h) * var(--u));
+}
+
+.reel__item--front {
+  animation: reel-drift 17s ease-in-out var(--drift-delay, 0s) infinite alternate;
+}
+
+@media (max-width: 767px) {
+  .reel__item {
+    left: calc(var(--sx) * var(--u));
+    top: calc(var(--sy) * var(--u));
+    width: calc(var(--sw) * var(--u));
+  }
+  .reel__panel {
+    height: calc(var(--sh) * var(--u));
+  }
+}
+
+.reel[data-playing="false"] .reel__track,
+.reel[data-playing="false"] .reel__item--front {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reel__track,
+  .reel__item--front {
+    animation: none;
+  }
+}
+
+/* Shade: a little at the top for the nav; low down, a deep and short veil,
+   so pieces sink into the message's first line and every line reads at AA
+   (3:1 or better for large text) over any frame. */
 .reel__shade {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
   background:
-    linear-gradient(to bottom, rgb(37 34 32 / 0.6) 0%, rgb(37 34 32 / 0) 11%),
+    linear-gradient(to bottom, rgb(37 34 32 / 0.8) 0%, rgb(37 34 32 / 0) 12%),
     linear-gradient(
       to top,
       var(--ground) 0%,
-      var(--ground) 12%,
-      rgb(37 34 32 / 0.9) 24%,
-      rgb(37 34 32 / 0.45) 33%,
-      rgb(37 34 32 / 0) 42%
+      var(--ground) 22%,
+      rgb(37 34 32 / 0.78) 34%,
+      rgb(37 34 32 / 0.4) 42%,
+      rgb(37 34 32 / 0) 50%
     );
 }
 
@@ -385,7 +420,7 @@ html:has(.site) {
   position: absolute;
   z-index: 3;
   inset: auto 0 0 0;
-  padding-bottom: clamp(2.5rem, 7svh, 5rem);
+  padding-bottom: clamp(2.25rem, 6svh, 4.5rem);
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -393,11 +428,13 @@ html:has(.site) {
 }
 
 .reel__message {
-  max-width: 19em;
+  max-width: 15.2em;
 }
 
 .reel__toggle {
-  flex: none;
+  position: absolute;
+  right: var(--mx);
+  bottom: clamp(0.5rem, 1.6svh, 1.25rem);
   display: inline-flex;
   align-items: center;
   gap: 0.625rem;
@@ -427,9 +464,19 @@ html:has(.site) {
 
 @media (max-width: 767px) {
   .reel__over {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    padding-bottom: 3.75rem;
+  }
+  .reel__shade {
+    background:
+      linear-gradient(to bottom, var(--ground) 0%, rgb(37 34 32 / 0.85) 8%, rgb(37 34 32 / 0) 15%),
+      linear-gradient(
+        to top,
+        var(--ground) 0%,
+        var(--ground) 40%,
+        rgb(37 34 32 / 0.78) 50%,
+        rgb(37 34 32 / 0.4) 56%,
+        rgb(37 34 32 / 0) 62%
+      );
   }
 }
 
@@ -493,8 +540,14 @@ html:has(.site) {
   position: absolute;
   left: calc(var(--x) * 1%);
   top: calc(var(--y) * 1%);
-  width: calc(var(--w) * 1%);
+  width: max(calc(var(--w) * 1%), 32ch);
   z-index: 5;
+}
+
+.note__more {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.9375rem;
 }
 
 .note__title {
@@ -534,8 +587,9 @@ html:has(.site) {
 
 /* ---------- Home ---------- */
 
+/* A long pause after the message. */
 .intro {
-  padding-top: clamp(5rem, 9vw, 9rem);
+  padding-top: clamp(9rem, 18vw, 17rem);
 }
 
 .intro__body {
@@ -558,7 +612,7 @@ html:has(.site) {
 }
 
 .work {
-  padding-top: var(--section);
+  padding-top: clamp(8rem, 14vw, 13rem);
 }
 
 .project {
@@ -566,39 +620,109 @@ html:has(.site) {
 }
 
 .project + .project {
-  margin-top: var(--section);
+  margin-top: clamp(4.5rem, 9vw, 8.5rem);
 }
 
-.work__more {
-  margin-top: clamp(5rem, 9vw, 9rem);
-  display: flex;
-  justify-content: flex-end;
+/* Maison tucks up under Turno's mint panel, where it bleeds off the right. */
+.project.project--tuck {
+  margin-top: calc(min(100vw, 1720px) * -0.2);
+}
+
+@media (max-width: 767px) {
+  .project.project--tuck {
+    margin-top: clamp(4.5rem, 9vw, 8.5rem);
+  }
 }
 
 .routes {
-  padding-top: var(--section);
+  padding-top: clamp(9rem, 15vw, 14rem);
 }
 
 .routes__head {
-  grid-column: 1 / span 4;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  margin-bottom: clamp(3rem, 6vw, 5.5rem);
 }
 
-.routes__list {
-  grid-column: 6 / span 7;
+.routes__head h2 {
+  grid-column: 1 / span 5;
+}
+
+.routes__head p {
+  grid-column: 7 / span 4;
+  align-self: end;
 }
 
 .route {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 6fr) minmax(0, 4fr);
   column-gap: var(--gutter);
-  padding-block: 1.75rem 1.875rem;
+  align-items: center;
+  padding-block: clamp(1.5rem, 2.6vw, 2.5rem);
   border-top: 1px solid var(--rule);
 }
 
+.routes__list > li:nth-child(3) .route {
+  border-bottom: 1px solid var(--rule);
+}
+
+.route__frag {
+  width: 100%;
+  max-width: 9.5rem;
+  transition: transform 500ms var(--ease-out);
+}
+
+.route:hover .route__frag {
+  transform: translateY(-0.25rem);
+}
+
 .route__name {
+  font-family: var(--font-zilla), Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(2rem, 4vw, 3.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
   text-wrap: balance;
-  font-size: clamp(1.125rem, 1.45vw, 1.375rem);
-  line-height: 1.35;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 300ms var(--ease-out);
+}
+
+.route:hover .route__name {
+  text-decoration-color: var(--rule-strong);
+}
+
+.route__desc {
+  color: var(--fg-2);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  max-width: 30em;
+}
+
+/* Design systems: a different tier, for a different reader. */
+.route-apart {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  margin-top: clamp(3.5rem, 6vw, 5.5rem);
+}
+
+.route-apart a {
+  grid-column: 3 / span 8;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 6fr);
+  column-gap: var(--gutter);
+  align-items: start;
+  padding: 1.75rem 0 0;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.route-apart__name {
+  font-size: 1.125rem;
+  line-height: 1.4;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.35em;
@@ -606,45 +730,65 @@ html:has(.site) {
   transition: text-decoration-color 300ms var(--ease-out);
 }
 
-.route:hover .route__name {
-  text-wrap: balance;
+.route-apart a:hover .route-apart__name {
   text-decoration-color: currentColor;
 }
 
-.route__desc {
+.route-apart__desc {
   color: var(--fg-2);
   font-size: 0.9375rem;
   line-height: 1.6;
-  padding-top: 0.2rem;
-}
-
-.route--apart {
-  margin-top: clamp(3rem, 5vw, 4.5rem);
-}
-
-.route--apart {
-  border-bottom: 1px solid var(--rule);
+  max-width: 34em;
 }
 
 /* ---------- Close ---------- */
 
+/* A long pause before the close. */
 .close {
-  padding-top: var(--section);
+  padding-top: clamp(11rem, 22vw, 20rem);
   padding-bottom: clamp(6rem, 10vw, 10rem);
 }
 
 .close__head {
-  grid-column: 1 / span 9;
+  max-width: 14em;
+}
+
+.close__row {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  margin-top: clamp(3rem, 5vw, 4.5rem);
+  align-items: start;
 }
 
 .close__body {
   grid-column: 1 / span 4;
-  margin-top: clamp(3rem, 5vw, 5rem);
 }
 
 .close__form {
-  grid-column: 7 / span 6;
-  margin-top: clamp(3rem, 5vw, 5rem);
+  grid-column: 6 / span 7;
+}
+
+.form-line {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 4fr);
+  column-gap: var(--gutter);
+  row-gap: 2rem;
+  align-items: end;
+}
+
+.form-line .field-row--wide {
+  grid-column: 1 / -1;
+}
+
+.form-line .field-row + .field-row {
+  margin-top: 0;
+}
+
+.field--grow {
+  field-sizing: content;
+  min-height: 2.75rem;
+  max-height: 12rem;
 }
 
 .field-row + .field-row {
@@ -748,7 +892,6 @@ html:has(.site) {
   bottom: 2%;
   z-index: 6;
   max-width: calc(11em + 2 * var(--mx));
-  text-shadow: 0 0.1em 1.2em rgb(37 34 32 / 0.5);
 }
 
 @media (max-width: 767px) {
@@ -849,7 +992,7 @@ html:has(.site) {
   grid-column: 6 / span 7;
 }
 
-.ways {
+.ways-wrap {
   margin-top: clamp(6rem, 10vw, 10rem);
 }
 
@@ -878,31 +1021,84 @@ html:has(.site) {
   color: var(--fg-2);
 }
 
-.planned {
-  display: flex;
-  align-items: flex-end;
-  aspect-ratio: var(--ar);
-  padding: 1.25rem 1.5rem;
-  border: 1px solid var(--rule-strong);
-  background: rgb(35 32 29 / 0.035);
-  font-size: 0.8125rem;
-  line-height: 1.5;
+
+
+/* What I can take on: a plain list, set large, no rules. */
+.take-on li {
+  font-family: var(--font-zilla), Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(1.5rem, 2.3vw, 2.125rem);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.take-on li + li {
+  margin-top: 0.5em;
+}
+
+/* How it works: the four steps run on as one paragraph. */
+.run {
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  line-height: 1.6;
+  text-wrap: pretty;
+  max-width: 40em;
+}
+
+.run li {
+  display: inline;
+}
+
+.run li + li::before {
+  content: " ";
+}
+
+.run__n {
+  font-size: 0.75em;
+  color: var(--fg-2);
+  font-variant-numeric: tabular-nums;
+  margin-right: 0.35em;
+  vertical-align: 0.1em;
+}
+
+.run__text {
   color: var(--fg-2);
 }
 
-.list-lines li {
-  padding-block: 1.125rem;
-  border-top: 1px solid var(--rule);
+.ways {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
 }
 
-.list-lines li:last-child {
-  border-bottom: 1px solid var(--rule);
+.ways__head {
+  grid-column: 1 / span 5;
+  grid-row: 1;
 }
 
-.take-on {
-  font-size: clamp(1.125rem, 1.6vw, 1.5rem);
-  line-height: 1.35;
-  text-wrap: balance;
+.ways__item {
+  grid-row: 1;
+}
+
+.ways__item:first-of-type {
+  grid-column: 6 / span 3;
+}
+
+.ways__item:last-of-type {
+  grid-column: 10 / span 3;
+}
+
+.ways__item h3 {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.ways__item p {
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--fg-2);
+  text-wrap: pretty;
 }
 
 .pairs > li {
@@ -928,31 +1124,6 @@ html:has(.site) {
   line-height: 1.6;
   color: var(--fg-2);
   text-wrap: pretty;
-}
-
-.steps {
-  counter-reset: step;
-}
-
-.steps > li {
-  counter-increment: step;
-  display: grid;
-  grid-template-columns: 2.5rem minmax(0, 4fr) minmax(0, 7fr);
-  column-gap: var(--gutter);
-  padding-block: 1.5rem 1.625rem;
-  border-top: 1px solid var(--rule);
-}
-
-.steps > li::before {
-  content: counter(step);
-  font-size: 0.875rem;
-  line-height: 1.7;
-  color: var(--fg-2);
-  font-variant-numeric: tabular-nums;
-}
-
-.steps > li:last-child {
-  border-bottom: 1px solid var(--rule);
 }
 
 /* ---------- Video ---------- */
@@ -1003,18 +1174,23 @@ html:has(.site) {
   .intro__body {
     grid-column: 5 / span 8;
   }
-  .routes__head {
-    grid-column: 1 / span 12;
-    margin-bottom: 3rem;
+  .routes__head h2 {
+    grid-column: 1 / span 7;
   }
-  .routes__list {
-    grid-column: 1 / span 12;
+  .routes__head p {
+    grid-column: 8 / span 5;
   }
-  .close__head {
+  .route {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 6fr) minmax(0, 4fr);
+  }
+  .route-apart a {
     grid-column: 1 / span 12;
   }
   .close__body {
     grid-column: 1 / span 5;
+  }
+  .close__form {
+    grid-column: 6 / span 7;
   }
   .svc-hero__body {
     grid-column: 5 / span 8;
@@ -1039,17 +1215,26 @@ html:has(.site) {
   .col-wide {
     grid-column: 1 / span 12;
   }
+  .ways__head {
+    grid-column: 1 / span 12;
+    margin-bottom: 2.5rem;
+  }
+  .ways__item {
+    grid-row: 2;
+  }
+  .ways__item:first-of-type {
+    grid-column: 1 / span 6;
+  }
+  .ways__item:last-of-type {
+    grid-column: 7 / span 6;
+  }
 }
 
 @media (max-width: 767px) {
   .report__media,
-  .report--flip .report__media,
-  .report--small .report__media {
+  .report--flip .report__media {
     grid-column: 1 / span 12;
     margin-inline: calc(-1 * var(--mx));
-  }
-  .report--small .report__media {
-    margin-inline: 0;
   }
   .report__text,
   .report--flip .report__text,
@@ -1057,6 +1242,10 @@ html:has(.site) {
     grid-column: 1 / span 12;
     grid-row: 2;
     margin-top: 2rem;
+  }
+  .report--small .report__text {
+    grid-row: 1;
+    margin-top: 0;
   }
   .offer__take,
   .offer__why,
@@ -1071,23 +1260,42 @@ html:has(.site) {
   .close__body,
   .close__form,
   .svc-hero__body,
-  .section-head {
+  .section-head,
+  .routes__head h2,
+  .routes__head p {
     grid-column: 1 / span 12;
   }
-  .route,
+  .routes__head p {
+    margin-top: 1.25rem;
+  }
+  .close__form {
+    margin-top: 2.5rem;
+  }
+  .form-line {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .route {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    row-gap: 0.75rem;
+  }
+  .route__desc {
+    grid-column: 2;
+  }
+  .route-apart a {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.5rem;
+  }
   .pairs > li {
     grid-template-columns: minmax(0, 1fr);
     row-gap: 0.375rem;
   }
-  .steps > li {
-    grid-template-columns: 1.75rem minmax(0, 1fr);
-    row-gap: 0.375rem;
+  .ways__item:first-of-type,
+  .ways__item:last-of-type {
+    grid-column: 1 / span 12;
+    grid-row: auto;
   }
-  .steps > li > :last-child {
-    grid-column: 2;
-  }
-  .work__more {
-    justify-content: flex-start;
+  .ways__item + .ways__item {
+    margin-top: 2rem;
   }
   .footer__row {
     flex-direction: column;

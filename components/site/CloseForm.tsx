@@ -11,6 +11,7 @@ export default function CloseForm({
   messageLabel: string;
   placeholder?: string;
 }) {
+  // Minimal: name and email on one line, the note below, growing as it's typed.
   const [state, formAction, pending] = useActionState(submitToFormspree, initialState);
   const id = useId();
 
@@ -25,30 +26,32 @@ export default function CloseForm({
 
   return (
     <form action={formAction}>
-      <div className="field-row">
-        <label htmlFor={`${id}-name`} className="field-label">
-          Name
-        </label>
-        <input id={`${id}-name`} name="name" type="text" autoComplete="name" required className="field" />
-      </div>
-      <div className="field-row">
-        <label htmlFor={`${id}-email`} className="field-label">
-          Email
-        </label>
-        <input id={`${id}-email`} name="email" type="email" autoComplete="email" required className="field" />
-      </div>
-      <div className="field-row">
-        <label htmlFor={`${id}-message`} className="field-label">
-          {messageLabel}
-        </label>
-        <textarea
-          id={`${id}-message`}
-          name="message"
-          rows={3}
-          required
-          placeholder={placeholder}
-          className="field"
-        />
+      <div className="form-line">
+        <div className="field-row">
+          <label htmlFor={`${id}-name`} className="field-label">
+            Name
+          </label>
+          <input id={`${id}-name`} name="name" type="text" autoComplete="name" required className="field" />
+        </div>
+        <div className="field-row">
+          <label htmlFor={`${id}-email`} className="field-label">
+            Email
+          </label>
+          <input id={`${id}-email`} name="email" type="email" autoComplete="email" required className="field" />
+        </div>
+        <div className="field-row field-row--wide">
+          <label htmlFor={`${id}-message`} className="field-label">
+            {messageLabel}
+          </label>
+          <textarea
+            id={`${id}-message`}
+            name="message"
+            rows={1}
+            required
+            placeholder={placeholder}
+            className="field field--grow"
+          />
+        </div>
       </div>
 
       {state.status === "error" && (

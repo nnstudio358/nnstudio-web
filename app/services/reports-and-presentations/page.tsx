@@ -4,13 +4,12 @@ import SiteNav from "@/components/site/SiteNav";
 import SiteFooter from "@/components/site/SiteFooter";
 import CloseForm from "@/components/site/CloseForm";
 import LoopVideo from "@/components/site/LoopVideo";
-import type { CSSProperties } from "react";
 import { Canvas, Fit, Layer } from "@/components/site/pieces";
 
 export const metadata: Metadata = {
   title: "Reports and presentations",
   description:
-    "Research reports, eBooks and pitch decks. I'll take the design from first layout to final files, in print or on screen.",
+    "Research reports, eBooks and pitch decks. I’ll take the design from first layout to final files, in print or on screen.",
 };
 
 const TAKE_ON = [
@@ -36,7 +35,7 @@ const WHY = [
   },
   {
     name: "Part of your team",
-    text: "You'll know where things stand, and I'll suggest more when it helps, like turning Turno's printed guide into an eBook and a web hub too.",
+    text: "You’ll know where things stand, and I’ll suggest more when it helps, like turning Turno’s printed guide into an eBook and a web hub too.",
   },
 ];
 
@@ -64,8 +63,8 @@ export default function ReportsAndPresentations() {
       <SiteNav current="services" />
 
       <main>
-        {/* Dark bookend: a stack of reports, with the headline set in front of
-            the book's lower edge. */}
+        {/* Dark bookend: a stack of reports, the headline set below its edge.
+            None of these pieces is in the home page reel. */}
         <section className="svc-hero" aria-labelledby="svc-title">
           <div className="svc-stage">
             <Canvas ar={1.8} sar={0.9}>
@@ -75,17 +74,17 @@ export default function ReportsAndPresentations() {
                   alt="A spread from the Pendulum Brand Risk Report: The So What? of Brand Data."
                   width={1800}
                   height={1165}
-                  sizes="(max-width: 767px) 320px, 44vw"
+                  sizes="(max-width: 767px) 320px, 46vw"
                   lift
                   eager
                 />
               </Layer>
               <Layer at={{ x: 16, y: 5, w: 17 }} small={{ x: -4, y: 4, w: 36 }} z={2}>
                 <Fit
-                  src="/work/pendulum/report-cover.jpg"
-                  alt="The Pendulum report cover: Why is Your Current Risk Monitoring Failing Your Boardroom?"
-                  width={1000}
-                  height={1294}
+                  src="/work/pendulum/guide-worksheet-cover.jpg"
+                  alt="A Pendulum guide cover: Brand Risk Readiness Audit and Detection Checklist."
+                  width={900}
+                  height={1165}
                   sizes="(max-width: 767px) 140px, 17vw"
                   lift
                   eager
@@ -94,7 +93,7 @@ export default function ReportsAndPresentations() {
               <Layer at={{ x: 50, y: 12, w: 57 }} small={{ x: 30, y: 0, w: 84 }} z={3}>
                 <Fit
                   src="/work-turno-book.png"
-                  alt="Turno's 130-page hardcover guide for new Airbnb hosts."
+                  alt="Turno’s 130-page hardcover guide for new Airbnb hosts."
                   width={1920}
                   height={1440}
                   sizes="(max-width: 767px) 330px, 57vw"
@@ -140,7 +139,7 @@ export default function ReportsAndPresentations() {
                   <Layer at={{ x: -16, y: 0, w: 96 }} small={{ x: -14, y: 0, w: 100 }} z={1}>
                     <Fit
                       src="/work-turno-tablet.png"
-                      alt="Turno's host guide web hub on a tablet."
+                      alt="Turno’s host guide web hub on a tablet."
                       width={1920}
                       height={1440}
                       sizes="(max-width: 767px) 390px, 60vw"
@@ -183,15 +182,31 @@ export default function ReportsAndPresentations() {
               </div>
             </article>
 
+            {/* SSC Intralinks: one question of the assessment as a still, with
+                the recording playing behind it, running off the right. */}
             <article className="report report--flip" aria-labelledby="r-ssc">
               <div className="report__media">
-                <LoopVideo
-                  src="/work-intralinks.mp4"
-                  poster="/work/intralinks-poster.jpg"
-                  label="Screen recording of the SSC Intralinks investor-portal assessment."
-                  ar={1728 / 850}
-                  className="lift"
-                />
+                <Canvas ar={1.75} sar={1.5}>
+                  <Layer at={{ x: 0, y: 0, w: 74 }} small={{ x: 0, y: 0, w: 84 }} z={1}>
+                    <LoopVideo
+                      src="/work-intralinks.mp4"
+                      poster="/work/intralinks-poster.jpg"
+                      label="Screen recording of the SSC Intralinks investor-portal assessment."
+                      ar={1728 / 850}
+                      className="lift"
+                    />
+                  </Layer>
+                  <Layer at={{ x: 46, y: 50, w: 54 }} small={{ x: 30, y: 50, w: 70 }} z={2}>
+                    <Fit
+                      src="/work/intralinks-question.jpg"
+                      alt="A question from the assessment: Our portal’s customer service team is helping me with everything I need. True or False."
+                      width={1728}
+                      height={850}
+                      sizes="(max-width: 767px) 280px, 36vw"
+                      lift
+                    />
+                  </Layer>
+                </Canvas>
               </div>
               <div className="report__text">
                 <h3 id="r-ssc" className="t-lead">
@@ -204,12 +219,8 @@ export default function ReportsAndPresentations() {
               </div>
             </article>
 
+            {/* BetterCloud: text only until the shot exists. */}
             <article className="report report--small" aria-labelledby="r-bc">
-              <div className="report__media">
-                <div className="planned" style={{ "--ar": 1.6 } as CSSProperties}>
-                  Planned shot: BetterCloud report and landing page
-                </div>
-              </div>
               <div className="report__text">
                 <h3 id="r-bc" className="t-lead">
                   BetterCloud
@@ -226,7 +237,7 @@ export default function ReportsAndPresentations() {
             <div className="grid offer">
               <div className="offer__take">
                 <h2 className="t-headline">What I can take on</h2>
-                <ul className="list-lines take-on mt-10">
+                <ul className="take-on mt-10">
                   {TAKE_ON.map((t) => (
                     <li key={t}>{t}</li>
                   ))}
@@ -251,39 +262,39 @@ export default function ReportsAndPresentations() {
               <h2 id="how-title" className="t-headline section-head">
                 How it works
               </h2>
-              <ol className="steps col-wide">
-                {STEPS.map((s) => (
+              <ol className="run col-wide">
+                {STEPS.map((s, i) => (
                   <li key={s.name}>
-                    <h3 className="pairs__name">{s.name}</h3>
-                    <p className="pairs__text">{s.text}</p>
+                    <span className="run__n">{i + 1}</span>
+                    {s.name}. <span className="run__text">{s.text}</span>
                   </li>
                 ))}
               </ol>
             </div>
-            <div className="grid ways">
-              <h2 className="t-headline section-head">Directly or through an agency</h2>
-              <ul className="pairs col-wide">
-                {WAYS.map((w) => (
-                  <li key={w.name}>
-                    <h3 className="pairs__name">{w.name}</h3>
-                    <p className="pairs__text">{w.text}</p>
-                  </li>
-                ))}
-              </ul>
+            <div className="ways ways-wrap">
+              <h2 className="t-headline ways__head">Directly or through an agency</h2>
+              {WAYS.map((w) => (
+                <div className="ways__item" key={w.name}>
+                  <h3>{w.name}</h3>
+                  <p>{w.text}</p>
+                </div>
+              ))}
             </div>
           </section>
         </div>
 
-        <section className="close frame grid" aria-labelledby="close-title">
+        <section className="close frame" aria-labelledby="close-title">
           <h2 id="close-title" className="t-display close__head">
             Have a report or deck coming up?
           </h2>
-          <p className="t-lead quiet close__body">
-            Send the draft and the date, even if it&rsquo;s rough, and I&rsquo;ll come back with how I&rsquo;d
-            approach it.
-          </p>
-          <div className="close__form">
-            <CloseForm messageLabel="What's the project and when is it due?" />
+          <div className="close__row">
+            <p className="t-body quiet close__body measure">
+              Send the draft and the date, even if it&rsquo;s rough, and I&rsquo;ll come back with how I&rsquo;d
+              approach it.
+            </p>
+            <div className="close__form">
+              <CloseForm messageLabel="What’s the project and when is it due?" />
+            </div>
           </div>
         </section>
       </main>
